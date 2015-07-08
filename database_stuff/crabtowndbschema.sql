@@ -97,16 +97,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `must_validate` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `login_attempts`
---
-
-CREATE TABLE IF NOT EXISTS `login_attempts` (
-  `id` bigint(20) unsigned NOT NULL,
-  `time` VARCHAR(30) NOT NULL,
-) ENGINE=InnoDB
 --
 -- Indexes for dumped tables
 --
