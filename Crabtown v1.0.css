@@ -26,7 +26,15 @@
     font-family: "Open Sans", sans-serif;
     border-radius: 11px;
     text-align: center;
-    width: 100%;
+    width: 100% !important;
+}
+
+.carousel-inner > .item > img {
+    height: 400px;
+    margin: 0 auto;
+}
+#make_it_black {
+    font: black !important;
 }
 
 #content h1{
@@ -36,4 +44,10 @@
 
 #footer{
     font-size: 10px;
+}
+
+video.crab_theatre {
+  border-radius: 11px;
+  padding-left:12px;
+  padding-right:10px;
 }
