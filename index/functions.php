@@ -1,9 +1,10 @@
 <?php
 include_once 'psl-config.php';
  
+ //Starts secure connection to database
 function sec_session_start() {
     $session_name = 'sec_session_id';   // Set a custom session name
-    $secure = SECURE;
+    $secure = SECURE; //defined in psl-config.php
     // This stops JavaScript being able to access the session id.
     $httponly = true;
     // Forces sessions to only use cookies.
@@ -21,7 +22,7 @@ function sec_session_start() {
     // Sets the session name to the one set above.
     session_name($session_name);
     session_start();            // Start the PHP session 
-    session_regenerate_id(true);    // regenerated the session, delete the old one. 
+    session_regenerate_id(true);    // regenerated the session, delete the old one to prevent session hijacking
 }
 
 function login($email, $password, $mysqli) {
