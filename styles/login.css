@@ -1,0 +1,20 @@
+#loginbox {
+	position:absolute;
+	top:50px;
+	left:410px;
+	background-color: blue;
+	border-radius: 10px;
+	padding: 10px;
+	display: inline-block;
+	width: 240px;
+	}
+	
+#registrationbox {
+	position:absolute;
+	top:50px;
+	left: 680px;
+	background-color: red;	
+	border-radius: 10px;	
+	padding: 10px;
+	width: 240px;
+}
