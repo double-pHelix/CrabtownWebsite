@@ -1,1 +1,1 @@
-Place outside document root
+Place outside document root so that files are inaccessible through URLs
