@@ -1,0 +1,50 @@
+<?php
+include_once 'includes/db_connect.php';
+include_once 'includes/functions.php';
+ 
+sec_session_start();
+ 
+if (login_check($mysqli) == true) {
+    $logged = 'in';
+} else {
+    $logged = 'out';
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="styles/login.css"/>
+<script type="text/JavaScript" src="js/sha512.js"></script> 
+<script type="text/JavaScript" src="js/forms.js"></script>
+<body>
+
+  <?php
+    include_once 'includes/db_connect.php';
+    include_once 'includes/functions.php';
+   
+    sec_session_start();
+   
+    if (login_check($mysqli) == true) {
+      $logged = 'in';
+    } else {
+      $logged = 'out';
+    }
+  ?>
+
+	<div id='loginbox'>
+		<form name="crabtownloginform" action="includes/process_login.php" method="POST">
+			Username: <input type="text" name="username" maxlength="16"/></br>
+			Password: <input type="password" name="password" maxlength="16"/></br>
+			<input type="checkbox"/>Remember me</br>
+			<input type="submit" value="Login"/>
+		</form>	
+	</div>
+	<div id="registrationbox">
+		<form name="register" action="register.php" method="POST">			
+			Username: <input type="text" name="username" maxlength="16"/></br>
+			Password: <input type="password" name="password" maxlength="16"/></br>
+			Email: <input type="text" name="email" maxlength="16"/></br>
+			<input type="submit" value="Sign Up"/>
+		</form>
+	</div>
+</body></html>
