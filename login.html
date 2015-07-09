@@ -30,7 +30,6 @@ if (login_check($mysqli) == true) {
       $logged = 'out';
     }
   ?>
-
 	<div id='loginbox'>
 		<form name="crabtownloginform" action="includes/process_login.php" method="POST">
 			Username: <input type="text" name="username" maxlength="16"/></br>
@@ -38,6 +37,17 @@ if (login_check($mysqli) == true) {
 			<input type="checkbox"/>Remember me</br>
 			<input type="submit" value="Login"/>
 		</form>	
+	<?php
+	        if (login_check($mysqli) == true) {
+	                        echo '<p>Currently logged ' . $logged . ' as ' . htmlentities($_SESSION['username']) . '.</p>';
+	 
+	            echo '<p>Do you want to change user? <a href="includes/logout.php">Log out</a>.</p>';
+	        } else {
+	                        echo '<p>Currently logged ' . $logged . '.</p>';
+	                        echo "<p>If you don't have a login, please <a href='register.php'>register</a></p>";
+	                }
+	?>  
+	
 	</div>
 	<div id="registrationbox">
 		<form name="register" action="register.php" method="POST">			
