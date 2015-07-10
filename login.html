@@ -44,21 +44,10 @@ if (login_check($mysqli) == true) {
 	<?php
 	        if (login_check($mysqli) == true) {
 	                        echo '<p>Currently logged ' . $logged . ' as ' . htmlentities($_SESSION['username']) . '.</p>';
-	 
 	            echo '<p>Would you like to log out?<a href="includes/logout.php">Log out</a>.</p>';
 	        } else {
 	                        echo '<p>Currently logged ' . $logged . '.</p>';
 	                        echo "<p>If you don't have an account, please <a href='register.php'>register</a></p>";
 	                }
 	?>  
-	
-	</div>
-	<div id="registrationbox">
-		<form name="register" action="register.php" method="POST">			
-			Username: <input type="text" name="username" maxlength="16"/></br>
-			Password: <input type="password" name="password" maxlength="16"/></br>
-			Email: <input type="text" name="email" maxlength="16"/></br>
-			<input type="submit" value="Sign Up"/>
-		</form>
-	</div>
 </body></html>
