@@ -14,6 +14,7 @@ if (! $error) {
     </head>
     <body>
         <p>An error occured, please go  <a href="index.php">back</a> and try again.</p>
+        <img src="images/secure_login_error.jpg" alt="Never give your password out to anyone." align="middle">
         <p class="error"><?php echo $error; ?></p>  
     </body>
 </html>
