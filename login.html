@@ -37,7 +37,7 @@ if (login_check($mysqli) == true) {
 			Username: <input type="text" name="username" maxlength="16"/></br>
 			Password: <input type="password" name="password" id="password" maxlength="16"/></br>
 			//not functional yet
-			<input type="checkbox"/>Remember me</br>
+			<input type="checkbox" name="remember" value="1"/>Remember me</br>
 			<input type="button" value="Login" 
                    	onclick="formhash(this.form, this.form.password);" /> 
 		</form>	
