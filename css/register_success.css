@@ -1,11 +1,13 @@
 img {
+ /*define actual positions later*/
   position:absolute;
+  left: 500px;
 }
 
 #citizen_name {
   width:520px;
   height:60px;
   position:absolute;
-  left: leftmost edge+ 366px;
+  left: 866px;
   text-align:center;
 }
