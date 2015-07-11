@@ -287,4 +287,3 @@ if (in_array($email_domain, $blacklist)) {
 	return 0;
 	}
 }
-?>
