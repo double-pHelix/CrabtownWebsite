@@ -57,6 +57,6 @@ include_once 'includes/emailcheck.php';
                                    this.form.password,
                                    this.form.confirmpwd);" /> 
         </form>
-        <p>Return to the <a href="index.php">login page</a>.</p>
+        <p>Return to the <a href="index.php">main page</a>.</p>
     </body>
 </html>
