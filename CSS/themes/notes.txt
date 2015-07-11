@@ -1,1 +1,10 @@
 Planning for pdf reader skins
+Add empty <div class="image"> in html
+
+Change image in CSS depending on theme:
+div.image {
+   content:url(http://placehold.it/350x150);
+}​
+
+<link rel="stylesheet" type="text/css" href="http://example.com/css/blue.css" title="blue">
+<link rel="alternate stylesheet" type="text/css" href="http://example.com/css/pink.css" title="pink">
