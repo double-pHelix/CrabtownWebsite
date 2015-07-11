@@ -11,6 +11,18 @@ if (isset($_POST['email'], $_POST['p'])) {
     if (login($email, $password, $mysqli) == true) {
         // Login success 
         header('Location: ../protected_page.php');
+        //create remember me cookie
+        $week = time() + 604800;
+        if($_POST['remember']) {
+          setcookie('remember_me', $_POST['username'], $week);
+          }
+          elseif(!$_POST['remember']) {
+          	if(isset($_COOKIE['remember_me'])) {
+          		$past = time() - 100;
+          		setcookie(remember_me, gone, $past);
+          	}
+          }
+        
     } else {
         // Login failed 
         header('Location: ../index.php?error=1');
