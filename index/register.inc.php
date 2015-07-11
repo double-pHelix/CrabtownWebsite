@@ -1,6 +1,7 @@
 <?php
 include_once 'db_connect.php';
 include_once 'psl-config.php';
+include_once 'emailcheck.php';
  
 $error_msg = "";
  
@@ -12,6 +13,10 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         // Not a valid email
         $error_msg .= '<p class="error">The email address you entered is not valid</p>';
+    }
+    if (disposablecheck($email)==1){
+        //User has registered with disposable email
+        $error_msg .='<p class="error">Please refrain from using disposable emails.</p>';
     }
  
     $password = filter_input(INPUT_POST, 'p', FILTER_SANITIZE_STRING);
