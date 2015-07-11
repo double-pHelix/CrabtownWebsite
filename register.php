@@ -2,6 +2,7 @@
 //place in document root
 include_once 'includes/register.inc.php';
 include_once 'includes/functions.php';
+include_once 'includes/emailcheck.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,14 +16,14 @@ include_once 'includes/functions.php';
     <body>
         <!-- Registration form to be output if the POST variables are not
         set or if the registration script caused an error. -->
-        <h1>Register with us</h1>
+        <h1>Become a citizen</h1>
         <?php
         if (!empty($error_msg)) {
             echo $error_msg;
         }
         ?>
         <ul>
-            <li>Usernames may contain only digits, upper and lower case letters and underscores</li>
+            <li>Usernames may contain only digits, upper and lower case letters and underscores.  Please do not use your real name!</li>
             <li>Emails must have a valid email format</li>
             <li>Passwords must be at least 6 characters long</li>
             <li>Passwords must contain
