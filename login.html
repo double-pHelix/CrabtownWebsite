@@ -1,5 +1,3 @@
-//dont use yet
-
 <?php
 include_once 'includes/db_connect.php';
 include_once 'includes/functions.php';
@@ -37,7 +35,6 @@ if (login_check($mysqli) == true) {
 			Username: <input type="text" name="username" maxlength="16" value="<?php
 echo $_COOKIE['remember_me']; ?>">
 			Password: <input type="password" name="password" id="password" maxlength="16"/></br>
-			//not functional yet
 			<input type="checkbox" name="remember" value="1"/>Remember me</br>
 			<input type="button" value="Login" 
                    	onclick="formhash(this.form, this.form.password);" /> 
