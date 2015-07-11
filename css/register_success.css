@@ -6,5 +6,6 @@ img {
   width:520px;
   height:60px;
   position:absolute;
+  left: leftmost edge+ 366px;
   text-align:center;
 }
