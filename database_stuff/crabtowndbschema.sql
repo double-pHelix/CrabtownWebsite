@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2015 at 09:23 AM
+-- Generation Time: Jul 12, 2015 at 11:37 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -52,6 +52,17 @@ CREATE TABLE IF NOT EXISTS `banned_emails` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `crablars`
+--
+
+CREATE TABLE IF NOT EXISTS `crablars` (
+  `year` int(4) NOT NULL,
+  `month` varchar(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `forced_group_ips`
 --
 
@@ -79,15 +90,27 @@ CREATE TABLE IF NOT EXISTS `groups` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `login_attempts`
+--
+
+CREATE TABLE IF NOT EXISTS `login_attempts` (
+  `user_id` int(11) NOT NULL,
+  `time` int(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` bigint(20) unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL,
   `username` varchar(32) NOT NULL,
-  `email` varchar(80) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `group_id` bigint(20) unsigned NOT NULL,
-  `salt` varchar(5) NOT NULL,
+  `passhash` char(128) NOT NULL,
+  `salt` char(128) NOT NULL,
   `perm_override_remove` bigint(20) unsigned NOT NULL,
   `perm_override_add` bigint(20) unsigned NOT NULL,
   `reg_date` datetime NOT NULL,
@@ -154,7 +177,7 @@ ALTER TABLE `forced_group_ips`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
