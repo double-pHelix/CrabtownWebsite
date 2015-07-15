@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Secure Login: Registration Success</title>
-        <link rel="stylesheet" href="css/register_success.css" />
+        <link rel="stylesheet" href="/css/register_success.css" />
     </head>
     <body>
         <h1>Welcome, citizen!</h1>
