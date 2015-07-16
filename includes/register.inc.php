@@ -2,7 +2,9 @@
 include_once 'db_connect.php';
 include_once 'psl-config.php';
 include_once 'emailcheck.php';
- 
+
+session_start();
+
 $error_msg = "";
  
 if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
@@ -43,9 +45,9 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
         if ($stmt->num_rows == 1) {
             // A user with this email address already exists
             $error_msg .= '<p class="error">A user with this email address already exists.</p>';
-            // $stmt->close(); Repeat
+            // $stmt->close();
         }
-        $stmt->close();
+                $stmt->close();
     } else {
         $error_msg .= '<p class="error">Database error Line 39</p>';
                 $stmt->close();
@@ -63,13 +65,13 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
                 if ($stmt->num_rows == 1) {
                         // A user with this username already exists
                         $error_msg .= '<p class="error">A user with this username already exists</p>';
-                        // $stmt->close(); repeat
+                        // $stmt->close();
                 }
                 $stmt->close();
-        } else {
-                $error_msg .= '<p class="error">Database error line 55</p>';
-                $stmt->close();
-        }
+    } else {
+            $error_msg .= '<p class="error">Database error line 55</p>';
+            $stmt->close();
+    }
  
     // TODO: 
     // We'll also have to account for the situation where the user doesn't have
@@ -92,6 +94,9 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
                 header('Location: ../error.php?err=Registration failure: INSERT');
             }
         }
-        header('Location: ./register_success.php');
+
+        include_once './register_success.php';
+        
+        exit;
     }
 }
