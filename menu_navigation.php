@@ -40,7 +40,7 @@ if (login_check($mysqli) == true) {
                 </ul>
             </li>
             <li id="menu_nav_stuff"><a href="#">Events</a></li>
-            <li id="menu_nav_stuff"><a href="/html/games.html">Games</a></li>
+            <li id="menu_nav_stuff"><a href="/content_pages/games.php">Games</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li id="menu_nav_stuff"><a href="./">User Profile<span class="sr-only">(current)</span></a></li>
@@ -66,4 +66,4 @@ if (login_check($mysqli) == true) {
         </div><!--/.nav-collapse -->
       </div><!--/.container-fluid -->
     </nav>
-  <br>
+  <br><br><br>
