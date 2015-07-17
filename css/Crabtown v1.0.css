@@ -1,49 +1,53 @@
-
 #banner {
-    border-radius: 5px;
-    background-color:#6DA4FF;
-    width: 100%;
+  border-radius: 5px;
+  background-color:#6DA4FF;
+  width: 100%;
 }
 
 #ct_logo {
   font-family:"Londrina Solid";
   color: Black;
-
 }
 
 #menu_nav_stuff {
-    padding: 3px;
-    padding-left:12px;
-    padding-right:10px;
-    border-radius: 10px;
-    background-color:#5452FF;
-    font-family:"Londrina Solid";
-    text-transform: uppercase;
+  padding: 3px;
+  padding-left:12px;
+  padding-right:10px;
+  border-radius: 10px;
+  background-color:#5452FF;
+  font-family:"Londrina Solid";
+  text-transform: uppercase;
+  color: White;
 }
 
 #content {
-    background-color:#5452FF;
-    font-family: "Open Sans", sans-serif;
-    border-radius: 11px;
-    text-align: center;
-    width: 100% !important;
+  background-color:#5452FF;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 11px;
+  text-align: center;
+  width: 100% !important;
 }
 
 .carousel-inner > .item > img {
-    height: 400px;
-    margin: 0 auto;
+  height: 400px;
+  margin: 0 auto;
 }
 #make_it_black {
-    font: black !important;
+  font: black !important;
 }
 
 #content h1{
-    font-family:"Londrina Shadow";
-    color: black;
+  font-family:"Londrina Shadow";
+  color: black;
+}
+
+#loginHeaderTHISONE {
+  font-family:"Londrina Solid";
+  color: #eee;
 }
 
 #footer{
-    font-size: 10px;
+  font-size: 10px;
 }
 
 video.crab_theatre {

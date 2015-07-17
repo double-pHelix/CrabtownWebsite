@@ -3,8 +3,6 @@ include_once 'db_connect.php';
 include_once 'psl-config.php';
 include_once 'emailcheck.php';
 
-session_start();
-
 $error_msg = "";
  
 if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
