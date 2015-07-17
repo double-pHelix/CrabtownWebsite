@@ -21,11 +21,11 @@ if (login_check($mysqli) == true) {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" id="ct_logo" href="/Crabtown v1.0.php">Crabtown</a>
+          <a class="navbar-brand" id="ct_logo" href="/index.php">Crabtown</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li id="menu_nav_stuff"><a href="/Crabtown v1.0.php">Main</a></li>
+            <li id="menu_nav_stuff"><a href="/index.php">Main</a></li>
             <li class="dropdown" id="menu_nav_stuff">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Crablar<span class="caret"></span></a>
                 <ul class="dropdown-menu">
