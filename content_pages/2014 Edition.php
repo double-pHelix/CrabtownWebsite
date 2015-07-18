@@ -6,8 +6,8 @@
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
   <meta name="viewport" content="width = 1050, user-scalable = no" />
-  <script type="text/javascript" src="../../CSS/extras/jquery.min.1.7.js"></script>
-  <script type="text/javascript" src="../../CSS/extras/modernizr.2.5.3.min.js"></script>
+  <script type="text/javascript" src="/CSS/extras/jquery.min.1.7.js"></script>
+  <script type="text/javascript" src="/CSS/extras/modernizr.2.5.3.min.js"></script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href='http://fonts.googleapis.com/css?family=Londrina+Solid' rel='stylesheet' type='text/css'>
@@ -29,9 +29,9 @@
 <div class="flipbook-viewport">
 	<div class="container">
 		<div class="flipbook">
-			<div style="background-image:url(pages/1.png)"></div>
-			<div style="background-image:url(pages/2.png)"></div>
-			<div style="background-image:url(pages/3.png)"></div>
+			<div style="background-image:url(/crablar_pages/2014/pages/1.png)"></div>
+			<div style="background-image:url(/crablar_pages/2014/pages/2.png)"></div>
+			<div style="background-image:url(/crablar_pages/2014/pages/3.png)"></div>
 		</div>
 	</div>
 </div>
@@ -68,9 +68,9 @@
     // Load the HTML4 version if there's not CSS transform
     yepnope({
       test : Modernizr.csstransforms,
-      yep: ['../../CSS/lib/turn.js'],
-      nope: ['../../CSS/lib/turn.html4.min.js'],
-      both: ['css/basic.css'],
+      yep: ['/CSS/lib/turn.js'],
+      nope: ['/CSS/lib/turn.html4.min.js'],
+      both: ['/crablar_pages/2014/css/basic.css'],
       complete: loadApp
     });
   </script>
