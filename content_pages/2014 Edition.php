@@ -1,3 +1,10 @@
+<?php
+  if(!isset($_SESSION)) { 
+    session_start();
+   //sec_session_start();
+  }
+?>
+
 <!doctype html>
 <!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->

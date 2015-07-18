@@ -1,9 +1,12 @@
-<?php
+<?php 
 include_once 'includes/db_connect.php';
 include_once 'includes/functions.php';
  
-sec_session_start();
- 
+if(!isset($_SESSION) && session_status() == PHP_SESSION_NONE) { 
+  session_start(); 
+  // sec_session_start();
+}
+
 if (login_check($mysqli) == true) {
     $logged = 'in';
 } else {
@@ -16,8 +19,8 @@ if (login_check($mysqli) == true) {
   <head>
     <title>Crabtown Login</title>
     
-    <script type="text/JavaScript" src="js/sha512.js"></script> 
-    <script type="text/JavaScript" src="js/forms.js"></script>
+    <script type="text/JavaScript" src="/js/sha512.js"></script> 
+    <script type="text/JavaScript" src="/js/forms.js"></script>
         
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href='http://fonts.googleapis.com/css?family=Londrina+Solid' rel='stylesheet' type='text/css'>
@@ -39,9 +42,7 @@ if (login_check($mysqli) == true) {
 	
 	<?php
     if (login_check($mysqli) == true) {
-      echo '<p>Currently logged ' . $logged . ' as ' . htmlentities($_SESSION['username']) . '.</p>';
-      echo '<p>Would you like to log out?<a href="includes/logout.php">Log out</a>.</p>';
-      
+     
       goto logged_in_message; 
     } 
 	?>  
@@ -59,13 +60,15 @@ if (login_check($mysqli) == true) {
                                     echo "value =\"".$_COOKIE['remember_me']."\"";
                                   }?>>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" maxlength="16" placeholder="Password" required>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <div class="checkbox">
           <label id="remember_me_box">
             <input type="checkbox" name="remember" value="1"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="formhash(this.form, this.form.password);">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" value="submitted" onclick="formhash(this.form, this.form.password);">Sign in</button>
+        <input type="button" value="Login" 
+                   	onclick="formhash(this.form, this.form.password);" /> 
         <p>If you don't have an account, please <a href='/register.php'>register</a></p>
       </form>
 
@@ -76,10 +79,14 @@ if (login_check($mysqli) == true) {
     exit;
     logged_in_message:
   ?>
-  
-
+  <div id="content">
+    <h1>You are logged in!</h1>
+  <?php
+    echo '<p>Currently logged ' . $logged . ' as ' . htmlentities($_SESSION['username']) . '.</p>';
+    echo '<p>Would you like to log out?<a href="includes/logout.php">Log out</a>.</p>';
+  ?>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  
+  </div>
   
 </body></html>

@@ -1,3 +1,10 @@
+<?php
+  if(!isset($_SESSION)) { 
+    session_start();
+   //sec_session_start();
+  }
+?>
+
 <!DOCTYPE html>
 <html>
   <head>

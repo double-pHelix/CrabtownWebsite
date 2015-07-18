@@ -2,9 +2,12 @@
 include_once 'includes/db_connect.php';
 include_once 'includes/functions.php';
  
-sec_session_start();
+if(!isset($_SESSION)) { 
+  session_start();
+ //sec_session_start();
+}
  
-if (login_check($mysqli) == true) {
+if (login_check($mysqli)) {
     $logged = 'in';
 } else {
     $logged = 'out';
@@ -54,10 +57,10 @@ if (login_check($mysqli) == true) {
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">Settings</li>
                 <?php 
-                if($logged = 'in'){
-                  echo "<li><a href=\"/includes/logout.php\">Log Out</a></li>";
+                if($logged == 'in'){
+                  echo "<li><a href=\"/logout_transfer.php\">Log Out</a></li>";
                 } else {
-                  echo "<li><a href=\"/includes/logout.php\">Log Out</a></li>";
+                  echo "<li><a href=\"/login.php\">Login</a></li>";
                 }
                 ?>
               </ul>
