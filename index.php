@@ -51,7 +51,7 @@
             <div class="carousel-caption">
               
               <p>Register an account and become a Crabtown Citizen!</p>
-              <p><a class="btn btn-lg btn-primary" href="/register.php" role="button">Sign Up</a></p>
+              <p><a class="btn btn-lg btn-primary" href="/register" role="button">Sign Up</a></p>
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@
             <div class="carousel-caption">
               <h1>Crabtown Racing</h1>
               <p>Nominated for Best Film at the Crabtown Film Festival!</p>
-              <p><a class="btn btn-lg btn-primary" href="/content_pages/videos_page.php" role="button">Watch Now</a></p>
+              <p><a class="btn btn-lg btn-primary" href="/content_pages/videos_page" role="button">Watch Now</a></p>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@
           <div class="container">
             <div class="carousel-caption">
               <p id="make_it_black">The Official Newspaper of Crabtown</p>
-              <p><a class="btn btn-lg btn-primary" href="/content_pages/howers_shortstory.php" role="button">Go to Archives</a></p>
+              <p><a class="btn btn-lg btn-primary" href="/content_pages/howers_shortstory" role="button">Go to Archives</a></p>
             </div>
           </div>
         </div>

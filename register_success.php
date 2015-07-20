@@ -27,7 +27,7 @@
         <img src="/images/registration_success.png">
         <?php 
             echo "<div id=\"citizen_name\">".$username."</div>";?>
-        <p><a href="/login.php">Log in</a> and begin exploring Crabtown!</p>
+        <p><a href="/login">Log in</a> and begin exploring Crabtown!</p>
         
         
     </body>

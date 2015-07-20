@@ -69,7 +69,7 @@ if (login_check($mysqli) == true) {
         <button class="btn btn-lg btn-primary btn-block" type="submit" value="submitted" onclick="formhash(this.form, this.form.password);">Sign in</button>
         <input type="button" value="Login" 
                    	onclick="formhash(this.form, this.form.password);" /> 
-        <p>If you don't have an account, please <a href='/register.php'>register</a></p>
+        <p>If you don't have an account, please <a href='/register'>register</a></p>
       </form>
 
     </div> <!-- /container -->

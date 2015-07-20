@@ -24,26 +24,26 @@ if (login_check($mysqli)) {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" id="ct_logo" href="/index.php">Crabtown</a>
+          <a class="navbar-brand" id="ct_logo" href="/index">Crabtown</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li id="menu_nav_stuff"><a href="/index.php">Main</a></li>
+            <li id="menu_nav_stuff"><a href="/index">Main</a></li>
             <li class="dropdown" id="menu_nav_stuff">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Crablar<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li class="dropdown-header">Editions</li>
                   <li class="dropdown-header">PDF Reader</li>
-                  <li><a href="/content_pages/crablar_archives.php">2014</a></li>
-                  <li><a href="/content_pages/crablar_archives2.php">2015 July</a></li>
+                  <li><a href="/content_pages/crablar_archives">2014</a></li>
+                  <li><a href="/content_pages/crablar_archives2">2015 July</a></li>
                   <li role="separator" class="divider"></li>
                   <li class="dropdown-header">Interactive Reader</li>
-                  <li><a href="/content_pages/2014 Edition.php">2014</a></li>
-                  <li><a href="/content_pages/2015 July Edition.php">2015 July</a></li>
+                  <li><a href="/content_pages/2014 Edition">2014</a></li>
+                  <li><a href="/content_pages/2015 July Edition">2015 July</a></li>
                 </ul>
             </li>
             <li id="menu_nav_stuff"><a href="#">Events</a></li>
-            <li id="menu_nav_stuff"><a href="/content_pages/games.php">Games</a></li>
+            <li id="menu_nav_stuff"><a href="/content_pages/games">Games</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li id="menu_nav_stuff"><a href="./">User Profile<span class="sr-only">(current)</span></a></li>
