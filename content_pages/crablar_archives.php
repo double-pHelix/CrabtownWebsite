@@ -1,8 +1,8 @@
 <?php
-  if(!isset($_SESSION)) { 
-    session_start();
-   //sec_session_start();
-  }
+include_once 'includes/db_connect.php';
+include_once 'includes/functions.php';
+  
+sec_session_start();
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +23,8 @@
     <link href="carousel.css" rel="stylesheet">
     
   </head>
-  
 	<body>
+	<?php if (login_check($mysqli) == true) : ?>
     <!-- Navigation Menu at the top of each page -->
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/menu_navigation.php'; ?>
     
@@ -44,5 +44,10 @@
   <div id="footer">
       <p>Something something all rights reserved crabtown copyright blah blah blah...  Not for human consumption.</p>
   </div>
+  <?php else : ?>
+            <p>
+                <span class="error">Only citizens of Crabtown are permitted access to these top secret files.</span> Please <a href="login.phtml">login</a>.
+            </p>
+        <?php endif; ?>
 	</body>
 </html>

@@ -1,9 +1,7 @@
 <?php
-//dependencies
 include_once 'includes/db_connect.php';
 include_once 'includes/functions.php';
- 
-//starts secure mysql session 
+  
 sec_session_start();
 ?>
 <!DOCTYPE html>
@@ -14,12 +12,12 @@ sec_session_start();
         <link rel="stylesheet" href="styles/main.css" />
     </head>
     <body>
-        //checks for login
         <?php if (login_check($mysqli) == true) : ?>
-            <p>Welcome <?php echo htmlentities($_SESSION['username']); ?>!</p>
-            <p>
-                Top secret info.
-            </p>
+            //content goes here
+		<div id="footer">
+			<p>Something something all rights reserved crabtown copyright blah blah blah...  Not for human consumption.</p>
+		</div>
+		
         <?php else : ?>
             <p>
                 <span class="error">Only citizens of Crabtown are permitted access to these top secret files.</span> Please <a href="login.phtml">login</a>.
