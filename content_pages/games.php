@@ -10,7 +10,10 @@ if(!isset($_SESSION)) {
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <title>Games!</title>
+        <link rel="stylesheet" href="styles/main.css" />
+        
+        
         <title>Games!</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
