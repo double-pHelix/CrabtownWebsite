@@ -23,11 +23,10 @@ if(!isset($_SESSION)) {
     
     </head>
     <body>
-        //checks for login
-        <?php if (login_check($mysqli) == true) : ?>
-               <!-- Navigation Menu at the top of each page -->
+    <!-- Navigation Menu at the top of each page -->
 		<?php include_once $_SERVER['DOCUMENT_ROOT'].'/menu_navigation.php'; ?>
-    
+  
+    <?php if (login_check($mysqli) == true) : ?>
 			  <div id="content">
 				  <p>
 					  <h1>Crabtown Racing!</h1>
@@ -40,14 +39,14 @@ if(!isset($_SESSION)) {
 					  Your browser does not support the video tag.
 					</video>
 				</div>
-			   </div>
-			   <div id="footer">
-					<p>Something something all rights reserved crabtown copyright blah blah blah...  Not for human consumption.</p>
-  </div>
+            </div>
+            <div id="footer">
+            <p>Something something all rights reserved crabtown copyright blah blah blah...  Not for human consumption.</p>
+            </div>
 		<?php else : ?>
             <p>
                 <span class="error">Only citizens of Crabtown are permitted access to these top secret files.</span> Please <a href="login.phtml">login</a>.
             </p>
-        <?php endif; ?>
+    <?php endif; ?>
     </body>
 </html>
