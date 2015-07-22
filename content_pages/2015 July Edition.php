@@ -36,12 +36,10 @@
     src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script> 
     <script type="text/JavaScript" src="/js/popup.js"></script>
 
-
   <meta name="viewport" content="width = 1050, user-scalable = no" />
   <script type="text/javascript" src="/CSS/extras/jquery.min.1.7.js"></script>
   <script type="text/javascript" src="/CSS/extras/modernizr.2.5.3.min.js"></script>
-          
-  <link href="carousel.css" rel="stylesheet">
+
 
 </head>
 <body id="Crablar_Reader">

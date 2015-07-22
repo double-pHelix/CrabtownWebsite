@@ -23,7 +23,6 @@ if(!isset($_SESSION)) {
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         
     <link rel="stylesheet" type="text/css" href="/css/Crabtown v1.0.css">
-    <link href="carousel.css" rel="stylesheet">
     
   </head>
   

@@ -13,30 +13,32 @@
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
   <title>Crabtown Crablar: 2014 Edition</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      
-  <script type="text/JavaScript" src="/js/sha512.js"></script> 
-  <script type="text/JavaScript" src="/js/forms.js"></script>
-  
-  <link rel="stylesheet" type="text/css" href="/css/Crabtown v1.0.css">
-  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/login.css"/>
-  
-  <link href='http://fonts.googleapis.com/css?family=Londrina+Solid' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600' rel='stylesheet' type='text/css'>   
-  
-  <link rel="stylesheet" href="/css/login_menu.css"/>
-  
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
- 
-  <script type="text/javascript" 
-  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script> 
-  <script type="text/JavaScript" src="/js/popup.js"></script>
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+    <script type="text/JavaScript" src="/js/sha512.js"></script> 
+    <script type="text/JavaScript" src="/js/forms.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/Crabtown v1.0.css">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/login.css"/>
+    
+    <link href='http://fonts.googleapis.com/css?family=Londrina+Solid' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600' rel='stylesheet' type='text/css'>   
+    
+    <link rel="stylesheet" href="/css/login_menu.css"/>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+   
+    <script type="text/javascript" 
+    src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script> 
+    <script type="text/JavaScript" src="/js/popup.js"></script>
 
-  <link href="carousel.css" rel="stylesheet">
+  <meta name="viewport" content="width = 1050, user-scalable = no" />
+  <script type="text/javascript" src="/CSS/extras/jquery.min.1.7.js"></script>
+  <script type="text/javascript" src="/CSS/extras/modernizr.2.5.3.min.js"></script>
 
 </head>
 <body id="Crablar_Reader">
