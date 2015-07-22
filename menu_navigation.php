@@ -7,7 +7,7 @@ if(!isset($_SESSION)) {
  //sec_session_start();
 }
 
-if (isset($_POST['username'], $_POST['p'])) {
+if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
   include_once 'includes/process_login.php';
 }
 

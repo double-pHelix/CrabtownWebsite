@@ -24,6 +24,7 @@
       </label>
     </div>
     <input class="btn btn-lg btn-primary btn-block"type="button" value="Login" onclick="formhash(this.form, this.form.password);" /> 
+    <input type="hidden" name="form_type" value="login">
     <p>If you don't have an account, please <a href='/register'>register</a></p>
   </form>
 
