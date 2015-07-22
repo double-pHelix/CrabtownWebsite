@@ -39,10 +39,7 @@
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/menu_navigation.php'; ?>
  
   <div id="content">
-      
-      <!-- Testing pop up menu -->
-      <a href="#?w=500" rel="03" class="poplight">LINKS</a>
-      
+
       <p>
           <h1>Welcome to Crabtown! v1.0</h1>
           Stay tuned for content, including new short stories, comics and more!
