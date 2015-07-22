@@ -1,7 +1,4 @@
 <?php
-include_once 'includes/db_connect.php';
-include_once 'includes/functions.php';
- 
 if(!isset($_SESSION)) { 
   session_start();
  //sec_session_start();
