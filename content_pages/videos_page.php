@@ -1,4 +1,8 @@
 <?php
+//dependencies
+include_once 'includes/db_connect.php';
+include_once 'includes/functions.php';
+ 
 //starts secure mysql session 
 if(!isset($_SESSION)) { 
   session_start();
@@ -25,8 +29,9 @@ if(!isset($_SESSION)) {
     <body>
     <!-- Navigation Menu at the top of each page -->
 		<?php include_once $_SERVER['DOCUMENT_ROOT'].'/menu_navigation.php'; ?>
-  
-    <?php if (login_check($mysqli) == true) : ?>
+    
+      <?php if (login_check($mysqli) == true) : ?>
+               
 			  <div id="content">
 				  <p>
 					  <h1>Crabtown Racing!</h1>
@@ -39,14 +44,14 @@ if(!isset($_SESSION)) {
 					  Your browser does not support the video tag.
 					</video>
 				</div>
-            </div>
-            <div id="footer">
-            <p>Something something all rights reserved crabtown copyright blah blah blah...  Not for human consumption.</p>
-            </div>
+			   </div>
+			   <div id="footer">
+					<p>Something something all rights reserved crabtown copyright blah blah blah...  Not for human consumption.</p>
+  </div>
 		<?php else : ?>
             <p>
                 <span class="error">Only citizens of Crabtown are permitted access to these top secret files.</span> Please <a href="login.phtml">login</a>.
             </p>
-    <?php endif; ?>
+        <?php endif; ?>
     </body>
 </html>

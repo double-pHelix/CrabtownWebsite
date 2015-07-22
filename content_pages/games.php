@@ -1,4 +1,7 @@
 <?php
+include_once 'includes/db_connect.php';
+include_once 'includes/functions.php';
+ 
 if(!isset($_SESSION)) { 
   session_start();
  //sec_session_start();
@@ -12,6 +15,10 @@ if(!isset($_SESSION)) {
         <link rel="stylesheet" href="styles/main.css" />
     </head>
     <body>
+    
+    <!-- Navigation Menu at the top of each page -->
+    <?php include_once $_SERVER['DOCUMENT_ROOT'].'/menu_navigation.php'; ?>
+    
         <?php if (login_check($mysqli) == true) : ?>
             <p>Welcome <?php echo htmlentities($_SESSION['username']); ?>!</p>
             <p>
