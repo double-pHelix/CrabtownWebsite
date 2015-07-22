@@ -2,7 +2,10 @@
 include_once 'db_connect.php';
 include_once 'functions.php';
 
-session_start(); // Our custom secure way of starting a PHP session.
+if(!isset($_SESSION)) { 
+  session_start();
+ //sec_session_start();
+}
 
 if (isset($_POST['username'], $_POST['p'])) {
 
@@ -33,8 +36,8 @@ if (isset($_POST['username'], $_POST['p'])) {
         //  }
         //}
 
-        header('Location: /login.php');
-        exit();
+        //header('Location: /login.php');
+        //exit();
     } else {
         // Login failed 
         header('Location: ../login.php?error=2');
@@ -66,6 +69,6 @@ if (isset($_POST['username'], $_POST['p'])) {
     }
 } else {
     // The correct POST variables were not sent to this page. 
-    
-    echo 'Invalid Request';
+    var_dump($_POST);
+    echo 'Invalid Reques!t';
 }
