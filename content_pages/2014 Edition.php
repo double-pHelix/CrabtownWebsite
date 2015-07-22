@@ -98,7 +98,7 @@
 </div>
 
 <?php else : ?>
-  include_once $_SERVER['DOCUMENT_ROOT'].'/restricted_message.php';
+    <?php include_once $_SERVER['DOCUMENT_ROOT'].'/restricted_message.php'; ?>    
 <?php endif; ?>
 
 </body>

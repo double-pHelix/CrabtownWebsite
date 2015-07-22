@@ -63,7 +63,7 @@ if(!isset($_SESSION)) {
 		  <p>Something something all rights reserved crabtown copyright blah blah blah...  Not for human consumption.</p>
 		</div>
         <?php else : ?>
-            $_SERVER['DOCUMENT_ROOT'].'/restricted_message.php';
+          <?php include_once $_SERVER['DOCUMENT_ROOT'].'/restricted_message.php'; ?>    
         <?php endif; ?>
     </body>
              
