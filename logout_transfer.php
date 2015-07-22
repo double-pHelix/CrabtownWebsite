@@ -26,7 +26,7 @@ if(!isset($_SESSION)) {
   
   <?php
     if (login_check($mysqli)) {
-      include_once '/includes/logout.php';
+      include_once $_SERVER['DOCUMENT_ROOT'].'/includes/logout.php';
     } else {
       echo "<h2> Um... sure you're not already logged out? </h2>";
     }
