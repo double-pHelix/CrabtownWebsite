@@ -63,9 +63,7 @@ if(!isset($_SESSION)) {
 		  <p>Something something all rights reserved crabtown copyright blah blah blah...  Not for human consumption.</p>
 		</div>
         <?php else : ?>
-            <p>
-                <span class="error">Only citizens of Crabtown are permitted access to these top secret files.</span> Please <a href="login.phtml">login</a>.
-            </p>
+            $_SERVER['DOCUMENT_ROOT'].'/restricted_message.php';
         <?php endif; ?>
     </body>
              
