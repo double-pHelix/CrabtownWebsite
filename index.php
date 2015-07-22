@@ -111,7 +111,7 @@
     <!-- Menu that pops up -->
     <div id="03" class="popup_block">
       <Center>
-        <?php include_once '/login_menu.php'; ?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'].'/login_menu.php'; ?>
       </center>
     </div>
   
