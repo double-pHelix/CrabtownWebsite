@@ -4,7 +4,10 @@ include_once 'includes/db_connect.php';
 include_once 'includes/functions.php';
  
 //starts secure mysql session 
-sec_session_start();
+if(!isset($_SESSION)) { 
+  session_start();
+ //sec_session_start();
+}
 ?>
 <!DOCTYPE html>
 <html>
