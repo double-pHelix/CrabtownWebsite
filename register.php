@@ -51,7 +51,6 @@ include_once 'includes/emailcheck.php';
             </li>
             <li>Your password and confirmation must match exactly</li>
         </ul>
-        //posts data to itself i.e. register.php
         <form action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>" 
                 method="post" 
                 name="registration_form">
