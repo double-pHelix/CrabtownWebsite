@@ -32,7 +32,9 @@
 <body id="Crablar_Reader">
     <!-- Navigation Menu at the top of each page -->
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/menu_navigation.php'; ?>
-    
+ 
+<?php if (login_check($mysqli) == true) : ?>
+      
 <div class="flipbook-viewport">
 	<div class="container">
 		<div class="flipbook">
@@ -82,5 +84,12 @@
     });
   </script>
 </div>
+
+<?php else : ?>
+  <p>
+      <span class="error">Only citizens of Crabtown are permitted access to these top secret files.</span> Please <a href="login.phtml">login</a>.
+  </p>
+<?php endif; ?>
+
 </body>
 </html>

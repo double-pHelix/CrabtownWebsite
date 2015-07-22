@@ -32,58 +32,66 @@
 <body id="Crablar_Reader">
     <!-- Navigation Menu at the top of each page -->
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/menu_navigation.php'; ?>
-    
-<div class="flipbook-viewport">
-	<div class="container">
-		<div class="flipbook">
-			<div style="background-image:url(/crablar_pages/2015_july/pages/1.png)"></div>
-			<div style="background-image:url(/crablar_pages/2015_july/pages/2.png)"></div>
-			<div style="background-image:url(/crablar_pages/2015_july/pages/3.png)"></div>
-      <div style="background-image:url(/crablar_pages/2015_july/pages/4.png)"></div>
-			<div style="background-image:url(/crablar_pages/2015_july/pages/5.png)"></div>
-			<div style="background-image:url(/crablar_pages/2015_july/pages/6.png)"></div>
-		</div>
-	</div>
-</div>
+ 
+<?php if (login_check($mysqli) == true) : ?>
+   
+  <div class="flipbook-viewport">
+    <div class="container">
+      <div class="flipbook">
+        <div style="background-image:url(/crablar_pages/2015_july/pages/1.png)"></div>
+        <div style="background-image:url(/crablar_pages/2015_july/pages/2.png)"></div>
+        <div style="background-image:url(/crablar_pages/2015_july/pages/3.png)"></div>
+        <div style="background-image:url(/crablar_pages/2015_july/pages/4.png)"></div>
+        <div style="background-image:url(/crablar_pages/2015_july/pages/5.png)"></div>
+        <div style="background-image:url(/crablar_pages/2015_july/pages/6.png)"></div>
+      </div>
+    </div>
+  </div>
 
-<div id="content_reader">
-  <script type="text/javascript">
-    function loadApp() {
+  <div id="content_reader">
+    <script type="text/javascript">
+      function loadApp() {
 
-      // Create the flipbook
+        // Create the flipbook
 
-      $('.flipbook').turn({
-          // Width
+        $('.flipbook').turn({
+            // Width
 
-          width:922,
-          
-          // Height
+            width:922,
+            
+            // Height
 
-          height:600,
+            height:600,
 
-          // Elevation
+            // Elevation
 
-          elevation: 50,
-          
-          // Enable gradients
+            elevation: 50,
+            
+            // Enable gradients
 
-          gradients: true,
-          
-          // Auto center this flipbook
+            gradients: true,
+            
+            // Auto center this flipbook
 
-          autoCenter: true
+            autoCenter: true
 
+        });
+      }
+      // Load the HTML4 version if there's not CSS transform
+      yepnope({
+        test : Modernizr.csstransforms,
+        yep: ['/CSS/lib/turn.js'],
+        nope: ['/CSS/lib/turn.html4.min.js'],
+        both: ['/crablar_pages/2014/css/basic.css'],
+        complete: loadApp
       });
-    }
-    // Load the HTML4 version if there's not CSS transform
-    yepnope({
-      test : Modernizr.csstransforms,
-      yep: ['/CSS/lib/turn.js'],
-      nope: ['/CSS/lib/turn.html4.min.js'],
-      both: ['/crablar_pages/2014/css/basic.css'],
-      complete: loadApp
-    });
-  </script>
-</div>
+    </script>
+  </div>
+  
+<?php else : ?>
+  <p>
+      <span class="error">Only citizens of Crabtown are permitted access to these top secret files.</span> Please <a href="login.phtml">login</a>.
+  </p>
+<?php endif; ?>
 </body>
 </html>
