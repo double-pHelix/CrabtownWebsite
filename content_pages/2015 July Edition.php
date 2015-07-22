@@ -12,6 +12,7 @@
 <!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
+  <title>Crabtown Crablar: 2015 July Edition</title>
    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
         
