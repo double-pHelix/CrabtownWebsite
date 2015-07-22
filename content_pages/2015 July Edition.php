@@ -46,9 +46,6 @@
 <body id="Crablar_Reader">
     <!-- Navigation Menu at the top of each page -->
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/menu_navigation.php'; ?>
-    
-    <!-- Testing pop up menu -->
-    <a href="#?w=500" rel="03" class="poplight">LINKS</a>
       
 <?php if (login_check($mysqli) == true) : ?>
    

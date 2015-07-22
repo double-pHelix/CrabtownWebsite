@@ -64,11 +64,11 @@ if (login_check($mysqli)) {
                 if($logged == 'in'){
                   echo "<li><a href=\"/logout_transfer.php\">Log Out</a></li>";
                 } else {
-                  echo "<li><a href=\"/login.php\">Login</a></li>";
+                  echo "<li><a href=\"#?w=500\" rel=\"03\" class=\"poplight\">LINKS</a></li>";
                 }
                 ?>
               </ul>
-            </li>
+            </li>    
           </ul>
         </div><!--/.nav-collapse -->
       </div><!--/.container-fluid -->
