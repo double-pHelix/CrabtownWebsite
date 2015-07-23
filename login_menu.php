@@ -19,7 +19,7 @@
   <!-- If we are not logged in -->
 
   <form class="form-signin" name="login_form" action="" method="POST">
-    <h2 id="loginHeaderTHISONE"> Crabtown Login</h2>
+    <h2 id="loginHeader"> Crabtown Login</h2>
     
     <?php
     if(isset($_GET["error"])){

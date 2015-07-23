@@ -25,13 +25,11 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
     <script type="text/JavaScript" src="/js/sha512.js"></script> 
     <script type="text/JavaScript" src="/js/forms.js"></script>
     
-    <link rel="stylesheet" type="text/css" href="/css/Crabtown v1.0.css">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/Crabtown v1.0.css">
     <link rel="stylesheet" href="/css/login.css"/>
-    
-    <link href='http://fonts.googleapis.com/css?family=Londrina+Solid' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600' rel='stylesheet' type='text/css'>   
+   
+    <link href='' rel='stylesheet' type='text/css'>   
     
     <link rel="stylesheet" href="/css/login_menu.css"/>
     

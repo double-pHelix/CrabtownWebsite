@@ -35,7 +35,7 @@ if (login_check($mysqli)) {
             <li id="menu_nav_stuff"><a href="/index">Main</a></li>
             <li class="dropdown" id="menu_nav_stuff">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Crablar<span class="caret"></span></a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" id="menu_nav_stuff_drop_down">
                   <li class="dropdown-header">Editions</li>
                   <li class="dropdown-header">PDF Reader</li>
                   <li><a href="/content_pages/crablar_archives">2014</a></li>
