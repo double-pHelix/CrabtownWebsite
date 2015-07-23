@@ -15,7 +15,7 @@ if (isset($_POST['username'], $_POST['p'])) {
     $email = get_email($username, $mysqli);
     if(!$email){
       echo 'Email not found in database';
-      header('Location: ../index.php?error=1');
+      header('Location: ../login.php?error=1');
       exit;
     }
     
