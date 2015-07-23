@@ -85,8 +85,6 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 }
 
 .navbar-default {
-  background-color: #0f006f;
-  border-color: #030033;
 }
 
 /*color when highlighted*/
@@ -126,5 +124,5 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 
 /*Top Menu font color!*/
 .navbar-default .navbar-nav > li > a {
-  color: #888888 ; /*Change active text color here*/
+  color: #A8A8A8 ; /*Change active text color here*/
 }
