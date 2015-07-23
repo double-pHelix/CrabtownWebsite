@@ -1,8 +1,18 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT'].'/includes/db_connect.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
+
   if(!isset($_SESSION)) { 
     session_start();
    //sec_session_start();
   }
+  if (login_check($mysqli) == true){
+    $logged_in = true;
+  } else {
+    $logged_in = false;
+  }
+   
+  
 ?>
 
 <!DOCTYPE html>
@@ -60,9 +70,15 @@
           <img class="first-slide" src="/images/mayornippywelcome.png" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
+            
+              <?php 
+                if ($logged_in == false){            
+                  echo "<p>Register an account and become a Crabtown Citizen!</p><p><a class=\"btn btn-lg btn-primary\" href=\"/register\" role=\"button\">Sign Up</a></p>";
+                } else {
+                  echo "<p>Welcome and have fun!</p>";
+                }
+              ?>
               
-              <p>Register an account and become a Crabtown Citizen!</p>
-              <p><a class="btn btn-lg btn-primary" href="/register" role="button">Sign Up</a></p>
             </div>
           </div>
         </div>
