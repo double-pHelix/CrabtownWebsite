@@ -19,6 +19,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 <html>
   <head>
     <title>Crab News, Forums & Games - Crabtown: The Official World of Crabs</title>
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
         

@@ -13,6 +13,7 @@ if(!isset($_SESSION)) {
   <head>
     <title>Crabtown Crablar: 2014 Edition</title>
     <meta charset="utf-8">
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
         
     <script type="text/JavaScript" src="/js/sha512.js"></script> 

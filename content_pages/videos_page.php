@@ -13,6 +13,8 @@ if(!isset($_SESSION)) {
 <html>
     <head>
       <title>Crabtown Racing Movie</title>
+      
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
           

@@ -9,6 +9,7 @@ include_once 'includes/emailcheck.php';
     <head>
         <meta charset="UTF-8">
         <title>Secure Login: Registration Form</title>
+        <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
         <script type="text/JavaScript" src="js/sha512.js"></script> 
         <script type="text/JavaScript" src="js/forms.js"></script>
         <link rel="stylesheet" href="css/register.css" />

@@ -13,8 +13,7 @@ if(!isset($_SESSION)) {
         <title>Games!</title>
         <link rel="stylesheet" href="styles/main.css" />
         
-        
-        <title>Games!</title>
+        <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
             
