@@ -98,11 +98,8 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
  
  /*the menu itself*/
  .dropdown-menu {
-  padding: 3px;
-  padding-left:12px;
-  padding-right:10px;
   border-radius: 10px;
-  background-color:White;
+  background-color:white;
  }
  
   /*color when NOT highlighted*/
