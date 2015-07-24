@@ -55,7 +55,7 @@ if (login_check($mysqli) == true){
     
         <?php if (login_check($mysqli) == true) : ?>
             <p>Welcome <?php echo htmlentities($_SESSION['username']); ?>!</p>
-            <p>
+            <div class="gamebox">
                 <table>
 					<tr>
 						<td>
@@ -67,7 +67,7 @@ if (login_check($mysqli) == true){
 						<td><a href ="/crabtown_games/crabball_z/crabball_z.html">Crabball Z</a></td>
 					</tr>
 				</table>
-            </p>
+            </div>
 		<div id="footer">
 		  <p>Something something all rights reserved crabtown copyright blah blah blah...  Not for human consumption.</p>
 		</div>
