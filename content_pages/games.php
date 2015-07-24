@@ -17,7 +17,7 @@ if (login_check($mysqli) == true){
 <html>
     <head>
         <title>Games!</title>
-        <link rel="stylesheet" href="styles/main.css" />
+        <link rel="stylesheet" href="styles/games.css" />
         
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
         <meta charset="utf-8">
