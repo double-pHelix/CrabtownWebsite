@@ -7,20 +7,24 @@ include_once 'includes/emailcheck.php';
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
         <title>Secure Login: Registration Form</title>
         <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-        <script type="text/JavaScript" src="js/sha512.js"></script> 
-        <script type="text/JavaScript" src="js/forms.js"></script>
-        <link rel="stylesheet" href="css/register.css" />
-        
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-            
-        <link rel="stylesheet" type="text/css" href="/css/Crabtown v1.0.css">
+        
+        <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/login.css"/> 
+        <link rel="stylesheet" type="text/css" href="/css/Crabtown v1.0.css">    
+        <link rel="stylesheet" href="/css/login_menu.css"/>  
+        
+        <script type="text/JavaScript" src="/js/sha512.js"></script> 
+        <script type="text/JavaScript" src="/js/forms.js"></script>
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script> 
+        <script type="text/JavaScript" src="/js/popup.js"></script>
+
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         
         
     </head>
@@ -72,4 +76,14 @@ include_once 'includes/emailcheck.php';
         </form>
         <p>Return to the <a href="/index">main page</a>.</p>
     </body>
+    
+    
+  <!-- Modal -->
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+      <?php include_once $_SERVER['DOCUMENT_ROOT'].'/login_menu.php'; ?>
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  
+    
 </html>
