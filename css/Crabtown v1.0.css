@@ -5,7 +5,7 @@
 
 #banner {
   border-radius: 5px;
-  background-color:#6DA4FF;
+  background-color:DarkSlateBlue ;
   width: 100%;
 }
 
@@ -17,7 +17,7 @@
 }
 
 #content {
-  background-color:#5452FF;
+  background-color:Chocolate   ;
   font-family: "Open Sans", sans-serif;
   border-radius: 11px;
   text-align: center;
@@ -66,7 +66,6 @@ video.crab_theatre {
   padding-left:12px;
   padding-right:10px;
   border-radius: 10px;
-  background-color:#5452FF;
   font-family: Londrina Solid;
   font-size: 95%;
   text-transform: uppercase;
