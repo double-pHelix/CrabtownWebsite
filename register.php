@@ -25,8 +25,7 @@ include_once 'includes/emailcheck.php';
 
         <script src="http://code.jquery.com/jquery.js"></script>
         <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        
-        
+
     </head>
     <body>
         <!-- Navigation Menu at the top of each page -->

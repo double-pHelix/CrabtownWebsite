@@ -1,8 +1,18 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT'].'/includes/db_connect.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
+
   if(!isset($_SESSION)) { 
     session_start();
    //sec_session_start();
   }
+  
+  if (login_check($mysqli) == true){
+    $logged_in = true;
+  } else {
+    $logged_in = false;
+  }
+
 ?>
 
 <!doctype html>
@@ -25,16 +35,24 @@
     <script type="text/JavaScript" src="/js/sha512.js"></script> 
     <script type="text/JavaScript" src="/js/forms.js"></script>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script> 
+    <script type="text/javascript" src="/CSS/extras/jquery.min.1.7.js"></script>
     <script type="text/JavaScript" src="/js/popup.js"></script>
 
     <script src="http://code.jquery.com/jquery.js"></script>
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
     <meta name="viewport" content="width = 1050, user-scalable = no" />
-    <script type="text/javascript" src="/CSS/extras/jquery.min.1.7.js"></script>
     <script type="text/javascript" src="/CSS/extras/modernizr.2.5.3.min.js"></script>
 
+    <?php
+      if(isset($_POST['form_type']) || $logged_in == false){
+        echo "<script type=\"text/javascript\">
+          $(window).load(function() {
+            $('#myModal').modal('show');
+          });
+        </script>";  
+      }
+    ?>
 </head>
 <body id="Crablar_Reader">
     <!-- Navigation Menu at the top of each page -->

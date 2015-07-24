@@ -6,6 +6,12 @@ if(!isset($_SESSION)) {
   session_start();
  //sec_session_start();
 }
+
+if (login_check($mysqli) == true){
+  $logged_in = true;
+} else {
+  $logged_in = false;
+}
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +36,15 @@ if(!isset($_SESSION)) {
     <script src="http://code.jquery.com/jquery.js"></script>
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     
+    <?php
+      if(isset($_POST['form_type']) || $logged_in == false){
+        echo "<script type=\"text/javascript\">
+          $(window).load(function() {
+            $('#myModal').modal('show');
+          });
+        </script>";  
+      }
+    ?>
   </head>
 	<body>
 

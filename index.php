@@ -36,13 +36,13 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
     <?php
-    if(isset($_POST['form_type']) || $logged_in == false){
-      echo "<script type=\"text/javascript\">
-        $(window).load(function() {
-          $('#myModal').modal('show');
-        });
-      </script>";  
-    }
+      if(isset($_POST['form_type']) || $logged_in == false){
+        echo "<script type=\"text/javascript\">
+          $(window).load(function() {
+            $('#myModal').modal('show');
+          });
+        </script>";  
+      }
     ?>
   </head>
   
