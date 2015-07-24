@@ -63,7 +63,7 @@ if (login_check($mysqli)) {
                 if($logged == 'in'){
                   echo "<li><a href=\"/logout_transfer.php\">Log Out</a></li>";
                 } else {
-                  echo "<li><a href=\"#?w=500\" rel=\"03\" class=\"poplight\">LOGIN</a></li>";
+                  echo "<li><a data-toggle=\"modal\" data-target=\"#myModal\">LOGIN</a></li>";
                 }
                 ?>
               </ul>
