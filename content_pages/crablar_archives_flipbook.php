@@ -66,18 +66,18 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 	  <option value="2014">2014</option>
 	</select> 
 	<select required name = "month">
-	  <option value="Jan">Jan</option>
-	  <option value="Feb">Feb</option>
-	  <option value="Mar">Mar</option>
-	  <option value="Apr">Apr</option>
-	  <option value="May">May</option>
-	  <option value="Jun">Jun</option>
-	  <option value="July">July</option>
-	  <option value="Aug">Aug</option>
-	  <option value="Sep">Sep</option>
-	  <option value="Oct">Oct</option>
-	  <option value="Nov">Nov</option>
-	  <option value="Dec">Dec</option>
+	  <option value="jan">Jan</option>
+	  <option value="feb">Feb</option>
+	  <option value="mar">Mar</option>
+	  <option value="apr">Apr</option>
+	  <option value="may">May</option>
+	  <option value="jun">Jun</option>
+	  <option value="july">July</option>
+	  <option value="aug">Aug</option>
+	  <option value="sep">Sep</option>
+	  <option value="oct">Oct</option>
+	  <option value="nov">Nov</option>
+	  <option value="dec">Dec</option>
 	</select>
  </form>	
 </div>	
