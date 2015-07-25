@@ -2,7 +2,8 @@
 
 body{
 	overflow:hidden;
-	background:url(/images/coffee_table.png) center no-repeat width:100%;
+	background:url(/images/coffee_table.png) center no-repeat;
+	background-size: contain;
 	margin:0;
 	padding:0;
 }
