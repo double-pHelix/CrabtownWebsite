@@ -74,16 +74,16 @@ if($stmt = $mysqli->prepare("SELECT group_id FROM users
         $stmt->fetch();
         
         $user_permission = new UserPermissions($user_permissions);
-        echo 'Permissions set';
+        //echo 'Permissions set';
     } else {
-      echo 'User group does not exist';
+      echo 'Database or SQL Error';
     }
 
 } else {
-  echo 'Username not found';
+  echo 'Database or SQL Error';
 }
 
-echo "Starting Tests..."; 
+//echo "Starting Tests..."; 
 //run some tests
 if(!($user_permission->hasPermission(UserPermissions::READ_ACCOUNT)) == true){
   echo "failed test 1";
@@ -106,6 +106,6 @@ if(!($user_permission->hasPermission(UserPermissions::READ_POSTS) == true)){
 if(!($user_permission->hasPermission(UserPermissions::POST_NEW_THREADS) == false)){
   echo "failed test 7";
 } 
-echo "...Tests finised"; 
+//echo "...Tests finised"; 
 
-exit;
+//exit;
