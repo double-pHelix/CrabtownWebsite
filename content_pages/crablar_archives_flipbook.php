@@ -20,7 +20,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 <!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-  <title>Crabtown Crablar: 2014 Edition</title>
+  <title>Crabtown Crablar: Flipbook Reader</title>
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
