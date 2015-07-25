@@ -3,12 +3,21 @@
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600");
 
 body {
-  background-color:white;
+  background-color:#33ff6a;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1320px; /* or 950px */
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1320px; /* or 950px */
 }
 
 #banner {
   border-radius: 5px;
-  background-color:#064273;
+  background-color:#6a33ff;
   width: 100%;
 }
 
@@ -20,7 +29,7 @@ body {
 }
 
 #content {
-  background-color:#1DA2D8;
+  background-color:#ff6a33;
   font-family: "Open Sans", sans-serif;
   border-radius: 11px;
   text-align: center;
@@ -30,9 +39,6 @@ body {
 .carousel-inner > .item > img {
   height: 400px;
   margin: 0 auto;
-}
-#make_it_black {
-  font: black;
 }
 
 #content h1 {
@@ -59,7 +65,7 @@ video.crab_theatre {
 /* For some reason this class had to be here instead of above #footer for it to work... */
 #loginHeader {
   font-family:"Londrina Solid";
-  color: #EEEEEE !important;
+  color: #EEEEEE;
 }
 
 /* Navigation menu settings below */
@@ -70,7 +76,7 @@ video.crab_theatre {
   padding-right:10px;
   border-radius: 10px;
   font-family: Londrina Solid;
-  font-size: 95%;
+  font-size: 100%;
   text-transform: uppercase;
   color: white;
   text-shadow: 0.03em 0.03em 0 black, -1.25px 0 0 black, 1.25px 0 0 black, 0 -1.25px 0 black, 0 1.25px 0 black;
@@ -87,6 +93,8 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 }
 
 .navbar-default {
+  border-radius: 10px;
+  background-color: #6a33ff;
 }
 
 /*color when highlighted*/
@@ -131,6 +139,6 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 {
    border-radius: 10px;
    color:IndianRed;
-   background-color:  #064273;
+   background-color:#6a33ff;
    border-color: #7FCDFF;
 }
