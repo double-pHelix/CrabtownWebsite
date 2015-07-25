@@ -89,13 +89,18 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 			if(isset($_POST['year'])){
 				//searches db for edition and echos page locations below
 				$stmt = $conn->prepare("SELECT FROM crablar_archives (year, month) VALUES (?, ?)");
-				$stmt->bind_param("ssi", $year, $month);
+				$stmt->bind_param("si", $year, $month);
 				
 				$year = $_POST['year'];
 				$month = $_POST['month'];
 				$stmt->execute();
 				
-					for ($q = 1;$q <=$page;$q++){
+				while ($row = mysql_fetch_assoc($stmt)) {
+				   $year = $row['year'];
+				   $month = $row['month'];
+				   $pages = $row['pages'];
+				}	
+					for ($q = 1;$q <=$pages;$q++){
 						echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
 					}
 			}
