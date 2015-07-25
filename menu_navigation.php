@@ -40,7 +40,7 @@ if (login_check($mysqli)) {
                   <li><a href="/content_pages/crablar_archives">2014</a></li>
                   <li><a href="/content_pages/crablar_archives2">2015 July</a></li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="/content_pages/crablar_archives_flipbook.php">Interactive Reader</a></li>
+                  <li><a href="/content_pages/crablar_archives_flipbook">Interactive Reader</a></li>
                 </ul>
             </li>
             <li id="menu_nav_stuff"><a href="#">Events</a></li>
