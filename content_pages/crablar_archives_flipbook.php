@@ -27,7 +27,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
     
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/login.css"/> 
-    <link rel="stylesheet" type="text/css" href="/css/Crabtown v1.0.css">    
+    <link rel="stylesheet" type="text/css" href="/css/crablar_archives_flipbook.css">    
     <link rel="stylesheet" href="/css/login_menu.css"/>  
     
     <script type="text/JavaScript" src="/js/sha512.js"></script> 
@@ -60,6 +60,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 
 	<!--Search form-->
 <div class="searchform">
+ <form  method="post" action="search.php?go"  id="searchform">
 	<select required>
 	  <option value="2015">2015</option>
 	  <option value="2014">2014</option>
@@ -78,6 +79,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 	  <option value="Nov">Nov</option>
 	  <option value="Dec">Dec</option>
 	</select>
+ </form>	
 </div>	
 	
 <div class="flipbook-viewport">
