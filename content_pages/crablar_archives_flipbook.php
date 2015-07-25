@@ -86,6 +86,14 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 	<div class="container">
 		<div class="flipbook">
 			<?php
+			
+			function echo_pages ($year, $month, $pages)
+			{
+				for ($q = 1;$q <=$pages;$q++){
+						echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
+				}
+			}
+			
 			if(isset($_POST['year'])){
 				//searches db for edition and echos page locations below
 				$stmt = $conn->prepare("SELECT FROM crablar_archives (year, month) VALUES (?, ?)");
@@ -101,9 +109,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 				   $pages = $row['pages'];
 				}	
 				
-				for ($q = 1;$q <=$pages;$q++){
-						echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
-				}
+				echo_pages($year, $month, $pages);
 			}
 			
 			else{
@@ -116,9 +122,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 				   $pages = $row['pages'];
 				}
 				
-				for ($q = 1;$q <=$pages;$q++){
-						echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
-				}
+				echo_pages($year, $month, $pages);
 			}
 			?>
 		</div>
