@@ -99,7 +99,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
           <div class="container">
             <div class="carousel-caption">
               <p id="make_it_black">The Official Newspaper of Crabtown</p>
-              <p><a class="btn btn-lg btn-primary" href="/content_pages/howers_shortstory" role="button">Go to Archives</a></p>
+              <p><a class="btn btn-lg btn-primary" href="content_pages/crablar_archives_flipbook" role="button">Go to Archives</a></p>
             </div>
           </div>
         </div>
