@@ -57,7 +57,19 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/menu_navigation.php'; ?>
  
 <?php if (login_check($mysqli) == true) : ?>
-      
+
+	<!--Search form-->
+<div class="searchform">
+	<select>
+	  <option value="2015">2015</option>
+	  <option value="2014">2014</option>
+	</select> 
+	<select>
+	  <option value=""></option>
+	  <option value=""></option>
+	</select>
+</div>	
+	
 <div class="flipbook-viewport">
 	<div class="container">
 		<div class="flipbook">
