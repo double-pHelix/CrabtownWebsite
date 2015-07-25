@@ -1,9 +1,11 @@
 /* Basic sample */
 
-body{
-	overflow:hidden;
+html {
 	background:url(/images/coffee_table.png) center no-repeat;
 	background-size: cover;
+}
+body{
+	overflow:hidden;
 	margin:0;
 	padding:0;
 }
