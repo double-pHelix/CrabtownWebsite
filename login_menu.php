@@ -57,11 +57,13 @@
   logged_in_message:
 ?>
 <div id="content">
+  <br>
   <h1>You are logged in!</h1>
 <?php
   echo '<p>Currently logged ' . $logged . ' as ' . htmlentities($_SESSION['username']) . '.</p>';
   echo '<p>Would you like to log out?<a href="/logout_transfer.php">Log out</a>.</p>';
 ?>
+  <br>
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </div>  
