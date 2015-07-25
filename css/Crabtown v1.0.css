@@ -82,8 +82,8 @@ color: IndianRed;  /*Sets the text hover color on navbar*/
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >   
 a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: white; /*BACKGROUND color for active*/
-  background-color: #030033;
+  color: IndianRed; /*BACKGROUND color for active*/
+  background-color: IndianRed;
 }
 
 .navbar-default {
@@ -101,7 +101,7 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
  /*the menu itself*/
  .dropdown-menu {
   border-radius: 10px;
-  background-color:white;
+  background-color:#e7f5ff;
  }
  
   /*color when NOT highlighted*/
@@ -118,10 +118,19 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: silver; /*Change rollover cell color here*/
+  background-color: IndianRed; /*Change rollover cell color here*/
 }
 
 /*Top Menu font color!*/
 .navbar-default .navbar-nav > li > a {
   color: #A8A8A8 ; /*Change active text color here*/
+}
+
+.navbar .nav > li.dropdown.open.active > a:hover, 
+.navbar .nav > li.dropdown.open > a
+{
+   border-radius: 10px;
+   color:IndianRed;
+   background-color:  #064273;
+   border-color: #7FCDFF;
 }
