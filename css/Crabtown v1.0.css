@@ -3,7 +3,7 @@
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600");
 
 body {
-  background-color:#33ff6a;
+  background-color:white;
   margin-right: auto;
   margin-left: auto;
   max-width: 1320px; /* or 950px */
@@ -17,7 +17,7 @@ body {
 
 #banner {
   border-radius: 5px;
-  background-color:#6a33ff;
+  background-color:#064273;
   width: 100%;
 }
 
@@ -29,7 +29,7 @@ body {
 }
 
 #content {
-  background-color:#ff6a33;
+  background-color:#1DA2D8;
   font-family: "Open Sans", sans-serif;
   border-radius: 11px;
   text-align: center;
@@ -94,7 +94,7 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 
 .navbar-default {
   border-radius: 10px;
-  background-color: #6a33ff;
+  background-color: #064273;
 }
 
 /*color when highlighted*/
@@ -139,6 +139,6 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 {
    border-radius: 10px;
    color:IndianRed;
-   background-color:#6a33ff;
+   background-color:#064273;
    border-color: #7FCDFF;
 }
