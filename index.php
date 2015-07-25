@@ -8,6 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
   }
   if (login_check($mysqli) == true){
     $logged_in = true;
+    include_once $_SERVER['DOCUMENT_ROOT'].'/includes/permissions.php';
   } else {
     $logged_in = false;
   }
