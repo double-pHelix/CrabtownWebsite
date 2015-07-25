@@ -2,7 +2,7 @@
 
 body{
 	overflow:hidden;
-	background:url(/images/coffee_table.png) center no-repeat;
+	background:url(/images/coffee_table.png) center no-repeat width:100%;
 	margin:0;
 	padding:0;
 }
