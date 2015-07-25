@@ -85,9 +85,15 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 <div class="flipbook-viewport">
 	<div class="container">
 		<div class="flipbook">
-			<div style="background-image:url(/crablar_pages/2014/pages/1.png)"></div>
-			<div style="background-image:url(/crablar_pages/2014/pages/2.png)"></div>
-			<div style="background-image:url(/crablar_pages/2014/pages/3.png)"></div>
+			<?php
+			//searches db for edition and echos page locations below
+			$year = ;
+			$month = ;
+			$pages = ;
+				for ($q = 1;$q <=$page;$q++){
+					echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
+				}
+			?>
 		</div>
 	</div>
 </div>
