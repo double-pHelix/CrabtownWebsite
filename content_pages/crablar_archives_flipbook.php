@@ -87,9 +87,14 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 		<div class="flipbook">
 			<?php
 			//searches db for edition and echos page locations below
+			$stmt = $conn->prepare("SELECT FROM crablar_archives (year, month, pages) VALUES (?, ?, ?)");
+			$stmt->bind_param("ssi", $year, $month, $pages);
+			
 			$year = ;
 			$month = ;
 			$pages = ;
+			$stmt->execute();
+			
 				for ($q = 1;$q <=$page;$q++){
 					echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
 				}
