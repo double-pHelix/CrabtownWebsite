@@ -2,9 +2,9 @@
 /*Global configuration variables*/
 
 define("HOST", "localhost");     // The host you want to connect to.
-define("USER", "Nippy");    // The database username. 
-define("PASSWORD", "");    // The database password. 
-define("DATABASE", "crabtowndatabase");    // The database name.
+define("USER", "nippy");    // The database username. 
+define("PASSWORD", "howerpower");    // The database password. 
+define("DATABASE", "crabtown_database");    // The database name.
  
 define("CAN_REGISTER", "any");
 define("DEFAULT_ROLE", "secure_login");
