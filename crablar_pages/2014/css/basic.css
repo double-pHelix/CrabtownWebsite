@@ -3,7 +3,7 @@
 body{
 	overflow:hidden;
 	background:url(/images/coffee_table.png) center no-repeat;
-	background-size: 100%;
+	background-size: cover;
 	margin:0;
 	padding:0;
 }
