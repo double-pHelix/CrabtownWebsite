@@ -100,9 +100,25 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 				   $month = $row['month'];
 				   $pages = $row['pages'];
 				}	
-					for ($q = 1;$q <=$pages;$q++){
+				
+				for ($q = 1;$q <=$pages;$q++){
 						echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
-					}
+				}
+			}
+			
+			else{
+				$latest = "SELECT FROM crablar_archives MAX(edition_no)";
+				$result = conn->query($latest);
+				
+				while ($row = mysql_fetch_assoc($result)) {
+				   $year = $row['year'];
+				   $month = $row['month'];
+				   $pages = $row['pages'];
+				}
+				
+				for ($q = 1;$q <=$pages;$q++){
+						echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
+				}
 			}
 			?>
 		</div>
