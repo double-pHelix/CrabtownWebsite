@@ -60,7 +60,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 
 	<!--Search form-->
 <div class="searchform">
-	<select>
+	<select required>
 	  <option value="2015">2015</option>
 	  <option value="2014">2014</option>
 	</select> 
