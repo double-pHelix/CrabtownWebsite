@@ -41,8 +41,7 @@ if (login_check($mysqli)) {
                   <li><a href="/content_pages/crablar_archives2">2015 July</a></li>
                   <li role="separator" class="divider"></li>
                   <li class="dropdown-header">Interactive Reader</li>
-                  <li><a href="/content_pages/2014 Edition">2014</a></li>
-                  <li><a href="/content_pages/2015 July Edition">2015 July</a></li>
+                  <li><a href="/content_pages/crablar_archives_flipbook.php">2014</a></li>
                 </ul>
             </li>
             <li id="menu_nav_stuff"><a href="#">Events</a></li>
