@@ -65,7 +65,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 	  <option value="2015">2015</option>
 	  <option value="2014">2014</option>
 	</select> 
-	<select name = "month">
+	<select required name = "month">
 	  <option value="Jan">Jan</option>
 	  <option value="Feb">Feb</option>
 	  <option value="Mar">Mar</option>
@@ -88,12 +88,11 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 			<?php
 			if(isset($_POST['year'])){
 				//searches db for edition and echos page locations below
-				$stmt = $conn->prepare("SELECT FROM crablar_archives (year, month, pages) VALUES (?, ?, ?)");
-				$stmt->bind_param("ssi", $year, $month, $pages);
+				$stmt = $conn->prepare("SELECT FROM crablar_archives (year, month) VALUES (?, ?)");
+				$stmt->bind_param("ssi", $year, $month);
 				
-				$year = ;
-				$month = ;
-				$pages = ;
+				$year = $_POST['year'];
+				$month = $_POST['month'];
 				$stmt->execute();
 				
 					for ($q = 1;$q <=$page;$q++){
