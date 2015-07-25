@@ -61,11 +61,11 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 	<!--Search form-->
 <div class="searchform">
  <form  method="post" action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>"  id="searchform">
-	<select required>
+	<select required name ="year">
 	  <option value="2015">2015</option>
 	  <option value="2014">2014</option>
 	</select> 
-	<select>
+	<select name = "month">
 	  <option value="Jan">Jan</option>
 	  <option value="Feb">Feb</option>
 	  <option value="Mar">Mar</option>
@@ -86,18 +86,20 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 	<div class="container">
 		<div class="flipbook">
 			<?php
-			//searches db for edition and echos page locations below
-			$stmt = $conn->prepare("SELECT FROM crablar_archives (year, month, pages) VALUES (?, ?, ?)");
-			$stmt->bind_param("ssi", $year, $month, $pages);
-			
-			$year = ;
-			$month = ;
-			$pages = ;
-			$stmt->execute();
-			
-				for ($q = 1;$q <=$page;$q++){
-					echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
-				}
+			if(isset($_POST['year'])){
+				//searches db for edition and echos page locations below
+				$stmt = $conn->prepare("SELECT FROM crablar_archives (year, month, pages) VALUES (?, ?, ?)");
+				$stmt->bind_param("ssi", $year, $month, $pages);
+				
+				$year = ;
+				$month = ;
+				$pages = ;
+				$stmt->execute();
+				
+					for ($q = 1;$q <=$page;$q++){
+						echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
+					}
+			}
 			?>
 		</div>
 	</div>
