@@ -91,7 +91,7 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 			function echo_pages ($year, $month, $pages)
 			{
 				for ($q = 1;$q <=$pages;$q++){
-						echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
+						echo "<div style=\"background-image:url(/crablar_pages/\".$year.\"/\".$month.\"/\".$q.\".png)\"></div>";
 				}
 			}
 			
