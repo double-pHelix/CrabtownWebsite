@@ -1,53 +1,37 @@
 <?php
 class UserPermissions {
 
-	const READ_ACCOUNT = 1;
-  const READ_ALL_ACCOUNT = 2;
-  const EDIT_ACCOUNT = 4;
-  const EDIT_ALL_ACCOUNT = 8;
-  const POST_NEW_CONTENT_ACCNT = 16;
-  const READ_POSTS = 32;
-	const POST_NEW_THREADS = 64;
-	const POST_NEW_REPLIES = 128;
-	const EDIT_OWN_POSTS = 256;
-	const EDIT_OTHERS_POSTS = 512;
-	const DELETE_OWN_POSTS = 1024;
-	const DELETE_OTHERS_POSTS = 2048;
-	const MOVE_THREADS = 4096;
-	const SPLIT_THREADS = 8192;
-	const MERGE_THREADS = 16384;
-	const BAN_USERS = 32768;
-	const WARN_USERS = 65536;
-	const ACCESS_ADMIN_PANEL = 131072;
-	// And so on and so on
-	
-	protected $perms;
-	
-	function __construct($permissions) {
-		$this->perms = $permissions;
-	}
-	
-	function hasPermission($perm) {
-		return ($this->perms & $perm) === $perm;
-	}
+    const READ_ACCOUNT = 1;
+    const READ_ALL_ACCOUNT = 2;
+    const EDIT_ACCOUNT = 4;
+    const EDIT_ALL_ACCOUNT = 8;
+    const POST_NEW_CONTENT_ACCNT = 16;
+    const READ_POSTS = 32;
+    const POST_NEW_THREADS = 64;
+    const POST_NEW_REPLIES = 128;
+    const EDIT_OWN_POSTS = 256;
+    const EDIT_OTHERS_POSTS = 512;
+    const DELETE_OWN_POSTS = 1024;
+    const DELETE_OTHERS_POSTS = 2048;
+    const MOVE_THREADS = 4096;
+    const SPLIT_THREADS = 8192;
+    const MERGE_THREADS = 16384;
+    const BAN_USERS = 32768;
+    const WARN_USERS = 65536;
+    const ACCESS_ADMIN_PANEL = 131072;
+    // And so on and so on
+
+    protected $perms;
+
+    function __construct($permissions) {
+      $this->perms = $permissions;
+    }
+
+    function hasPermission($perm) {
+      return ($this->perms & $perm) === $perm;
+    }
 }
 
-/*
-if ($stmt = $mysqli->prepare("SELECT id, username, password, salt 
-        FROM users
-       WHERE email = ?
-        LIMIT 1")) {
-        $stmt->bind_param('s', $email);  // Bind "$email" to parameter.
-        $stmt->execute();    // Execute the prepared query.
-        $stmt->store_result();
- 
-        // get variables from result.
-        $stmt->bind_result($user_id, $username, $db_password, $salt);
-        $stmt->fetch();
- 
-*/
- 
- 
 //get user's permissions 
 
 $user_group = "not set";
@@ -75,7 +59,7 @@ if($stmt = $mysqli->prepare("SELECT group_id FROM users
         $stmt->fetch();
         
         $user_permission = new UserPermissions($user_permissions);
-        echo 'Permissions set';
+        //echo 'Permissions set';
     } else {
       echo 'User group does not exist';
     }
@@ -84,11 +68,12 @@ if($stmt = $mysqli->prepare("SELECT group_id FROM users
   echo 'Username not found';
 }
 
-echo "Starting Tests..."; 
+//echo "Starting Tests..."; 
 
 //run some tests
 if($user_group == 1) {
   //standard user
+  //echo "for standard user";
   if(!($user_permission->hasPermission(UserPermissions::READ_ACCOUNT)) == true){
     echo "failed test 1";
   }
@@ -112,6 +97,7 @@ if($user_group == 1) {
   } 
 } elseif ($user_group == 2){
   //administrator user
+  //echo "for administrator user";
   if(!($user_permission->hasPermission(UserPermissions::READ_ACCOUNT)) == true){
     echo "failed test 1";
   }
@@ -134,6 +120,6 @@ if($user_group == 1) {
     echo "failed test 7";
   } 
 }
-echo "...Tests finised"; 
+//echo "...Tests finised"; 
 
-exit;
+//exit;
