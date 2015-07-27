@@ -47,7 +47,7 @@ if (login_check($mysqli)) {
             <li id="menu_nav_stuff"><a href="/content_pages/games">Games</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li id="menu_nav_stuff"><a href="./">User Profile<span class="sr-only">(current)</span></a></li>
+            <li id="menu_nav_stuff"><a href="/user_profile">User Profile<span class="sr-only">(current)</span></a></li>
             <li id="menu_nav_stuff"><a href="../navbar-fixed-top/">Your Stuff!</a></li>
             <li class="dropdown" id="menu_nav_stuff">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
