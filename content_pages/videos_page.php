@@ -2,6 +2,9 @@
 //dependencies
 include_once $_SERVER['DOCUMENT_ROOT'].'/includes/db_connect.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
+if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
+  include_once $_SERVER['DOCUMENT_ROOT'].'/includes/process_login.php';
+}
  
 //starts secure mysql session 
 if(!isset($_SESSION)) { 
@@ -11,6 +14,7 @@ if(!isset($_SESSION)) {
 
 if (login_check($mysqli) == true){
   $logged_in = true;
+  include_once $_SERVER['DOCUMENT_ROOT'].'/includes/permissions.php';
 } else {
   $logged_in = false;
 }
