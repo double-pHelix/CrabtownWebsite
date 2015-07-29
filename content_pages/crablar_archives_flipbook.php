@@ -135,7 +135,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				}
 				
 				else {
-					echo "<p>Sorry, no results were found for ".$month." ".$year."."</p>";
+					echo "<p>Sorry, no results were found for ".$month." ".$year.".</p>";
 					latest_crablar();
 				}
 			}
