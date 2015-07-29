@@ -29,7 +29,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/login.css"/> 
     <link rel="stylesheet" type="text/css" href="/css/Crabtown v1.0.css">   
@@ -96,9 +96,24 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 			function echo_pages ($year, $month, $pages)
 			{
 				for ($q = 1;$q <=$pages;$q++){
-						echo "<div style=\"background-image:url(/crablar_pages/\".$year.\"/\".$month.\"/\".$q.\".png)\"></div>";
+						echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
 				}
 			}
+			
+			function latest_crablar (){
+				$latest = "SELECT FROM crablar_archives MAX(edition_no)";
+				$result = conn->query($latest);
+				
+				while ($row = mysql_fetch_assoc($result)) {
+				   $year = $row['year'];
+				   $month = $row['month'];
+				   $pages = $row['pages'];
+				}
+				
+				echo_pages($year, $month, $pages);
+				
+			}
+			
 			
 			if(isset($_POST['year'])){
 				//searches db for edition and echos page locations below
@@ -115,21 +130,20 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				   $pages = $row['pages'];
 				}	
 				
+				if (!mysql_result->num_rows==0){
 				echo_pages($year, $month, $pages);
+				}
+				
+				else {
+					echo "<p>Sorry, no results were found for ".$month." ".$year."."</p>";
+					latest_crablar();
+				}
 			}
 			
 			else{
-				$latest = "SELECT FROM crablar_archives MAX(edition_no)";
-				$result = conn->query($latest);
-				
-				while ($row = mysql_fetch_assoc($result)) {
-				   $year = $row['year'];
-				   $month = $row['month'];
-				   $pages = $row['pages'];
-				}
-				
-				echo_pages($year, $month, $pages);
+				latest_crablar();
 			}
+			
 			?>
 		</div>
 	</div>
