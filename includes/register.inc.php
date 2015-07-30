@@ -93,6 +93,22 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
             }
         }
 
+        $aux = $mysqli->insert_id;
+        
+        // Insert the new user information into the database 
+        if ($insert_stmt2 = $mysqli->prepare("INSERT INTO user_information (user_id, occupation, description, colour) VALUES (?, ?, ?, ?)")) {
+            $occupation = "Please Set"; 
+            $description = "Describe Yourself";
+            $colour = "Green";
+              
+            $insert_stmt2->bind_param('isss', $aux, $occupation, $description, $colour);
+                    
+            // Execute the prepared query.
+            if (! $insert_stmt2->execute()) {
+                header('Location: ../error.php?err=Registration failure: INSERT INFORMATION'.$insert_stmt2->error);
+            }
+        } 
+            
         include_once './register_success.php';
         
         exit;
