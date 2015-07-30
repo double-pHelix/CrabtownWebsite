@@ -28,7 +28,8 @@ if($logged_in){
     public $occupation;
     public $description;
     public $colour;
-
+    public $possible_colours = array("Red", "Orange", "Blue", "Green", "Yellow", "Purple", "Pink", "Cyan", "Magenta");    
+    
     function __construct($user_id, $username, $occupation, $description, $colour){
       $this->user_id = $user_id;
       $this->username = $username;
@@ -134,7 +135,7 @@ if($logged_in){
 if(isset($_POST['make_changes'])){
   $user->update_occupation($_POST['occupation_edit']);
   $user->update_description($_POST['description_edit']);
-  //$user->update_colour("Blue");
+  $user->update_colour($_POST['colour_edit']);
 }
 
 
@@ -167,6 +168,8 @@ if(isset($_POST['make_changes'])){
       <script src="http://code.jquery.com/jquery.js"></script>
       <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
       
+      <link rel="stylesheet" href="/css/user_profile.css"/> 
+      
       <?php
         if(isset($_POST['form_type']) || $logged_in == false){
           echo "<script type=\"text/javascript\">
@@ -194,32 +197,46 @@ if(isset($_POST['make_changes'])){
             //we wanted to edit -->
 
             <?php if (isset($_POST['edit_requested'])) : ?>
-              <form name="edit_form" action="" method="POST">
-                <p>Occupation: <input type="text" name="occupation_edit"
-                                  value="<?php echo $user->occupation;?>"> </p><br>
+              <img src="/images/crab_avatars/crab_temp.png" width="200">
+              <form name="edit_form" action="" method="POST" id="edit_form">
+                <b>Occupation: </b><input type="text" name="occupation_edit"
+                                  value="<?php echo $user->occupation;?>"><br>
 
-                <p>Description:<input type="text" name="description_edit" 
-                                  value ="<?php echo $user->description;?>"> </p><br>
+                <b>Description: </b><input type="text" name="description_edit" 
+                                  value ="<?php echo $user->description;?>"><br>
+               <!-- <b>Colour: </b><input type="text" name="colour_edit" 
+                                  value ="<?php echo $user->colour;?>"><br> -->
+                <div class="form-group" id="colour_form">
+                  <label for="sel1">Select Colour</label>
+                    <select class="form-control" id="sel1" name="colour_edit">
+                    
+                      <?php 
+                      foreach ($user->possible_colours as $colour){
+                        if($user->colour == $colour){
+                          echo "<option value='$colour' style=\"background-color:$colour\" selected>$colour</option>";
+                        } else {
+                          echo "<option value='$colour' style=\"background-color:$colour\" >$colour</option>";
+                        }
+                      }
+                      ?>
+                    </select>
+                </div>                            
                 <input class="button" type="submit" name="make_changes" value="Confirm">
               </form>
             <?php else : ?>
+              <?php echo "<img src=\"/images/crab_avatars/crab_$user->colour.png\" width=\"200\">"; ?>
               <form name="request_to_edit" action="" method="POST">
               
-                <p>Occupation: <?php echo $user->occupation; ?></p><br>
+                <b>Occupation: </b><?php echo $user->occupation; ?><br>
                 
-                <p>Description: <?php echo $user->description; ?></p><br>
+                <b>Description: </b><?php echo $user->description; ?><br>
+                <b>Colour: </b><?php echo $user->colour; ?><br>
                 <input class="button" type="submit" name="edit_requested" value="Edit">
-  
-                
+             
               </form>
 
-              
             <?php endif; ?>
-            
-            
-            
-            
-            
+              
 				<div>
 				</div>
 			   </div>

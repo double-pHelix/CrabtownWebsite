@@ -1,0 +1,13 @@
+@import url("http://fonts.googleapis.com/css?family=Londrina+Solid");
+@import url("http://fonts.googleapis.com/css?family=Londrina+Shadow");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600");
+
+#colour_form {
+  width: 20%;
+  position: relative;
+  left: 40%;
+}
+
+#edit_form {
+  text-align: center !important;
+}
