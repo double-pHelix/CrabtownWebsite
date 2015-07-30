@@ -197,15 +197,8 @@ if(isset($_POST['make_changes'])){
             //we wanted to edit -->
 
             <?php if (isset($_POST['edit_requested'])) : ?>
-              <img src="/images/crab_avatars/crab_temp.png" width="200">
+              <img src="/images/crab_avatars/crab_temp.png" id="crab_avatar" width="200">
               <form name="edit_form" action="" method="POST" id="edit_form">
-                <b>Occupation: </b><input type="text" name="occupation_edit"
-                                  value="<?php echo $user->occupation;?>"><br>
-
-                <b>Description: </b><input type="text" name="description_edit" 
-                                  value ="<?php echo $user->description;?>"><br>
-               <!-- <b>Colour: </b><input type="text" name="colour_edit" 
-                                  value ="<?php echo $user->colour;?>"><br> -->
                 <div class="form-group" id="colour_form">
                   <label for="sel1">Select Colour</label>
                     <select class="form-control" id="sel1" name="colour_edit">
@@ -213,26 +206,36 @@ if(isset($_POST['make_changes'])){
                       <?php 
                       foreach ($user->possible_colours as $colour){
                         if($user->colour == $colour){
-                          echo "<option value='$colour' style=\"background-color:$colour\" selected>$colour</option>";
+                          echo "<option value='$colour' id=\"crab_avatar\" style=\"background-color:$colour\" selected>$colour</option>";
                         } else {
-                          echo "<option value='$colour' style=\"background-color:$colour\" >$colour</option>";
+                          echo "<option value='$colour' id=\"crab_avatar\" style=\"background-color:$colour\" >$colour</option>";
                         }
                       }
                       ?>
                     </select>
                 </div>                            
-                <input class="button" type="submit" name="make_changes" value="Confirm">
+              
+                <b>Occupation: </b><input type="text" name="occupation_edit"
+                                  value="<?php echo $user->occupation;?>"><br>
+
+                <b>Description: </b><input type="text" name="description_edit" 
+                                  value ="<?php echo $user->description;?>"><br>
+               <!-- <b>Colour: </b><input type="text" name="colour_edit" 
+                                  value ="<?php echo $user->colour;?>"><br> -->
+                <br>
+                
+                <input class="btn btn-xs btn-default" type="submit" name="make_changes" value="Confirm">
               </form>
             <?php else : ?>
-              <?php echo "<img src=\"/images/crab_avatars/crab_$user->colour.png\" width=\"200\">"; ?>
+              <?php echo "<img src=\"/images/crab_avatars/crab_$user->colour.png\" id=\"crab_avatar\" width=\"200\">"; ?>
               <form name="request_to_edit" action="" method="POST">
               
                 <b>Occupation: </b><?php echo $user->occupation; ?><br>
                 
                 <b>Description: </b><?php echo $user->description; ?><br>
-                <b>Colour: </b><?php echo $user->colour; ?><br>
-                <input class="button" type="submit" name="edit_requested" value="Edit">
-             
+               <!-- <b>Colour: </b><?php echo $user->colour; ?><br> -->
+               <br>
+                <input class="btn btn-xs btn-default" type="submit" name="edit_requested" id="edit_profile_button" value="Edit">
               </form>
 
             <?php endif; ?>
