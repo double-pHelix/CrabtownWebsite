@@ -120,12 +120,9 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
     <br>
   </div>
  
-  <!-- Trigger the modal with a button -->
-  <!-- <button type="button" class="btn btn-info btn-lg" >Open Modal</button> -->
-
-  <div id="footer">
-      <p>Something something all rights reserved crabtown copyright blah blah blah...  Not for human consumption.</p>
-  </div>
+  <!-- FOOTER -->
+  <?php include_once $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
+  
 	</body>
 
   <!-- Modal -->

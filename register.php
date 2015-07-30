@@ -78,6 +78,12 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
                                    this.form.confirmpwd);" /> 
         </form>
         <p>Return to the <a href="/index">main page</a>.</p>
+        
+        
+    <!-- FOOTER -->
+  <?php include_once $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
+
+    
     </body>
     
     

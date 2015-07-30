@@ -118,6 +118,11 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/restricted_message.php'; ?>    
 <?php endif; ?>
 
+  <!-- FOOTER -->
+  <?php include_once $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
+
+    
+
 </body>
 
 <!-- Menu that pops up -->

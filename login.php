@@ -47,4 +47,8 @@ if (login_check($mysqli) == true) {
 
   <?php include_once $_SERVER['DOCUMENT_ROOT'].'/login_menu.php'; ?>
   
+  <!-- FOOTER -->
+  <?php include_once $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
+
+    
 </body></html>

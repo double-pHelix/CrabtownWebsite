@@ -71,12 +71,14 @@ if (login_check($mysqli) == true){
 					</video>
 				</div>
 			   </div>
-			   <div id="footer">
-					<p>Something something all rights reserved crabtown copyright blah blah blah...  Not for human consumption.</p>
-  </div>
+
 		<?php else : ?>
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/restricted_message.php'; ?>        
     <?php endif; ?>
+    
+    <!-- FOOTER -->
+    <?php include_once $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
+
     </body>
         
     <!-- Menu that pops up -->
