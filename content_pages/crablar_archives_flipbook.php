@@ -39,14 +39,14 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
     <script type="text/JavaScript" src="/js/sha512.js"></script> 
     <script type="text/JavaScript" src="/js/forms.js"></script>
 
-    <script type="text/javascript" src="/CSS/extras/jquery.min.1.7.js"></script>
+    <script type="text/javascript" src="/css/extras/jquery.min.1.7.js"></script>
     <script type="text/JavaScript" src="/js/popup.js"></script>
 
     <script src="http://code.jquery.com/jquery.js"></script>
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
     <meta name="viewport" content="width = 1050, user-scalable = no" />
-    <script type="text/javascript" src="/CSS/extras/modernizr.2.5.3.min.js"></script>
+    <script type="text/javascript" src="/css/extras/modernizr.2.5.3.min.js"></script>
 
     <?php
       if(isset($_POST['form_type']) || $logged_in == false){
@@ -104,10 +104,16 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				$latest = "SELECT FROM crablar_archives MAX(edition_no)";
 				$result = conn->query($latest);
 				
-				while ($row = mysql_fetch_assoc($result)) {
+				if ($row = mysql_fetch_assoc($result)) {
 				   $year = $row['year'];
 				   $month = $row['month'];
 				   $pages = $row['pages'];
+				}
+				else {
+					echo "<p>ALERT ALERT Crablar archives malfunctioning, please notify an admin of this error</p>";
+					$year = 2014;
+					$month = July;
+					$pages = 3;
 				}
 				
 				echo_pages($year, $month, $pages);
