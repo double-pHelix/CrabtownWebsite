@@ -2,7 +2,6 @@
 include_once $_SERVER['DOCUMENT_ROOT'].'/includes/db_connect.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
-  exit;
   include_once $_SERVER['DOCUMENT_ROOT'].'/includes/process_login.php';
 }
 
