@@ -7,6 +7,10 @@ if(!isset($_SESSION) && session_status() == PHP_SESSION_NONE) {
   // sec_session_start();
 }
 
+if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
+  include_once $_SERVER['DOCUMENT_ROOT'].'/includes/process_login.php';
+}
+
 if (login_check($mysqli) == true) {
     $logged = 'in';
 } else {
@@ -37,6 +41,9 @@ if (login_check($mysqli) == true) {
   </head>
   
 <body>
+    
+  <!-- Navigation Menu at the top of each page -->
+  <?php include_once $_SERVER['DOCUMENT_ROOT'].'/menu_navigation.php'; ?>
 
   <?php include_once $_SERVER['DOCUMENT_ROOT'].'/login_menu.php'; ?>
   

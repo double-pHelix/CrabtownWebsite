@@ -5,9 +5,6 @@
   } 
 ?>  
 
-<!-- Navigation Menu at the top of each page -->
-<?php include_once $_SERVER['DOCUMENT_ROOT'].'/menu_navigation.php'; ?>
-
 <?php
   if (login_check($mysqli) == true) {
    
