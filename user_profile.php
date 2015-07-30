@@ -190,7 +190,6 @@ if(isset($_POST['make_changes'])){
 				  <p>
 					  <h1>Welcome to your profile page <?php echo $_SESSION['username']; ?></h1>
 					  <br>
-					  <br>
             
             <!--//if user asked to edit provide and edit form
 
