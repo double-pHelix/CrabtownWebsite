@@ -1,4 +1,5 @@
 <?php
+
 include_once $_SERVER['DOCUMENT_ROOT'].'/includes/db_connect.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
@@ -29,7 +30,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/login.css"/> 
     <link rel="stylesheet" type="text/css" href="/css/Crabtown v1.0.css">   
@@ -39,14 +40,14 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
     <script type="text/JavaScript" src="/js/sha512.js"></script> 
     <script type="text/JavaScript" src="/js/forms.js"></script>
 
-    <script type="text/javascript" src="/CSS/extras/jquery.min.1.7.js"></script>
+    <script type="text/javascript" src="/css/extras/jquery.min.1.7.js"></script>
     <script type="text/JavaScript" src="/js/popup.js"></script>
 
     <script src="http://code.jquery.com/jquery.js"></script>
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
     <meta name="viewport" content="width = 1050, user-scalable = no" />
-    <script type="text/javascript" src="/CSS/extras/modernizr.2.5.3.min.js"></script>
+    <script type="text/javascript" src="/css/extras/modernizr.2.5.3.min.js"></script>
 
     <?php
       if(isset($_POST['form_type']) || $logged_in == false){
@@ -90,15 +91,36 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 	
 <div class="flipbook-viewport">
 	<div class="container">
-		<div class="flipbook">
+		<div class="flipbook" id="flipbook">
 			<?php
 			
 			function echo_pages ($year, $month, $pages)
 			{
 				for ($q = 1;$q <=$pages;$q++){
-						echo "<div style=\"background-image:url(/crablar_pages/\".$year.\"/\".$month.\"/\".$q.\".png)\"></div>";
+						echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
 				}
 			}
+			
+			function latest_crablar (){
+				$latest = "SELECT FROM crablar_archives MAX(edition_no)";
+				$result = conn->query($latest);
+				
+				if ($row = mysql_fetch_assoc($result)) {
+				   $year = $row['year'];
+				   $month = $row['month'];
+				   $pages = $row['pages'];
+				}
+				else {
+					echo "<p>ALERT ALERT Crablar archives malfunctioning, please notify an admin of this error</p>";
+					$year = 2014;
+					$month = July;
+					$pages = 3;
+				}
+				
+				echo_pages($year, $month, $pages);
+				
+			}
+			
 			
 			if(isset($_POST['year'])){
 				//searches db for edition and echos page locations below
@@ -115,21 +137,20 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				   $pages = $row['pages'];
 				}	
 				
+				if (!mysql_result->num_rows==0){
 				echo_pages($year, $month, $pages);
+				}
+				
+				else {
+					echo "<p>Sorry, no results were found for ".$month." ".$year.".</p>";
+					latest_crablar();
+				}
 			}
 			
 			else{
-				$latest = "SELECT FROM crablar_archives MAX(edition_no)";
-				$result = conn->query($latest);
-				
-				while ($row = mysql_fetch_assoc($result)) {
-				   $year = $row['year'];
-				   $month = $row['month'];
-				   $pages = $row['pages'];
-				}
-				
-				echo_pages($year, $month, $pages);
+				latest_crablar();
 			}
+			
 			?>
 		</div>
 	</div>
@@ -139,7 +160,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
   <script type="text/javascript">
     function loadApp() {
       // Create the flipbook
-      $('.flipbook').turn({
+      $("#flipbook").turn({
           // Width
           width:922,
           
@@ -158,8 +179,8 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
     // Load the HTML4 version if there's not CSS transform
     yepnope({
       test : Modernizr.csstransforms,
-      yep: ['/CSS/lib/turn.js'],
-      nope: ['/CSS/lib/turn.html4.min.js'],
+      yep: ['/css/lib/turn.js'],
+      nope: ['/css/lib/turn.html4.min.js'],
       both: ['/crablar_pages/2014/css/basic.css'],
       complete: loadApp
     });
