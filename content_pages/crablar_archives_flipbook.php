@@ -90,7 +90,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 	
 <div class="flipbook-viewport">
 	<div class="container">
-		<div class="flipbook">
+		<div class="flipbook" id="flipbook">
 			<?php
 			
 			function echo_pages ($year, $month, $pages)
@@ -159,7 +159,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
   <script type="text/javascript">
     function loadApp() {
       // Create the flipbook
-      $('.flipbook').turn({
+      $("#flipbook").turn({
           // Width
           width:922,
           
@@ -178,8 +178,8 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
     // Load the HTML4 version if there's not CSS transform
     yepnope({
       test : Modernizr.csstransforms,
-      yep: ['/CSS/lib/turn.js'],
-      nope: ['/CSS/lib/turn.html4.min.js'],
+      yep: ['/css/lib/turn.js'],
+      nope: ['/css/lib/turn.html4.min.js'],
       both: ['/crablar_pages/2014/css/basic.css'],
       complete: loadApp
     });
