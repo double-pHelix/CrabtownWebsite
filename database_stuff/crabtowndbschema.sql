@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 25, 2015 at 10:08 AM
+-- Generation Time: Jul 31, 2015 at 07:57 AM
 -- Server version: 5.5.44-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.11
 
@@ -57,13 +57,24 @@ CREATE TABLE IF NOT EXISTS `banned_emails` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `crablars`
+-- Table structure for table `crablar_archives`
 --
 
-CREATE TABLE IF NOT EXISTS `crablars` (
+CREATE TABLE IF NOT EXISTS `crablar_archives` (
+  `edition_no` int(4) DEFAULT NULL,
   `year` int(4) NOT NULL,
-  `month` varchar(9) NOT NULL
+  `month` varchar(9) NOT NULL,
+  `pages` int(2) DEFAULT NULL,
+  UNIQUE KEY `edition_no` (`edition_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `crablar_archives`
+--
+
+INSERT INTO `crablar_archives` (`edition_no`, `year`, `month`, `pages`) VALUES
+(1, 2014, 'jun', 3),
+(2, 2015, 'jul', 6);
 
 -- --------------------------------------------------------
 
@@ -101,7 +112,8 @@ CREATE TABLE IF NOT EXISTS `groups` (
 --
 
 INSERT INTO `groups` (`id`, `group_name`, `permissions`) VALUES
-(1, 'standard', 63);
+(1, 'standard', 1525),
+(2, 'administrator', 262143);
 
 -- --------------------------------------------------------
 
@@ -131,7 +143,12 @@ INSERT INTO `login_attempts` (`user_id`, `time`) VALUES
 (4, 1437712784),
 (4, 1437751438),
 (4, 1437807825),
-(4, 1437823601);
+(4, 1437823601),
+(4, 1437999486),
+(4, 1437999492),
+(4, 1438162880),
+(4, 1438247974),
+(4, 1438342113);
 
 -- --------------------------------------------------------
 
@@ -156,8 +173,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
+-- Table structure for table `user_information`
+--
+
+CREATE TABLE IF NOT EXISTS `user_information` (
+  `user_id` int(11) NOT NULL,
+  `occupation` text NOT NULL,
+  `description` text NOT NULL,
+  `colour` varchar(10) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
