@@ -13,7 +13,8 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
   
   if (login_check($mysqli) == true){
     $logged_in = true;
-    include_once $_SERVER['DOCUMENT_ROOT'].'/includes/permissions.php';
+    //load user permissions and data
+    include_once $_SERVER['DOCUMENT_ROOT'].'/includes/user_profile.php';
   } else {
     $logged_in = false;
   }

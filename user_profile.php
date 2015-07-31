@@ -14,122 +14,13 @@ if(!isset($_SESSION)) {
 
 if (login_check($mysqli) == true){
   $logged_in = true;
-  include_once $_SERVER['DOCUMENT_ROOT'].'/includes/permissions.php';
+  //load user permissions and data
+  include_once $_SERVER['DOCUMENT_ROOT'].'/includes/user_profile.php';
 } else {
   $logged_in = false;
 }
 
-if($logged_in){
-//set up user profile
 
-  class User {
-    public $username;
-    public $user_id;
-    public $occupation;
-    public $description;
-    public $colour;
-    public $possible_colours = array("Red", "Orange", "Blue", "Green", "Yellow", "Purple", "Pink", "Cyan", "Magenta");    
-    
-    function __construct($user_id, $username, $occupation, $description, $colour){
-      $this->user_id = $user_id;
-      $this->username = $username;
-      $this->occupation = $occupation;
-      $this->description = $description;
-      $this->colour = $colour;
-    }
-    
-    function update_occupation($new_occupation){
-      //sanitize
-      //$new_occupation = filter_input(INPUT_POST, 'new_occupation', FILTER_SANITIZE_STRING);
-      $this->occupation = $new_occupation;
-      $this->update_info($this->user_id, $this->occupation, $this->description, $this->colour);
-    }
-    
-    function update_description($new_description){
-      //sanitize
-      //$new_description = filter_input(INPUT_POST, 'new_description', FILTER_SANITIZE_STRING);
-      $this->description = $new_description;
-      $this->update_info($this->user_id, $this->occupation, $this->description, $this->colour);
-      
-    }
-    
-    function update_colour($new_colour){
-      //sanitize
-      //$new_colour = filter_input(INPUT_POST, 'new_colour', FILTER_SANITIZE_STRING);
-      $this->colour = $new_colour;
-      $this->update_info($this->user_id, $this->occupation, $this->description, $this->colour);
-    }
-    
-    function update_info($user_id, $occupation, $description, $colour){
-      global $mysqli;
-      // Insert the new user into the database 
-      if ($update_stmt = $mysqli->prepare("UPDATE user_information SET occupation=?, description=?, colour=? WHERE user_id=?")) {
-          
-          $update_stmt->bind_param('sssi', $occupation, $description, $colour, $user_id);
-          // Execute the prepared query.
-
-          if (! $update_stmt->execute()){
-              print 'Error : ('. $mysqli->errno .') '. $mysqli->error;
-          }
-          
-      } else {
-        echo "UPDATE FAIL!";
-      }
-    }
-    
-    function print_all(){
-      echo $this->username.$this->occupation.$this->description.$this->colour;
-    }
-
-  }
-
-  //set up our user
-  $user_set = false;
-  $user;
-  $username = $_SESSION['username'];
-  $occupation;
-  $description;
-  $colour;
-
-  //get the user's id
-  if($stmt = $mysqli->prepare("SELECT id FROM users
-          WHERE username = ?
-          LIMIT 1")){
-          
-        $stmt->bind_param('s', $_SESSION['username']);       
-        $stmt->execute();    // Execute the prepared query.
-        $stmt->store_result();
-        $stmt->bind_result($user_id);
-        $stmt->fetch();
-        
-        //get the user's permissions
-        if($stmt = $mysqli->prepare("SELECT occupation, description, colour FROM user_information
-            WHERE user_id = ?
-            LIMIT 1")){
-            
-            $stmt->bind_param('s', $user_id);       
-            $stmt->execute();    // Execute the prepared query.
-            $stmt->store_result();
-            $stmt->bind_result($occupation, $description, $colour);
-            $stmt->fetch();
-            
-            $user_set = true;
-            $user = new User($user_id, $_SESSION['username'],$occupation, $description, $colour);
-            //echo 'Permissions set';
-        } else {
-          echo 'Database or SQL error1';
-        }
-  } else {
-    echo 'Database or SQL error2';
-  }
-
-  if($user_set == false){
-    echo "...User not set. Failed.";
-    exit;
-  }
-  
-  //exit;
-}
 
 //check if we asked to change data
 if(isset($_POST['make_changes'])){
