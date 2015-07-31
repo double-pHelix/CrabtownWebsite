@@ -158,13 +158,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `email`, `group_id`, `password`, `salt`, `perm_override_remove`, `perm_override_add`, `reg_date`, `last_login_date`, `reg_ip`, `last_login_ip`, `must_validate`) VALUES
-(4, 'Greg', 'notreal@hotmail.com', 1, '540b4dd71c30112cf9a83f395f8f48da9d473bf2d98de24926d11a6c98e249eb7dda6989b5e8eef14b9a1cd3e2c03b238ef9843fd7bc0b0b624006f9a992fa8d', 'bea4b9cdb5eb402869b32c004c1e8ebf0e5a95ed390fefa5d5fceefe426dc1783dc6901d9d1461f15c51f90ea9734314288852a82e1076d5633879130c0f2fbf', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0),
-(5, 'Nippy', 'MayorOfCrabtown@gmail.com', 1, '898a7c165088a047fea205ecd949e59a0e5df26d47bde6a5c89ccbcc485f41fbb04d8dbd38d6de84de471c9b2016a9643e75856068b768390f9731f6e5b9795d', 'dcdef9dae4586bf5b918dc99d7307a09f2ce612711a4d386ea634ce13ff6f635dc189942f71423ee165e5578d9880f8b0f9e88c857855f7465b7c1438d0273ea', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
