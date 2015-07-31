@@ -43,37 +43,33 @@ if (login_check($mysqli)) {
             <li id="menu_nav_stuff"><a href="/content_pages/games">Games</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li id="menu_nav_stuff"> 
-                <?php
-                  if(isset($user)){
-                   // echo "<img src=\"/images/crab_avatars/crab_$user->colour.png\" id=\"crab_avatar_menu\">";
-                  }
-                ?></li>
-            <li id="menu_nav_stuff">
-                <a href="/user_profile"> 
-                <?php
-                  if(isset($user)){
-                    echo "<img src=\"/images/crab_avatars/crab_$user->colour.png\" id=\"crab_avatar_menu\"> $user->username";
-                  } else {
-                    echo "User Profile";
-                  }
-                ?> <span class="sr-only">(current)</span></a></li>
-            <li id="menu_nav_stuff"><a href="../navbar-fixed-top/">Your Stuff!</a></li>
+          
+             <?php if($logged == 'in'): ?>
+                <li id="menu_nav_stuff">
+                    <a href="/user_profile"> 
+                    <?php
+                        echo "<img src=\"/images/crab_avatars/crab_$user->colour.png\" id=\"crab_avatar_menu\"> $user->username";  
+                    ?> <span class="sr-only">(current)</span></a></li>
+
+                <li id="menu_nav_stuff"><a href="../navbar-fixed-top/">Your Stuff!</a></li>
+              <?php endif; ?>
+            
             <li class="dropdown" id="menu_nav_stuff">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">My Account</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Inbox</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Settings</li>
-                <?php 
-                if($logged == 'in'){
-                  echo "<li><a href=\"/logout_transfer.php\">Log Out</a></li>";
-                } else {
-                  echo "<li><a data-toggle=\"modal\" data-target=\"#myModal\">LOGIN</a></li>";
-                }
-                ?>
+              
+                <?php if($logged == 'in'): ?>
+                  <li><a href="#">My Account</a></li>
+                  <li><a href="#">Profile</a></li>
+                  <li><a href="#">Inbox</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Settings</li>
+                  <li><a href="/logout_transfer.php">Log Out</a></li>
+
+                <?php else : ?>
+                  <li><a href="./register">Register</a></li>
+                  <li><a data-toggle="modal" data-target="#myModal">Login</a></li>
+                <?php endif; ?>
               </ul>
             </li>    
           </ul>
