@@ -80,7 +80,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 	  <option value="apr">Apr</option>
 	  <option value="may">May</option>
 	  <option value="jun">Jun</option>
-	  <option value="july">July</option>
+	  <option value="jul">Jul</option>
 	  <option value="aug">Aug</option>
 	  <option value="sep">Sep</option>
 	  <option value="oct">Oct</option>
