@@ -87,6 +87,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 	  <option value="nov">Nov</option>
 	  <option value="dec">Dec</option>
 	</select>
+	<input type="submit" value="Search">
  </form>	
 </div>	
 	
