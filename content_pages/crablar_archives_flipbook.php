@@ -104,7 +104,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 			
 			function latest_crablar (){
 				$latest = "SELECT FROM crablar_archives MAX(edition_no)";
-				$result = conn->query($latest);
+				$result = $mysqli->query($latest);
 				
 				if ($row = mysql_fetch_assoc($result)) {
 				   $year = $row['year'];
@@ -125,7 +125,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 			
 			if(isset($_POST['year'])){
 				//searches db for edition and echos page locations below
-				$stmt = $conn->prepare("SELECT FROM crablar_archives (year, month) VALUES (?, ?)");
+				$stmt = $mysqli->prepare("SELECT FROM crablar_archives (year, month) VALUES (?, ?)");
 				$stmt->bind_param("si", $year, $month);
 				
 				$year = $_POST['year'];
