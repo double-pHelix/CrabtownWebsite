@@ -98,7 +98,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 			function echo_pages ($year, $month, $pages)
 			{
 				for ($q = 1;$q <=$pages;$q++){
-						echo "<div style="background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)"></div>";
+						echo "<div style=\"background-image:url(/crablar_pages/".$year."/".$month."/".$q.".png)\"></div>";
 				}
 			}
 			
