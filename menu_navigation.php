@@ -39,7 +39,7 @@ if (login_check($mysqli)) {
                   <li><a href="/content_pages/crablar_archives_flipbook">Interactive Reader</a></li>
                 </ul>
             </li>
-            <li id="menu_nav_stuff"><a href="#">Events</a></li>
+            <li id="menu_nav_stuff"><a href="/content_pages/events">Events</a></li>
             <li id="menu_nav_stuff"><a href="/content_pages/games">Games</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
