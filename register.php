@@ -3,9 +3,23 @@
 include_once 'includes/register.inc.php';
 include_once 'includes/functions.php';
 include_once 'includes/emailcheck.php';
+
 if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
-  include_once 'includes/process_login.php';
+  include_once $_SERVER['DOCUMENT_ROOT'].'/includes/process_login.php';
 }
+
+if(!isset($_SESSION)) { 
+  session_start();
+ //sec_session_start();
+}
+if (login_check($mysqli) == true){
+  $logged_in = true;
+  //load user permissions and data
+  include_once $_SERVER['DOCUMENT_ROOT'].'/includes/user_profile.php';
+} else {
+  $logged_in = false;
+}
+
 
 ?>
 <!DOCTYPE html>
