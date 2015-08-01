@@ -1,0 +1,16 @@
+@import url("http://fonts.googleapis.com/css?family=Londrina+Solid");
+@import url("http://fonts.googleapis.com/css?family=Londrina+Shadow");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600");
+
+.event_article {
+  border-radius: 25px;
+  border: 5px solid #064273;
+  background-color:#FFFFFF ;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 11px;
+  width: 60%;
+  margin-top: 13px;
+  margin-bottom: 10px;
+  position: relative;
+  left: 20%;
+}
