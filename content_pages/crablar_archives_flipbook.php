@@ -141,10 +141,12 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				
 				if (!$mysql_result->num_rows==0){
 				echo_pages($year, $month, $pages);
+				$stmt->close();
 				}
 				
 				else {
 					echo "<p>Sorry, no results were found for ".$month." ".$year.".</p>";
+					$stmt->close();
 					latest_crablar();
 				}
 			}
