@@ -138,7 +138,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				   $pages = $row['pages'];
 				}	
 				
-				if (!mysql_result->num_rows==0){
+				if (!$mysql_result->num_rows==0){
 				echo_pages($year, $month, $pages);
 				}
 				
