@@ -64,7 +64,7 @@ if (login_check($mysqli) == true){
         <h1>Events</h1>
           <div class="event_article">
             <h2>Crabtown Logo Contest!</h2>
-            <img src"http://i.nextmedia.com.au/News/uncle-sam-we-want-you.jpg" width=400>
+            <img src="http://i.nextmedia.com.au/News/uncle-sam-we-want-you.jpg" width=400>
             <p>Want to show off<sup>1</sup> your amazing cool design skills and <b><i>WIN COOL PRIZES</i></b><sup>2</sup>?</p>
             <p> Crabtown Mania is looking for someone to <em>design the logo</em> that will appear at the top left hand corner of every page, replacing the "Crabtown" sign. </p>
             <p> Submit your awesome logos to <strong>insertemail@email.com</strong> and we'll announce the winner on the <strong>1/9/2015!</strong> </p>
