@@ -131,16 +131,16 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				$year = $_POST['year'];
 				$month = $_POST['month'];
 				$stmt->execute();
+				$row = mysql_fetch_assoc($result);
 				
-				while ($row = mysql_fetch_assoc($stmt)) {
-				   $year = $row['year'];
-				   $month = $row['month'];
-				   $pages = $row['pages'];
-				}	
-				
-				if (!$mysql_result->num_rows==0){
-				echo_pages($year, $month, $pages);
-				$stmt->close();
+				if (!$row==0){
+					while ($res = mysql_fetch_assoc($stmt)) {
+					   $year = $res['year'];
+					   $month = $res['month'];
+					   $pages = $res['pages'];
+					}
+					echo_pages($year, $month, $pages);
+					$stmt->close();
 				}
 				
 				else {
