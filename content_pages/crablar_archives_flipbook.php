@@ -127,7 +127,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 			if(isset($_POST['year'])){
 				//searches db for edition and echos page locations below
 				$stmt = $mysqli->prepare("SELECT FROM 'crablar_archives' ('year', 'month') VALUES (?,?)");
-				$stmt->bind_param('si', $year, $month);
+				$stmt->bind_param("is", $year, $month);
 				
 				$year = $_POST['year'];
 				$month = $_POST['month'];
