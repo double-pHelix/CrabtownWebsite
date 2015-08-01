@@ -48,7 +48,12 @@ body {
 
 .carousel-inner > .item > img {
   height: 400px;
+  width: 925px;
   margin: 0 auto;
+  border-radius: 15px;
+  border: 7px solid #064273;
+  background-color:#FFFFFF ;
+  font-family: "Open Sans", sans-serif;
 }
 
 #content h1 {
