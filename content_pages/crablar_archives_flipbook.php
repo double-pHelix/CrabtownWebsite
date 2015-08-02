@@ -135,7 +135,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				$data = $stmt->fetch();
 				
 				while($data){
-					$pages = $pages1
+					$pages = $pages1;
 				}
 					echo_pages($year, $month, $pages);
 					$stmt->close();
