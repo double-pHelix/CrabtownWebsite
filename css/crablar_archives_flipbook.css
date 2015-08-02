@@ -1,1 +1,4 @@
-
+/*brings search box to the front*/
+.searchbox{
+  z-index:5;
+}
