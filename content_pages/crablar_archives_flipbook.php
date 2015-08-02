@@ -132,12 +132,6 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				$stmt->execute();
 				$row = mysqli_fetch_assoc($stmt);
 				
-					//testing purposes only
-					if (!$query) {
-        					echo <p>'MySQL Error: ' . mysqli_error()</p>;
-						exit;
-					}
-				
 				//checks if query returns result and how many
 				//should be 1 result max, thinking about implementing search by year option
 				if (!$row==0){
