@@ -103,7 +103,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				}
 			}
 			
-			function latest_crablar (){
+			function latest_crablar ($mysqli){
 				$result = $mysqli->query("SELECT MAX(edition_no) FROM crablar_archives");
 				
 				if ($row = mysql_fetch_assoc($result)) {
@@ -132,6 +132,12 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				$stmt->execute();
 				$row = mysqli_fetch_assoc($stmt);
 				
+					//testing purposes only
+					/*if (!$query) {
+        					echo 'MySQL Error: ' . mysqli_error();
+						exit;
+					}*/
+				
 				//checks if query returns result and how many
 				//should be 1 result max, thinking about implementing search by year option
 				if (!$row==0){
@@ -153,7 +159,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 			}
 			
 			else{
-				latest_crablar();
+				latest_crablar($mysqli);
 			}
 			
 			?>
