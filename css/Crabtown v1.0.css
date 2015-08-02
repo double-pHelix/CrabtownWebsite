@@ -66,14 +66,14 @@ body {
   position: relative;
   color: white;
   text-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
-}​
+}
 
 
 #footer {
   font-size: 10px;
   color: white;
   position: fixed; bottom: 0; height: 100px;
-  background-image: url("/../images/wave.png");
+  background-image: url("../images/wave.png");
   background-repeat: no-repeat;
   background-size: auto 100px; 
 }
