@@ -69,11 +69,11 @@ body {
 }​
 
 
-#footer{
+#footer {
   font-size: 10px;
   color: white;
   position: fixed; bottom: 0; height: 100px;
-  background-image: url("../images/wave.png");
+  background-image: url("/../images/wave.png");
   background-repeat: no-repeat;
   background-size: auto 100px; 
 }
