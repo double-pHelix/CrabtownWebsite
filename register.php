@@ -34,6 +34,7 @@ if (login_check($mysqli) == true){
         <link rel="stylesheet" href="/css/login.css"/> 
         <link rel="stylesheet" type="text/css" href="/css/Crabtown v1.0.css">    
         <link rel="stylesheet" href="/css/login_menu.css"/>  
+        <link rel="stylesheet" href="/css/register.css"/>  
         
         <script type="text/JavaScript" src="/js/sha512.js"></script> 
         <script type="text/JavaScript" src="/js/forms.js"></script>
@@ -60,6 +61,7 @@ if (login_check($mysqli) == true){
         <ul>
             <li>Usernames may contain only digits, upper and lower case letters and underscores.  Please do not use your real name!</li>
             <li>Emails must have a valid email format</li>
+            <img src="/images/mayornippywelcome_fog.png" id="mayor_welcome">
             <li>Passwords must be at least 6 characters long</li>
             <li>Passwords must contain
                 <ul>
