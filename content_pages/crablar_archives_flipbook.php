@@ -109,7 +109,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				if ($row = mysql_fetch_assoc($result)) {
 					
 					if (!$row) {
-        					echo 'MySQL Error: ' . mysqli_error();
+        					echo 'MySQL Error: ' . mysql_error();
 						exit;
 					}
 				   $year = $row['year'];
