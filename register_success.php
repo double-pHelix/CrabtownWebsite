@@ -53,7 +53,9 @@
       <h1>Welcome, citizen!</h1>
       <br>
       <img src="/images/registration_success.png" id="citzen_certificate">
-      <?php echo "<div id=\"citizen_name\">".$username."</div>";?>          
+      <?php echo "<div id=\"citizen_name\">".$_SESSION['username']."</div>";?>
+      <p>Create your <a href="/user_profile">profile</a> and begin exploring Crabtown!</p>
+          
         
     </body>
 </html>
