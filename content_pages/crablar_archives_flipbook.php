@@ -107,6 +107,11 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				$result = $mysqli->query("SELECT MAX(edition_no) FROM crablar_archives");
 				
 				if ($row = mysql_fetch_assoc($result)) {
+					
+					if (!$row) {
+        					echo 'MySQL Error: ' . mysqli_error();
+						exit;
+					}
 				   $year = $row['year'];
 				   $month = $row['month'];
 				   $pages = $row['pages'];
@@ -114,7 +119,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				else {
 					echo "<p>ALERT ALERT Crablar archives malfunctioning, please notify an admin of this error</p>";
 					$year = 2014;
-					$month = July;
+					$month = jul;
 					$pages = 3;
 				}
 				
