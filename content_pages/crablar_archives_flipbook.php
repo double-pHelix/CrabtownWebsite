@@ -139,7 +139,6 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				}
 					echo_pages($year, $month, $pages);
 					$stmt->close();
-			}
 				
 				//checks if query returns result and how many
 				//will implement a search by year function later
