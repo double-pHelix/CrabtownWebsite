@@ -134,7 +134,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				
 					//testing purposes only
 					if (!$query) {
-        					echo 'MySQL Error: ' . mysqli_error();
+        					echo <p>\'MySQL Error: \' . mysqli_error()</p>;
 						exit;
 					}
 				
