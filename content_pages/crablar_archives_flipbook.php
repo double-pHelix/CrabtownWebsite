@@ -104,8 +104,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 			}
 			
 			function latest_crablar (){
-				$latest = "SELECT MAX(edition_no) FROM crablar_archives";
-				$result = $mysqli->query($latest);
+				$result = $mysqli->query("SELECT MAX(edition_no) FROM crablar_archives");
 				
 				if ($row = mysql_fetch_assoc($result)) {
 				   $year = $row['year'];
@@ -131,7 +130,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				$year = $_POST['year'];
 				$month = $_POST['month'];
 				$stmt->execute();
-				$row = mysql_fetch_assoc($stmt);
+				$row = mysqli_fetch_assoc($stmt);
 				
 				//checks if query returns result and how many
 				//should be 1 result max, thinking about implementing search by year option
