@@ -124,21 +124,20 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 			
 			if(isset($_POST['year'])){
 				//searches db for edition and echos page locations below
-				$stmt = $mysqli->prepare("SELECT 'year','month' FROM crablar_archives WHERE 'year' = ? AND 'month'=?");
+				$stmt = $mysqli->prepare("SELECT 'edition_no','pages' FROM crablar_archives WHERE 'year' = ? AND 'month'=?");
 				$stmt->bind_param("is", $year, $month);
 				
 				$year = $_POST['year'];
 				$month = $_POST['month'];
 				$stmt->execute();
-				$result = $stmt->get_result();
-				$row = $stmt->fetch_array(MYSQLI_ASSOC);
+				$stmt->bind_result($edition_no,$pages);
+				$data = $stmt->fetch();
 				
 				//checks if query returns result and how many
 				//should be 1 result max, thinking about implementing search by year option
-				if (!$row==0){
-					while ($res = mysql_fetch_assoc($stmt)) {
-					   $year = $res['year'];
-					   $month = $res['month'];
+				if ($data){
+					while ($res = mysqli_fetch_assoc($stmt)) {
+					   $edition_no = $res['edition_no'];
 					   $pages = $res['pages'];
 					}
 					echo_pages($year, $month, $pages);
