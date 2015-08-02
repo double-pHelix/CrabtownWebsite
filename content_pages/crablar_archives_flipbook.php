@@ -105,8 +105,8 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 			}
 			
 			function latest_crablar ($mysqli){
-				$result = $mysqli->query("SELECT MAX('edition_no') FROM crablar_archives");
-				if ($row = mysqli_fetch_assoc($result)) {
+				$result = $mysqli->query("SELECT year,month,pages,MAX(edition_no) FROM crablar_archives");
+				while ($row = mysqli_fetch_assoc($result)) {
 				   $year = $row['year'];
 				   $month = $row['month'];
 				   $pages = $row['pages'];
@@ -124,25 +124,33 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 			
 			if(isset($_POST['year'])){
 				//searches db for edition and echos page locations below
-				$stmt = $mysqli->prepare("SELECT 'edition_no','pages' FROM crablar_archives WHERE 'year' = ? AND 'month'=?");
+				//limit is just temp
+				$stmt = $mysqli->prepare("SELECT 'pages' FROM crablar_archives WHERE 'year' = ? AND 'month'=? LIMIT 1");
 				$stmt->bind_param("is", $year, $month);
 				
 				$year = $_POST['year'];
 				$month = $_POST['month'];
 				$stmt->execute();
-				$stmt->bind_result($edition_no,$pages);
+				$stmt->bind_result($pages1);
 				$data = $stmt->fetch();
 				
+				while($data){
+					$pages = $pages1
+				}
+					echo_pages($year, $month, $pages);
+					$stmt->close();
+			}
+				
 				//checks if query returns result and how many
-				//should be 1 result max, thinking about implementing search by year option
-				if ($data){
+				//will implement a search by year function later
+				/*if ($data){
 					while ($res = mysqli_fetch_assoc($stmt)) {
 					   $edition_no = $res['edition_no'];
 					   $pages = $res['pages'];
 					}
 					echo_pages($year, $month, $pages);
 					$stmt->close();
-				}
+				}*/
 				
 				else {
 					$Month = ucfirst($month);
