@@ -154,7 +154,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 					$Month = ucfirst($month);
 					echo "<p>Sorry, no results were found for ".$Month." ".$year.".</p>";
 					$stmt->close();
-					latest_crablar();
+					latest_crablar($mysqli);
 				}
 			}
 			
