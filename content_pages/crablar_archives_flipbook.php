@@ -61,7 +61,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
       }
     ?>
 </head>
-<body id="Crablar_Reader">
+<body>
     <!-- Navigation Menu at the top of each page -->
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/menu_navigation.php'; ?>
  
@@ -91,7 +91,8 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 	<input type="submit" value="Search">
  </form>	
 </div>	
-	
+
+<div class="content">
 <div class="flipbook-viewport">
 	<div class="container">
 		<div class="flipbook" id="flipbook">
@@ -202,7 +203,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 <?php else : ?>
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/restricted_message.php'; ?>    
 <?php endif; ?>
-
+</div>
 <!-- FOOTER -->
 <?php include_once $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
 
