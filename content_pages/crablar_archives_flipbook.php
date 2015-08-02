@@ -107,11 +107,6 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				$result = $mysqli->query("SELECT MAX(edition_no) FROM crablar_archives");
 				
 				if ($row = mysql_fetch_assoc($result)) {
-					
-					if (!$row) {
-        					echo 'MySQL Error: ' . mysql_error();
-						exit;
-					}
 				   $year = $row['year'];
 				   $month = $row['month'];
 				   $pages = $row['pages'];
@@ -138,10 +133,10 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				$row = mysqli_fetch_assoc($stmt);
 				
 					//testing purposes only
-					/*if (!$query) {
+					if (!$query) {
         					echo 'MySQL Error: ' . mysqli_error();
 						exit;
-					}*/
+					}
 				
 				//checks if query returns result and how many
 				//should be 1 result max, thinking about implementing search by year option
