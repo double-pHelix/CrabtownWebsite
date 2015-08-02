@@ -130,7 +130,8 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				$year = $_POST['year'];
 				$month = $_POST['month'];
 				$stmt->execute();
-				$row = mysqli_fetch_assoc($stmt);
+				$result = $stmt->get_result();
+				$row = $stmt->fetch_array(MYSQLI_ASSOC);
 				
 				//checks if query returns result and how many
 				//should be 1 result max, thinking about implementing search by year option
