@@ -44,6 +44,8 @@ body {
   border-radius: 11px;
   text-align: center;
   width: 100% !important;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .carousel-inner > .item > img {
@@ -69,6 +71,8 @@ body {
 
 #footer{
   font-size: 10px;
+  color: white;
+  position: fixed; bottom: 0; height: 100px;
 }
 
 video.crab_theatre {
@@ -125,8 +129,8 @@ color: #B85353 ;  /*Sets the text hover color on navbar*/
  
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >   
 a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: IndianRed; /*BACKGROUND color for active*/
-  background-color: IndianRed;
+  color: Purple; /*BACKGROUND color for active*/
+  background-color: Purple;
 }
 
 .navbar-default {
