@@ -105,8 +105,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 			}
 			
 			function latest_crablar ($mysqli){
-				$result = $mysqli->query("SELECT MAX(edition_no) FROM crablar_archives");
-				
+				$result = $mysql->query("SELECT MAX('edition_no') FROM crablar_archives");
 				if ($row = mysql_fetch_assoc($result)) {
 				   $year = $row['year'];
 				   $month = $row['month'];
