@@ -68,6 +68,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 <?php if (login_check($mysqli) == true) : ?>
 
 	<!--Search form-->
+<div class="content">
 <div class="searchform">
  <form  method="post" action="<?php echo esc_url($_SERVER['PHP_SELF']); ?>"  id="searchform">
 	<select required name ="year">
@@ -92,7 +93,6 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
  </form>	
 </div>	
 
-<div class="content">
 <div class="flipbook-viewport">
 	<div class="container">
 		<div class="flipbook" id="flipbook">
