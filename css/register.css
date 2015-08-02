@@ -1,1 +1,6 @@
-Will update later
+#mayor_welcome {
+ /*define actual positions later*/
+  width: 600px;
+  position:absolute;
+  left: 35%;
+}
