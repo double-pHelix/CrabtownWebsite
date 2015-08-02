@@ -114,7 +114,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 				else {
 					echo "<p>ALERT ALERT Crablar archives malfunctioning, please notify an admin of this error</p>";
 					$year = 2014;
-					$month = jul;
+					$month = 'jul';
 					$pages = 3;
 				}
 				
