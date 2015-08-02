@@ -134,6 +134,7 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 .navbar-default {
   border-radius: 10px;
   background-color: #064273;
+  border-color:#064273;
 }
  
  /*the menu itself*/
