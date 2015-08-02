@@ -8,6 +8,13 @@
   left: 40%;
 }
 
+#occupation_bio_form {
+  width: 20%;
+  position: relative;
+  left: 40%;
+}
+
+
 #edit_form {
   text-align: center !important;
 }

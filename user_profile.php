@@ -104,14 +104,17 @@ if(isset($_POST['make_changes'])){
                       ?>
                     </select>
                 </div>                            
-              
-                <b>Occupation: </b><input type="text" name="occupation_edit"
-                                  value="<?php echo $user->occupation;?>"><br>
+             
+              <div id="occupation_bio_form">
+                  <label> Occupation: </label>
+                  <input type="text" name="occupation_edit" value="<?php echo $user->occupation;?>">
+                  
+                  <br>
 
-                <b>Description: </b><input type="text" name="description_edit" 
-                                  value ="<?php echo $user->description;?>"><br>
-               <!-- <b>Colour: </b><input type="text" name="colour_edit" 
-                                  value ="<?php echo $user->colour;?>"><br> -->
+                  <label>Bio</label>
+                  <textarea class="form-control" name="description_edit"><?php echo $user->description;?></textarea>
+              </div>
+            
                 <br>
                 
                 <input class="btn btn-xs btn-default" type="submit" name="make_changes" value="Confirm">
@@ -122,7 +125,9 @@ if(isset($_POST['make_changes'])){
               
                 <b>Occupation: </b><?php echo $user->occupation; ?><br>
                 
-                <b>Description: </b><?php echo $user->description; ?><br>
+                <b>Bio</b>
+                <br>
+                <?php echo $user->description; ?><br>
                <!-- <b>Colour: </b><?php echo $user->colour; ?><br> -->
                <br>
                 <input class="btn btn-xs btn-default" type="submit" name="edit_requested" id="edit_profile_button" value="Edit">
