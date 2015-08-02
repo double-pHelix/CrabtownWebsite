@@ -73,6 +73,7 @@ body {
   font-size: 10px;
   color: white;
   position: fixed; bottom: 0; height: 100px;
+  background-image: url("/images/wave.css");
 }
 
 video.crab_theatre {
