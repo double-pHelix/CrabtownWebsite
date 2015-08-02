@@ -20,7 +20,7 @@ body {
   font-family: "Open Sans", sans-serif;
   border-radius: 11px;
   text-align: center;
-  width: 100% !important;
+  width: 100%;
 }
 
 .carousel-inner > .item > img {
@@ -44,13 +44,18 @@ body {
 }
 
 #footer {
-  font-size: 10px;
-  color: white;
-  position: fixed; bottom: 0; height: 100px;
+  position: fixed; bottom: 0; height: 85px; width: 1320px;
   background-image: url("../images/wave.png");
   background-repeat: no-repeat;
-  background-size: auto 100px; 
+  background-size: 100%; 
 }
+
+#footer_text {
+  font-size: 70%;
+  color: white;
+  position: fixed; bottom: 0; height: 20px; width: 1320px;
+}
+
 
 video.crab_theatre {
   border-radius: 11px;
