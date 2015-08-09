@@ -1,0 +1,102 @@
+/* Navigation menu settings below */
+
+#banner {
+  border-radius: 5px;
+  background-color:#064273;
+  width: 100%;
+}
+
+
+#crab_avatar_menu {
+  border-radius: 6px;
+  border: 2px solid #8AC007;
+  width: 30px;
+  height: 30px;
+  margin-top: -13px;
+  margin-bottom: -10px;
+  margin-right: 7px;
+}
+
+#ct_logo {
+  font-family: Londrina Solid;
+  font-size: 160%;
+  color: white;
+  text-shadow: 0.03em 0.03em 0 black, -1.25px 0 0 black, 1.25px 0 0 black, 0 -1.25px 0 black, 0 1.25px 0 black;
+}
+
+
+#menu_nav_stuff {
+  padding: 3px;
+  padding-left:12px;
+  padding-right:10px;
+  border-radius: 10px;
+  font-family: Londrina Solid;
+  font-size: 100%;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0.03em 0.03em 0 black, -1.25px 0 0 black, 1.25px 0 0 black, 0 -1.25px 0 black, 0 1.25px 0 black;
+}
+
+
+/*color when highlighted*/
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+color: #B85353 ;  /*Sets the text hover color on navbar*/
+}
+
+/*color when highlighted*/
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  text-shadow: none;
+  color: #993f3f ;
+  text-decoration: none;
+  background-color: #e7f5ff ;  /*change color of links in drop down here*/
+ }
+
+ /*color when highlighted */
+.navbar .nav > li.dropdown.open.active > a:hover, 
+.navbar .nav > li.dropdown.open > a
+{
+   border-radius: 10px;
+   color: #B85353 ;
+   background-color:#064273;
+   border-color: #7FCDFF;
+}
+ 
+ 
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >   
+a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: IndianRed; /*BACKGROUND color for active*/
+  background-color: IndianRed;
+}
+
+.navbar-default {
+  border-radius: 10px;
+  background-color: #064273;
+}
+ 
+ /*the menu itself*/
+ .dropdown-menu {
+  border-radius: 10px;
+  background-color:#e7f5ff;
+ }
+ 
+  /*dropdown menu color*/
+ .dropdown-menu > li > a{
+  text-shadow: none;
+ }
+
+ /*color of drop down sub menu headings*/
+ .dropdown-menu > .dropdown-header{
+  text-shadow: none;
+ }
+ 
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: IndianRed; /*Change rollover cell color here*/
+}
+
+/*Top Menu font color!*/
+.navbar-default .navbar-nav > li > a {
+  color: #A8A8A8 ; /*Change active text color here*/
+}

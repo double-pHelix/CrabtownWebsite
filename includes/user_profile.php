@@ -133,6 +133,7 @@ class User {
   public $description;
   public $colour;
   public $possible_colours = array("Red", "Orange", "Blue", "Green", "Yellow", "Purple", "Pink", "Cyan", "Magenta");    
+  public $articles = array();
   
   function __construct($user_id, $username, $occupation, $description, $colour){
     $this->user_id = $user_id;
@@ -140,6 +141,10 @@ class User {
     $this->occupation = $occupation;
     $this->description = $description;
     $this->colour = $colour;
+  }
+  
+  function add_articles($new_articles){
+    $this->articles = array_merge ($this->articles, $new_articles);
   }
   
   function update_occupation($new_occupation){

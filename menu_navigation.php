@@ -51,7 +51,7 @@ if (login_check($mysqli)) {
                         echo "<img src=\"/images/crab_avatars/crab_$user->colour.png\" id=\"crab_avatar_menu\"> $user->username";  
                     ?> <span class="sr-only">(current)</span></a></li>
 
-                <li id="menu_nav_stuff"><a href="../navbar-fixed-top/">Your Stuff!</a></li>
+                <li id="menu_nav_stuff"><a href="/user_articles">Your Stuff!</a></li>
               <?php endif; ?>
             
             <li class="dropdown" id="menu_nav_stuff">
