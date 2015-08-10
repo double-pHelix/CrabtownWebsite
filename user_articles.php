@@ -63,8 +63,8 @@ if(isset($_POST['create_new_article'])){
   $user_id = $user->user_id;
   $name = "";
   $description = "";
-  $creat_date = date('m/d/Y h:i:s a', time());
-  $mod_date = date('m/d/Y h:i:s a', time());
+  $creat_date = date('m/d/Y h:i a', time());
+  $mod_date = date('m/d/Y h:i a', time());
   $accepted = FALSE;
   $article_text = ""; 
 
@@ -160,7 +160,7 @@ if(isset($_POST['create_new_article'])){
               echo "<td><b>"."NAME"."</b></td>";
               echo "<td><b>"."DESCRIPTION"."</b></td>";
               echo "<td><b>"."LAST MODIFIED"."</b></td>";
-              echo "<td><b>"."TEXT"."</b></td>";
+              echo "<td><b>"."TEXT PREVIEW"."</b></td>";
               echo "<td><b>"."EDIT"."</b></td>";
               echo "<td><b>"."DELETE"."</b></td>";
             echo "</tr>";
@@ -181,14 +181,14 @@ if(isset($_POST['create_new_article'])){
                       $article_text = $article->article_text;
                     } else {
                       $article_text = $article->article_text;      
-                      if (strlen($article_text) > 60) {
+                      if (strlen($article_text) > 50) {
                         // truncate string
-                        $stringCut = substr($article_text, 0, 60);
+                        $stringCut = substr($article_text, 0, 50);
                         // make sure it ends in a word so assassinate doesn't become ass...
                         $article_text = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="?expand='.$article->id.'">Read More</a>'; 
                       }
                     }
-                    echo "<td class=\"danger\">"."<textarea class=\"form-control\" name=\"art_text_edit\">".$article->article_text."</textarea>"."</td>";
+                    echo "<td class=\"danger\" text-align=left>"."<textarea class=\"form-control\" name=\"art_text_edit\">".$article->article_text."</textarea>"."</td>";
 
                     echo "<td class=\"info\">"."<input class=\"btn btn-xs btn-success\" type=\"submit\" name=\"set_edit_article\" id=\"edit_profile_button\" value=\"Confirm\">"."</td>";
                     echo "<td class=\"active\">"."<input class=\"btn btn-xs btn-danger\" type=\"submit\" name=\"delete_article\" id=\"edit_profile_button\" value=\"Delete\">"."</td>";
@@ -206,17 +206,17 @@ if(isset($_POST['create_new_article'])){
                     
                    
                     if(isset($_GET['expand']) && $_GET['expand'] == $article->id){
-                      $article_text = $article->article_text;
+                      $article_text = $article->article_text.'... <a href="/user_articles">Read Less</a>';
                     } else {
                       $article_text = $article->article_text;      
-                      if (strlen($article_text) > 60) {
+                      if (strlen($article_text) > 50) {
                         // truncate string
-                        $stringCut = substr($article_text, 0, 60);
+                        $stringCut = substr($article_text, 0, 50);
                         // make sure it ends in a word so assassinate doesn't become ass...
                         $article_text = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="?expand='.$article->id.'">Read More</a>'; 
                       }
                     }
-                    echo "<td class=\"danger\">".$article_text."</td>";
+                    echo "<td class=\"danger\" style=\"text-align:left\">".$article_text."</td>";
 
                     echo "<td class=\"info\">"."<input class=\"btn btn-xs btn-warning\" type=\"submit\" name=\"edit_article\" id=\"edit_profile_button\" value=\"Edit\">"."</td>";
                     echo "<td class=\"active\">"."<input class=\"btn btn-xs btn-danger\" type=\"submit\" name=\"delete_article\" id=\"edit_profile_button\" value=\"Delete\">"."</td>";
@@ -237,8 +237,7 @@ if(isset($_POST['create_new_article'])){
             echo "</table>";
             ?>
             
-            <?php echo "<img src=\"/images/crab_avatars/crab_$user->colour.png\" id=\"crab_avatar\">"; ?>
-              
+        <br>
 				<div>
 				</div>
 			   </div>
@@ -259,6 +258,19 @@ if(isset($_POST['create_new_article'])){
     <div id="myModal" class="modal fade">
       <div class="modal-dialog">
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/login_menu.php'; ?>
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
+    
+    <!-- article popup -->
+    <div id="myModal" class="modal fade">
+      <div class="modal-dialog">                
+        <div id="content">
+          <?php
+            
+          
+          ?>
+        </div>
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     

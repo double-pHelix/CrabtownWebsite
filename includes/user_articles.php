@@ -51,7 +51,7 @@ class Article {
   function update_article_info($name, $description, $accepted, $article_text){
     global $mysqli;
     date_default_timezone_set('Australia/Melbourne');
-    $this->mod_date = date('m/d/Y h:i:s a', time()); //right now
+    $this->mod_date = date('m/d/Y h:i a', time()); //right now
     
     // Insert the new user into the database 
     if ($update_stmt = $mysqli->prepare("UPDATE user_articles SET name=?, description=?, mod_date=?, accepted=?, article_text=? WHERE id=?")) {
@@ -97,14 +97,8 @@ class Article {
 
 }
 
-$user; //contains user information
-$username = $_SESSION['username'];
-
 
 //load user's articles
-//get the user's articles
-
-//test query works for all
 
 $query = "SELECT * FROM user_articles WHERE user_id = '$user->user_id'";
 $loop = mysqli_query($mysqli, $query)
