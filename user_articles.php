@@ -187,7 +187,7 @@ if(isset($_POST['create_new_article'])){
                         $article_text = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="?expand='.$article->id.'">Read More</a>'; 
                       }
                     }
-                    echo "<td class=\"danger\" text-align=left>"."<textarea class=\"form-control\" name=\"art_text_edit\">".$article->article_text."</textarea>"."</td>";
+                    echo "<td class=\"danger\">"."<textarea class=\"form-control\" name=\"art_text_edit\">".$article->article_text."</textarea>"."</td>";
 
                     echo "<td class=\"info\">"."<input class=\"btn btn-xs btn-success\" type=\"submit\" name=\"set_edit_article\" id=\"edit_profile_button\" value=\"Confirm\">"."</td>";
                     echo "<td class=\"active\">"."<input class=\"btn btn-xs btn-danger\" type=\"submit\" name=\"delete_article\" id=\"edit_profile_button\" value=\"Delete\">"."</td>";
@@ -215,7 +215,7 @@ if(isset($_POST['create_new_article'])){
                         $article_text = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="?expand='.$article->id.'">Read More</a>'; 
                       }
                     }
-                    echo "<td class=\"danger\" style=\"text-align:left\">".$article_text."</td>";
+                    echo "<td class=\"danger\">".$article_text."</td>";
 
                     echo "<td class=\"info\">"."<input class=\"btn btn-xs btn-warning\" type=\"submit\" name=\"edit_article\" id=\"edit_profile_button\" value=\"Edit\">"."</td>";
                     echo "<td class=\"active\">"."<input class=\"btn btn-xs btn-danger\" type=\"submit\" name=\"delete_article\" id=\"edit_profile_button\" value=\"Delete\">"."</td>";
