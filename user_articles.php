@@ -157,12 +157,11 @@ if(isset($_POST['create_new_article'])){
             echo "<table class=\"table table-bordered\">";
             
             echo "<tr class=\"active\">";
-              echo "<td><b>"."NAME"."</b></td>";
-              echo "<td><b>"."DESCRIPTION"."</b></td>";
-              echo "<td><b>"."LAST MODIFIED"."</b></td>";
-              echo "<td><b>"."TEXT PREVIEW"."</b></td>";
-              echo "<td><b>"."EDIT"."</b></td>";
-              echo "<td><b>"."DELETE"."</b></td>";
+              echo "<td scope=\"col\"><b>"."NAME"."</b></td>";
+              echo "<td scope=\"col\"><b>"."DESCRIPTION"."</b></td>";
+              echo "<td scope=\"col\"><b>"."LAST MODIFIED"."</b></td>";
+              echo "<td scope=\"col\"><b>"."TEXT PREVIEW"."</b></td>";
+              echo "<td scope=\"col\" colspan=2><b>"."OPTIONS"."</b></td>";
             echo "</tr>";
             
             foreach ($user->articles as $article){
