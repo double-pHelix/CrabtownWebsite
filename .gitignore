@@ -1,0 +1,6 @@
+/build/
+.buildpath
+.project
+/.settings/
+/Backup/
+.htaccess
