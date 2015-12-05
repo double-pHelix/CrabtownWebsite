@@ -1,9 +1,9 @@
 Options -Indexes
 
 RewriteEngine on 
-RewriteCond %{HTTP_REFERER} !^http://(www\.)?crabtownmania\.com [NC]  
-RewriteCond %{HTTP_REFERER} !^http://(www\.)?crabtownmania\.com.*$ [NC] 
-RewriteRule .*\.(jpe?g|gif|bmp|png|sql|mp4|txt|pdf)$ - [F]
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost [NC]  
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?localhost.*$ [NC] 
+RewriteRule .*\.(jpe?g|gif|bmp|png|sql|mp4|txt)$ - [F]
 
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
