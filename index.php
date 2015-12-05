@@ -16,6 +16,8 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
   } else {
     $logged_in = false;
   }
+  
+  //test
 
 ?>
 
