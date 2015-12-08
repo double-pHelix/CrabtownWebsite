@@ -22,6 +22,36 @@ if (login_check($mysqli) == true){
 }
 
 
+//submit article
+if(isset($_POST['submit_article'])){
+	$count = 0;
+	foreach ($user->articles as $article){
+
+		if($_POST['article_num'] == $article->id){
+			//set as being submitted
+			$article->update_submitted(true);
+		}
+
+		$count++;
+	}
+}
+
+
+//unsubmit article
+if(isset($_POST['unsubmit_article'])){
+	$count = 0;
+	foreach ($user->articles as $article){
+
+		if($_POST['article_num'] == $article->id){
+			//set as being submitted
+			$article->update_submitted(false);
+		}
+
+		$count++;
+	}
+}
+
+
 
 //delete article
 if(isset($_POST['delete_article'])){
@@ -65,28 +95,31 @@ if(isset($_POST['create_new_article'])){
   $description = "";
   $creat_date = date('m/d/Y h:i a', time());
   $mod_date = date('m/d/Y h:i a', time());
-  $accepted = FALSE;
+  $accepted = false;
+  $submitted = false;
   $article_text = ""; 
 
   //create a new article in database
-  if ($insert_stmt = $mysqli->prepare("INSERT INTO user_articles (user_id, name, description, creat_date, mod_date, accepted, article_text) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
+  if ($insert_stmt = $mysqli->prepare("INSERT INTO user_articles (user_id, name, description, creat_date, mod_date, accepted, submitted, article_text) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
       
-      $insert_stmt->bind_param('issssss', $user_id, $name, $description, $creat_date, $mod_date, $accepted, $article_text);
+      $insert_stmt->bind_param('issssiis', $user_id, $name, $description, $creat_date, $mod_date, $accepted, $submitted, $article_text);
               
       // Execute the prepared query.
       if (! $insert_stmt->execute()) {
           echo "FAIL!!".$mysqli->errno;
           exit;
       }
+      
   } 
   $new_article_id = $mysqli->insert_id;
   
   //create a new article
-  $new_article = new Article($new_article_id, $user_id, $name, $description, $creat_date, $mod_date, $accepted, $article_text);   
+  $new_article = new Article($new_article_id, $user_id, $name, $description, $creat_date, $mod_date, $accepted, $submitted, $article_text);   
   
   //and set it as a new article 
   $array[$new_article_id] = $new_article;
   $user->add_articles($array);
+  
   
   //and have it be the one to be open to edit
   $_POST['edit_article'] = "set";
@@ -146,23 +179,32 @@ if(isset($_POST['create_new_article'])){
 		  <div id="content">
 			  <p>
 				  <h1> <?php echo $_SESSION['username']."'s"; ?> Article Uploads</h1>
-				  <br>
             
             <!-- We display each article, if the user wants to read or edit, it jumps to an edit mode.
             //we wanted to edit -->
 
             <?php
             
+            /*************************************************
+             *
+             *
+             * Unsubmitted Articles
+             *
+             *
+             */
+            echo "<h2 id=\"loginHeader\">Draft</h2>";
+            
             //display each article (in a list)
             echo "<table class=\"table table-bordered\">";
             
             echo "<tr class=\"active\">";
            		echo "<td scope=\"col\"><b>"."#"."</b></td>";
-              	echo "<td scope=\"col\"><b>"."NAME"."</b></td>";
+              	echo "<td scope=\"col\"><b>"."TITLE"."</b></td>";
               	echo "<td scope=\"col\"><b>"."DESCRIPTION"."</b></td>";
               	echo "<td scope=\"col\"><b>"."LAST MODIFIED"."</b></td>";
               	echo "<td scope=\"col\"><b>"."TEXT PREVIEW"."</b></td>";
-              	echo "<td scope=\"col\" colspan=2><b>"."OPTIONS"."</b></td>";
+              	echo "<td scope=\"col\" colspan=\"3\"><b>"."OPTIONS"."</b></td>";
+              	
             echo "</tr>";
             
             $display_article = true;
@@ -183,6 +225,7 @@ if(isset($_POST['create_new_article'])){
               	if(isset($_POST['create_new_article'])){
               		//Create a new article
               		$display_article = false;
+              		$article_count--;
               		
               		echo "<script type=\"text/javascript\">
 		            $(window).load(function() {
@@ -201,6 +244,11 @@ if(isset($_POST['create_new_article'])){
               
 
               } 
+              
+              if($article->submitted){
+              	$display_article = false;
+              	$article_count--;
+              }
               
               if($display_article){
               	echo "<form name=\"articles_option\" action=\"\" method=\"POST\">";
@@ -226,26 +274,125 @@ if(isset($_POST['create_new_article'])){
               	}
               	echo "<td class=\"danger\">".$article_text."</td>";
               	
-              	echo "<td class=\"info\">"."<input class=\"btn btn-xs btn-warning\" type=\"submit\" name=\"edit_article\" id=\"edit_profile_button\" value=\"Edit\">"."</td>";
-              	echo "<td class=\"active\">"."<input class=\"btn btn-xs btn-danger\" type=\"submit\" name=\"delete_article\" id=\"edit_profile_button\" value=\"Delete\">"."</td>";
+              	echo "<td class=\"info\">"."<button class=\"btn btn-xs btn-warning\" type=\"submit\" name=\"edit_article\" id=\"edit_profile_button\" value=\"Edit\"> 
+      					<span class=\"glyphicon glyphicon-edit\"></span> </td>";
+              	echo "<td class=\"active\">"."<button class=\"btn btn-xs btn-danger\" type=\"submit\" name=\"delete_article\" id=\"edit_profile_button\" value=\"Delete\">
+      					<span class=\"glyphicon glyphicon-trash\"></span> </td>";
+              	echo "<td class=\"active\">"."<button class=\"btn btn-xs btn-success\" type=\"submit\" name=\"submit_article\" id=\"edit_profile_button\" value=\"Delete\">
+      					<span class=\"glyphicon glyphicon-arrow-up\"></span> </td>";
               	
-              	echo "</tr>";
+              	echo "</tr>"; 	
               	echo "</form>";
               }
               
+              $display_article = true;
               $article_count++;
               
             }       
             
             echo "<tr class=\"active\">"; 
               echo "<form name=\"articles_option\" action=\"\" method=\"POST\">";
-                echo "<td></td><td></td><td></td><td></td><td></td><td></td>";
-                echo "<td class=\"active\">"."<input class=\"btn btn-ss btn-info\" type=\"submit\" name=\"create_new_article\" id=\"edit_profile_button\" value=\"New\">"."</td>";
+                //echo "<td></td><td></td><td></td><td></td><td></td><td></td>";
+                echo "<td class=\"active\" colspan=\"8\">"."<button class=\"btn btn-ss btn-info\" type=\"submit\" name=\"create_new_article\" id=\"edit_profile_button\" value=\"New\"> <span class=\"glyphicon glyphicon-plus\"></span> </button> </td>";
                 
               echo "</form>";
             echo "</tr>";
             
             echo "</table>";
+            
+            /*************************************************
+             * 
+             * 
+             * Submitted Articles
+             * 
+             * 
+             */
+            
+            echo "<h2 id=\"loginHeader\">Submitted</h2>";
+            
+            echo "<table class=\"table table-bordered\">";
+            
+            echo "<tr class=\"active\">";
+            echo "<td scope=\"col\"><b>"."#"."</b></td>";
+            echo "<td scope=\"col\"><b>"."TITLE"."</b></td>";
+            echo "<td scope=\"col\"><b>"."DESCRIPTION"."</b></td>";
+            echo "<td scope=\"col\"><b>"."LAST MODIFIED"."</b></td>";
+            echo "<td scope=\"col\"><b>"."TEXT PREVIEW"."</b></td>";
+            echo "<td scope=\"col\"><b>"."ACCEPTED"."</b></td>";
+            echo "<td scope=\"col\" colspan=\"3\"><b>"."OPTIONS"."</b></td>";
+             
+            echo "</tr>";
+            
+            $display_article = true;
+            $article_count = 1;
+            
+            foreach ($user->articles as $article){
+            	
+            	if(isset($_POST['edit_article']) && $_POST['article_num'] == $article->id){
+
+            		if(isset($_POST['create_new_article'])){
+            			//Create a new article
+            			$display_article = false;
+            			$article_count--;
+            		}    		
+
+            	}
+            	
+            	
+            	if(!$article->submitted){
+            		$display_article = false;
+            		$article_count--;
+            	}
+            	
+            	
+            	if($display_article && $article->submitted){
+            		echo "<form name=\"articles_option\" action=\"\" method=\"POST\">";
+            		echo "<input type=\"hidden\" name=\"article_num\" value=\"$article->id\">";
+            		 
+            		echo "<tr class=\"active\">";
+            		echo "<td class=\"active\">".$article_count."</td>";
+            		echo "<td class=\"active\">".$article->name ."</td>";
+            		echo "<td class=\"success\">".$article->description  ."</td>";
+            		echo "<td class=\"warning\">".$article->mod_date  ."</td>";
+            		
+            		if(isset($_GET['expand']) && $_GET['expand'] == $article->id){
+            			$article_text = $article->article_text.'... <a href="/user_articles">Read Less</a>';
+            		} else {
+            			$article_text = $article->article_text;
+            			if (strlen($article_text) > 50) {
+            				// truncate string
+            				$stringCut = substr($article_text, 0, 50);
+            				// make sure it ends in a word so assassinate doesn't become ass...
+            				$article_text = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="?expand='.$article->id.'">Read More</a>';
+            			}
+            		}
+            		echo "<td class=\"danger\">".$article_text."</td>";
+            		
+            		echo "<td class=\"success\">"; 
+            		if ($article->accepted == true){
+            			echo "<span class=\"glyphicon glyphicon-ok\"></span> </td>";
+            		
+            		} else {
+            			echo "<span class=\"glyphicon glyphicon-remove\"></span> </td>";
+            		
+            		}
+            		echo "</td>";
+            		 
+            		echo "<td class=\"active\">"."<button class=\"btn btn-xs btn-success\" type=\"submit\" name=\"unsubmit_article\" id=\"edit_profile_button\" value=\"Delete\">
+      					<span class=\"glyphicon glyphicon-arrow-down\"></span> </td>";
+            		 
+            		echo "</tr>";
+            		echo "</form>";
+            	}
+            
+            	$display_article = true;
+            	$article_count++;
+            
+            }
+     
+            echo "</table>";
+
+            
             ?>
             
         <br>

@@ -10,9 +10,10 @@ class Article {
   public $creat_date;
   public $mod_date;
   public $accepted;
+  public $submitted;
   public $article_text;    
   
-  function __construct($id, $user_id, $name, $description, $creat_date, $mod_date, $accepted, $article_text){
+  function __construct($id, $user_id, $name, $description, $creat_date, $mod_date, $accepted, $submitted, $article_text){
   
     $this->id = $id;
     $this->user_id = $user_id;
@@ -21,42 +22,49 @@ class Article {
     $this->creat_date = $creat_date;
     $this->mod_date = $mod_date;
     $this->accepted = $accepted;
+    $this->submitted = $submitted;
     $this->article_text = $article_text;
   }
   
   function update_name($new_name){
     //sanitize
     $this->name = $new_name;
-    $this->update_article_info($this->name, $this->description, $this->accepted, $this->article_text);
+    $this->update_article_info($this->name, $this->description, $this->accepted, $this->submitted, $this->article_text);
   }
   
   function update_description($new_description){
     //sanitize
     $this->description = $new_description;
-    $this->update_article_info($this->name, $this->description, $this->accepted, $this->article_text);
+    $this->update_article_info($this->name, $this->description, $this->accepted, $this->submitted, $this->article_text);
   }
   
   function update_article_text($new_article_text){
     //sanitize
     $this->article_text = $new_article_text;
-    $this->update_article_info($this->name, $this->description, $this->accepted, $this->article_text);
+    $this->update_article_info($this->name, $this->description, $this->accepted, $this->submitted, $this->article_text);
   }
   
   function update_accepted($new_accepted){
     //sanitize
     $this->accepted = $new_accepted;
-    $this->update_article_info($this->name, $this->description, $this->accepted, $this->article_text);
+    $this->update_article_info($this->name, $this->description, $this->accepted, $this->submitted, $this->article_text);
   }
   
-  function update_article_info($name, $description, $accepted, $article_text){
+  function update_submitted($new_submitted){
+  	//sanitize
+  	$this->submitted = $new_submitted;
+  	$this->update_article_info($this->name, $this->description, $this->accepted, $this->submitted, $this->article_text);
+  }
+  
+  function update_article_info($name, $description, $accepted, $submitted, $article_text){
     global $mysqli;
     date_default_timezone_set('Australia/Melbourne');
     $this->mod_date = date('m/d/Y h:i a', time()); //right now
     
     // Insert the new user into the database 
-    if ($update_stmt = $mysqli->prepare("UPDATE user_articles SET name=?, description=?, mod_date=?, accepted=?, article_text=? WHERE id=?")) {
+    if ($update_stmt = $mysqli->prepare("UPDATE user_articles SET name=?, description=?, mod_date=?, accepted=?, submitted=?, article_text=? WHERE id=?")) {
         
-        $update_stmt->bind_param('sssisi', $name, $description, $this->mod_date, $accepted, $article_text, $this->id);
+        $update_stmt->bind_param('sssiisi', $name, $description, $this->mod_date, $accepted, $submitted, $article_text, $this->id);
         // Execute the prepared query.
 
         if (! $update_stmt->execute()){
@@ -106,7 +114,7 @@ $loop = mysqli_query($mysqli, $query)
 
 $user_articles = array();
 while ($row = mysqli_fetch_array($loop)) {    
-    $new_article = new Article($row['id'], $row['user_id'],$row['name'],$row['description'], $row['creat_date'], $row['mod_date'], $row['accepted'], $row['article_text']);   
+    $new_article = new Article($row['id'], $row['user_id'],$row['name'],$row['description'], $row['creat_date'], $row['mod_date'], $row['accepted'], $row['submitted'], $row['article_text']);   
     $user_articles[$row['id']] = $new_article;
 }
 

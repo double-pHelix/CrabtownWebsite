@@ -23,7 +23,7 @@
                   
   
                   	<div>
-						<label for="name">Name:</label>
+						<label for="name">Title:</label>
                   		<input type="text" name="art_name_edit" id="name" value="<?php echo $edit_article->name; ?>"><br>
 					</div>
 
