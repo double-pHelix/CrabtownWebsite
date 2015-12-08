@@ -143,10 +143,10 @@ if(isset($_POST['create_new_article'])){
     
       <?php if (login_check($mysqli) == true) : ?>
                
-			  <div id="content">
-				  <p>
-					  <h1> <?php echo $_SESSION['username']."'s"; ?> Article Uploads</h1>
-					  <br>
+		  <div id="content">
+			  <p>
+				  <h1> <?php echo $_SESSION['username']."'s"; ?> Article Uploads</h1>
+				  <br>
             
             <!-- We display each article, if the user wants to read or edit, it jumps to an edit mode.
             //we wanted to edit -->
@@ -157,77 +157,89 @@ if(isset($_POST['create_new_article'])){
             echo "<table class=\"table table-bordered\">";
             
             echo "<tr class=\"active\">";
-              echo "<td scope=\"col\"><b>"."NAME"."</b></td>";
-              echo "<td scope=\"col\"><b>"."DESCRIPTION"."</b></td>";
-              echo "<td scope=\"col\"><b>"."LAST MODIFIED"."</b></td>";
-              echo "<td scope=\"col\"><b>"."TEXT PREVIEW"."</b></td>";
-              echo "<td scope=\"col\" colspan=2><b>"."OPTIONS"."</b></td>";
+           		echo "<td scope=\"col\"><b>"."#"."</b></td>";
+              	echo "<td scope=\"col\"><b>"."NAME"."</b></td>";
+              	echo "<td scope=\"col\"><b>"."DESCRIPTION"."</b></td>";
+              	echo "<td scope=\"col\"><b>"."LAST MODIFIED"."</b></td>";
+              	echo "<td scope=\"col\"><b>"."TEXT PREVIEW"."</b></td>";
+              	echo "<td scope=\"col\" colspan=2><b>"."OPTIONS"."</b></td>";
             echo "</tr>";
+            
+            $display_article = true;
+            $edit_article = null;
+            $article_count = 1;
             
             foreach ($user->articles as $article){
 
               //we display edit form version
               if(isset($_POST['edit_article']) && $_POST['article_num'] == $article->id){
-                echo "<form name=\"articles_option\" action=\"\" method=\"POST\">";
-                  echo "<input type=\"hidden\" name=\"article_num\" value=\"$article->id\">";
-                  
-                  echo "<tr class=\"active\">"; 
-                    echo "<td class=\"active\">". "<input type=\"text\" name=\"art_name_edit\" value=\"$article->name\">"."</td>";
-                    echo "<td class=\"success\">"."<input type=\"text\" name=\"art_description_edit\" value=\"$article->description\">"  ."</td>";
-                    echo "<td class=\"warning\">".$article->mod_date  ."</td>";
-                    
-                    if(isset($_GET['expand']) && $_GET['expand'] == $article->id){
-                      $article_text = $article->article_text;
-                    } else {
-                      $article_text = $article->article_text;      
-                      if (strlen($article_text) > 50) {
-                        // truncate string
-                        $stringCut = substr($article_text, 0, 50);
-                        // make sure it ends in a word so assassinate doesn't become ass...
-                        $article_text = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="?expand='.$article->id.'">Read More</a>'; 
-                      }
-                    }
-                    echo "<td class=\"danger\">"."<textarea class=\"form-control\" name=\"art_text_edit\">".$article->article_text."</textarea>"."</td>";
+              	//show modal form for user edit
+              	//displays for new article creation and current article edit
+              	
+			      
+              	$edit_article = $article;
+              	
+              	
+              	if(isset($_POST['create_new_article'])){
+              		//Create a new article
+              		$display_article = false;
+              		
+              		echo "<script type=\"text/javascript\">
+		            $(window).load(function() {
+		              $('#myModal3').modal('show');
+		            });
+		          </script>";
+              		
+              	} else {
+              		//edit existing article
+              		echo "<script type=\"text/javascript\">
+		            $(window).load(function() {
+		              $('#myModal3').modal('show');
+		            });
+		          </script>";
+              	}
+              
 
-                    echo "<td class=\"info\">"."<input class=\"btn btn-xs btn-success\" type=\"submit\" name=\"set_edit_article\" id=\"edit_profile_button\" value=\"Confirm\">"."</td>";
-                    echo "<td class=\"active\">"."<input class=\"btn btn-xs btn-danger\" type=\"submit\" name=\"delete_article\" id=\"edit_profile_button\" value=\"Delete\">"."</td>";
-                    
-                  echo "</tr>";
-                echo "</form>";
-              } else {
-                echo "<form name=\"articles_option\" action=\"\" method=\"POST\">";
-                  echo "<input type=\"hidden\" name=\"article_num\" value=\"$article->id\">";
-                  
-                  echo "<tr class=\"active\">"; 
-                    echo "<td class=\"active\">".$article->name ."</td>";
-                    echo "<td class=\"success\">".$article->description  ."</td>";
-                    echo "<td class=\"warning\">".$article->mod_date  ."</td>";
-                    
-                   
-                    if(isset($_GET['expand']) && $_GET['expand'] == $article->id){
-                      $article_text = $article->article_text.'... <a href="/user_articles">Read Less</a>';
-                    } else {
-                      $article_text = $article->article_text;      
-                      if (strlen($article_text) > 50) {
-                        // truncate string
-                        $stringCut = substr($article_text, 0, 50);
-                        // make sure it ends in a word so assassinate doesn't become ass...
-                        $article_text = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="?expand='.$article->id.'">Read More</a>'; 
-                      }
-                    }
-                    echo "<td class=\"danger\">".$article_text."</td>";
-
-                    echo "<td class=\"info\">"."<input class=\"btn btn-xs btn-warning\" type=\"submit\" name=\"edit_article\" id=\"edit_profile_button\" value=\"Edit\">"."</td>";
-                    echo "<td class=\"active\">"."<input class=\"btn btn-xs btn-danger\" type=\"submit\" name=\"delete_article\" id=\"edit_profile_button\" value=\"Delete\">"."</td>";
-                    
-                  echo "</tr>";
-                echo "</form>";
+              } 
+              
+              if($display_article){
+              	echo "<form name=\"articles_option\" action=\"\" method=\"POST\">";
+              	echo "<input type=\"hidden\" name=\"article_num\" value=\"$article->id\">";
+              	
+              	echo "<tr class=\"active\">";
+              	echo "<td class=\"active\">".$article_count."</td>";
+              	echo "<td class=\"active\">".$article->name ."</td>";
+              	echo "<td class=\"success\">".$article->description  ."</td>";
+              	echo "<td class=\"warning\">".$article->mod_date  ."</td>";
+              	
+              	 
+              	if(isset($_GET['expand']) && $_GET['expand'] == $article->id){
+              		$article_text = $article->article_text.'... <a href="/user_articles">Read Less</a>';
+              	} else {
+              		$article_text = $article->article_text;
+              		if (strlen($article_text) > 50) {
+              			// truncate string
+              			$stringCut = substr($article_text, 0, 50);
+              			// make sure it ends in a word so assassinate doesn't become ass...
+              			$article_text = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="?expand='.$article->id.'">Read More</a>';
+              		}
+              	}
+              	echo "<td class=\"danger\">".$article_text."</td>";
+              	
+              	echo "<td class=\"info\">"."<input class=\"btn btn-xs btn-warning\" type=\"submit\" name=\"edit_article\" id=\"edit_profile_button\" value=\"Edit\">"."</td>";
+              	echo "<td class=\"active\">"."<input class=\"btn btn-xs btn-danger\" type=\"submit\" name=\"delete_article\" id=\"edit_profile_button\" value=\"Delete\">"."</td>";
+              	
+              	echo "</tr>";
+              	echo "</form>";
               }
+              
+              $article_count++;
+              
             }       
             
             echo "<tr class=\"active\">"; 
               echo "<form name=\"articles_option\" action=\"\" method=\"POST\">";
-                echo "<td></td><td></td><td></td><td></td><td></td>";
+                echo "<td></td><td></td><td></td><td></td><td></td><td></td>";
                 echo "<td class=\"active\">"."<input class=\"btn btn-ss btn-info\" type=\"submit\" name=\"create_new_article\" id=\"edit_profile_button\" value=\"New\">"."</td>";
                 
               echo "</form>";
@@ -245,9 +257,9 @@ if(isset($_POST['create_new_article'])){
         <?php include_once $_SERVER['DOCUMENT_ROOT'].'/restricted_message.php'; ?>        
     <?php endif; ?>
     
-     
-  <!-- FOOTER -->
-  <?php include_once $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
+	     
+	  <!-- FOOTER -->
+	  <?php include_once $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
 
     </body>
         
@@ -260,18 +272,17 @@ if(isset($_POST['create_new_article'])){
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     
-    
-    <!-- article popup -->
-    <div id="myModal" class="modal fade">
-      <div class="modal-dialog">                
-        <div id="content">
-          <?php
-            
-          
-          ?>
-        </div>
+
+    <!-- Modal 3 -->
+    <div id="myModal3" class="modal fade">
+      <div class="modal-dialog">
+      	<?php include_once $_SERVER['DOCUMENT_ROOT'].'/article_form_create.php'; ?>
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    
+
+    
+
     
     
 </html>
