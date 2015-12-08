@@ -84,10 +84,11 @@ if(isset($_POST['set_edit_article'])){
   }
 }
 
-
+$creating_article = false;
 //create a new article
 if(isset($_POST['create_new_article'])){
-  
+	$creating_article = true;
+	
   date_default_timezone_set('Australia/Melbourne');
   
   $user_id = $user->user_id;
@@ -222,7 +223,7 @@ if(isset($_POST['create_new_article'])){
               	$edit_article = $article;
               	
               	
-              	if(isset($_POST['create_new_article'])){
+              	if($creating_article){
               		//Create a new article
               		$display_article = false;
               		$article_count--;
@@ -330,7 +331,7 @@ if(isset($_POST['create_new_article'])){
             	
             	if(isset($_POST['edit_article']) && $_POST['article_num'] == $article->id){
 
-            		if(isset($_POST['create_new_article'])){
+            		if($creating_article){
             			//Create a new article
             			$display_article = false;
             			$article_count--;

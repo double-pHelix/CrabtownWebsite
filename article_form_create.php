@@ -4,7 +4,7 @@
 		<div id="article_form_box">
 	
 			
-			<?php if($display_article){ ?>
+			<?php if(!$creating_article){ ?>
 			
 				<h2 id="loginHeader"> Edit Article</h2>
 				
@@ -43,7 +43,7 @@
 
 
                   
-                 	<?php if($display_article){ ?>
+                 	<?php if(!$creating_article){ ?>
 	                  	<input class="btn btn-xs btn-success" type="submit" name="set_edit_article" id="edit_profile_button" value="Confirm">
                    		<input class="btn btn-xs btn-danger" type="submit" name="delete_article" id="edit_profile_button" value="Delete">
 	                <?php } else { ?>
