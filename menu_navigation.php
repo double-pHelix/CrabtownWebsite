@@ -39,8 +39,8 @@ if (login_check($mysqli)) {
                   <li><a href="/content_pages/crablar_archives_flipbook">Interactive Reader</a></li>
                 </ul>
             </li>
-            <li id="menu_nav_stuff"><a href="/content_pages/events">Events</a></li>
-            <li id="menu_nav_stuff"><a href="/content_pages/games">Games</a></li>
+            <li id="menu_nav_stuff"><a href="/content_pages/events"><dfn title="Events"><span class="glyphicon glyphicon-calendar"></span></dfn></a></li> 
+            <li id="menu_nav_stuff"><a href="/content_pages/games"><dfn title="Games"><span class="glyphicon glyphicon-tower"></span></dfn></a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
           
@@ -51,11 +51,11 @@ if (login_check($mysqli)) {
                         echo "<img src=\"/images/crab_avatars/crab_$user->colour.png\" id=\"crab_avatar_menu\"> $user->username";  
                     ?> <span class="sr-only">(current)</span></a></li>
 
-                <li id="menu_nav_stuff"><a href="/user_articles">Uploads</a></li>
+                <li id="menu_nav_stuff"><a href="/user_articles"><dfn title="Article Upload"><span class="glyphicon glyphicon-folder-open"></span></dfn></a></li>
               <?php endif; ?>
             
             <li class="dropdown" id="menu_nav_stuff">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><dfn title="Account"><span class="glyphicon glyphicon-user"></span></dfn><span class="caret"></span></a>
               <ul class="dropdown-menu">
               
                 <?php if($logged == 'in'): ?>
