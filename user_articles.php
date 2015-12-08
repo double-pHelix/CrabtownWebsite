@@ -276,11 +276,11 @@ if(isset($_POST['create_new_article'])){
               	echo "<td class=\"danger\">".$article_text."</td>";
               	
               	echo "<td class=\"info\">"."<button class=\"btn btn-xs btn-warning\" type=\"submit\" name=\"edit_article\" id=\"edit_profile_button\" value=\"Edit\"> 
-      					<span class=\"glyphicon glyphicon-edit\"></span> </td>";
+      					<dfn title=\"Edit\"><span class=\"glyphicon glyphicon-edit\"></span></dfn> </td>";
               	echo "<td class=\"active\">"."<button class=\"btn btn-xs btn-danger\" type=\"submit\" name=\"delete_article\" id=\"edit_profile_button\" value=\"Delete\">
-      					<span class=\"glyphicon glyphicon-trash\"></span> </td>";
+      					<dfn title=\"Remove\"><span class=\"glyphicon glyphicon-trash\"></span></dfn> </td>";
               	echo "<td class=\"active\">"."<button class=\"btn btn-xs btn-success\" type=\"submit\" name=\"submit_article\" id=\"edit_profile_button\" value=\"Delete\">
-      					<span class=\"glyphicon glyphicon-arrow-up\"></span> </td>";
+      					<dfn title=\"Submit\"><span class=\"glyphicon glyphicon-arrow-up\"></span></dfn> </td>";
               	
               	echo "</tr>"; 	
               	echo "</form>";
@@ -294,7 +294,8 @@ if(isset($_POST['create_new_article'])){
             echo "<tr class=\"active\">"; 
               echo "<form name=\"articles_option\" action=\"\" method=\"POST\">";
                 //echo "<td></td><td></td><td></td><td></td><td></td><td></td>";
-                echo "<td class=\"active\" colspan=\"8\">"."<button class=\"btn btn-ss btn-info\" type=\"submit\" name=\"create_new_article\" id=\"edit_profile_button\" value=\"New\"> <span class=\"glyphicon glyphicon-plus\"></span> </button> </td>";
+                echo "<td class=\"active\" colspan=\"8\">"."<button class=\"btn btn-ss btn-info\" type=\"submit\" name=\"create_new_article\" id=\"edit_profile_button\" value=\"New\"> 
+        		<dfn title=\"Create Article\"><span class=\"glyphicon glyphicon-plus\"></span></dfn> </button> </td>";
                 
               echo "</form>";
             echo "</tr>";
@@ -380,7 +381,7 @@ if(isset($_POST['create_new_article'])){
             		echo "</td>";
             		 
             		echo "<td class=\"active\">"."<button class=\"btn btn-xs btn-success\" type=\"submit\" name=\"unsubmit_article\" id=\"edit_profile_button\" value=\"Delete\">
-      					<span class=\"glyphicon glyphicon-arrow-down\"></span> </td>";
+      					<dfn title=\"Remove\"><span class=\"glyphicon glyphicon-arrow-down\"></span></dfn> </td>";
             		 
             		echo "</tr>";
             		echo "</form>";
