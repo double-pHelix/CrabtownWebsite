@@ -59,10 +59,13 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
  
   <div id="content">
 
-      <p>
-          <h1>Welcome to Crabtown! v1.0</h1>
-          Stay tuned for content, including new short stories, comics and more!
-          <br>
+			<?php if(!$logged_in) { ?>
+				<h1>Welcome to Crabtown! v1.1</h1>
+			<?php } else { ?>
+				
+			<?php } ?>
+          
+
           <br>
                                  <!-- Carousel
     ================================================== -->
