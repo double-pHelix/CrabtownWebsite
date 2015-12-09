@@ -46,26 +46,29 @@ if (login_check($mysqli)) {
           </ul>
           <ul class="nav navbar-nav navbar-right">
           	
-          	<!-- Search Bar -->
           	
-          	<li role="presentation">
-	           <div id="bannerSearchBox">
-	          
-	           <form action="/results" method="POST" class="form-inline"> 
-	              <input type="hidden" name="search_type" value="user">
-	              <div class="input-group">
-	                <input id="search_text_box" type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="User Search..." name="search_general">                           
-	              </div><!-- /input-group -->
-	              <div class="input-group">
-	                <button class="btn btn-default" type="submit" id="topBannerSearchButton"><span class="glyphicon glyphicon-search"></span></button>
-	              </div>
-	            </form>
-	          
-	            </div>
-	          </li>
           
           	<!-- Profile and uploads-->
              <?php if($logged == 'in'): ?>
+             	
+             	<!-- Search Bar -->
+          	
+	          	<li role="presentation">
+		           <div id="bannerSearchBox">
+		          
+		           <form action="/results" method="POST" class="form-inline"> 
+		              <input type="hidden" name="search_type" value="user">
+		              <div class="input-group">
+		                <input id="search_text_box" type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="User Search..." name="search_general">                           
+		              </div><!-- /input-group -->
+		              <div class="input-group">
+		                <button class="btn btn-default" type="submit" id="topBannerSearchButton"><span class="glyphicon glyphicon-search"></span></button>
+		              </div>
+		            </form>
+		          
+		            </div>
+		          </li>
+
                 <li id="menu_nav_stuff">
                     <a href="/user_profile"> 
                     <?php
