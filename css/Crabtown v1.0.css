@@ -35,6 +35,24 @@ background: linear-gradient(to left, #FFB75E , #ED8F03);*/
   width: 100%;
 }
 
+#bannerSearchBox{
+	position: relative;
+	left: -25%;
+	margin-left: -50px !important;
+	padding-top: 13px;
+}
+
+#topBannerSearchButton{
+	margin-left: -3px;
+	height: 30px;
+}
+
+#search_text_box{
+	border-radius: 4px;
+	height: 30px;
+	width: 160px;
+}
+
 #article_form_box {
 	padding: 12px;
 }

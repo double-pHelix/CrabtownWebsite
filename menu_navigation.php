@@ -39,11 +39,32 @@ if (login_check($mysqli)) {
                   <li><a href="/content_pages/crablar_archives_flipbook">Interactive Reader</a></li>
                 </ul>
             </li>
+            <!-- Events -->
             <li id="menu_nav_stuff"><a href="/content_pages/events"><dfn title="Events"><span class="glyphicon glyphicon-calendar"></span></dfn></a></li> 
+            <!-- Games -->
             <li id="menu_nav_stuff"><a href="/content_pages/games"><dfn title="Games"><span class="glyphicon glyphicon-tower"></span></dfn></a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+          	
+          	<!-- Search Bar -->
+          	
+          	<li role="presentation">
+	           <div id="bannerSearchBox">
+	          
+	           <form action="/results" method="POST" class="form-inline"> 
+	              <input type="hidden" name="search_type" value="user">
+	              <div class="input-group">
+	                <input id="search_text_box" type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="User Search..." name="search_general">                           
+	              </div><!-- /input-group -->
+	              <div class="input-group">
+	                <button class="btn btn-default" type="submit" id="topBannerSearchButton"><span class="glyphicon glyphicon-search"></span></button>
+	              </div>
+	            </form>
+	          
+	            </div>
+	          </li>
           
+          	<!-- Profile and uploads-->
              <?php if($logged == 'in'): ?>
                 <li id="menu_nav_stuff">
                     <a href="/user_profile"> 
@@ -54,6 +75,7 @@ if (login_check($mysqli)) {
                 <li id="menu_nav_stuff"><a href="/user_articles"><dfn title="Article Upload"><span class="glyphicon glyphicon-folder-open"></span></dfn></a></li>
               <?php endif; ?>
             
+            <!-- Account -->
             <li class="dropdown" id="menu_nav_stuff">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><dfn title="Account"><span class="glyphicon glyphicon-user"></span></dfn><span class="caret"></span></a>
               <ul class="dropdown-menu">

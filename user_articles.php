@@ -210,7 +210,7 @@ if(isset($_POST['create_new_article'])){
             
             $display_article = true;
             $edit_article = null;
-            $article_count = 1;
+            $user_count = 1;
             
             foreach ($user->articles as $article){
 
@@ -226,7 +226,7 @@ if(isset($_POST['create_new_article'])){
               	if($creating_article){
               		//Create a new article
               		$display_article = false;
-              		$article_count--;
+              		$user_count--;
               		
               		echo "<script type=\"text/javascript\">
 		            $(window).load(function() {
@@ -248,7 +248,7 @@ if(isset($_POST['create_new_article'])){
               
               if($article->submitted){
               	$display_article = false;
-              	$article_count--;
+              	$user_count--;
               }
               
               if($display_article){
@@ -256,7 +256,7 @@ if(isset($_POST['create_new_article'])){
               	echo "<input type=\"hidden\" name=\"article_num\" value=\"$article->id\">";
               	
               	echo "<tr class=\"active\">";
-              	echo "<td class=\"active\">".$article_count."</td>";
+              	echo "<td class=\"active\">".$user_count."</td>";
               	echo "<td class=\"active\">".$article->name ."</td>";
               	echo "<td class=\"success\">".$article->description  ."</td>";
               	echo "<td class=\"warning\">".$article->mod_date  ."</td>";
@@ -287,7 +287,7 @@ if(isset($_POST['create_new_article'])){
               }
               
               $display_article = true;
-              $article_count++;
+              $user_count++;
               
             }       
             
@@ -326,7 +326,7 @@ if(isset($_POST['create_new_article'])){
             echo "</tr>";
             
             $display_article = true;
-            $article_count = 1;
+            $user_count = 1;
             
             foreach ($user->articles as $article){
             	
@@ -335,7 +335,7 @@ if(isset($_POST['create_new_article'])){
             		if($creating_article){
             			//Create a new article
             			$display_article = false;
-            			$article_count--;
+            			$user_count--;
             		}    		
 
             	}
@@ -343,7 +343,7 @@ if(isset($_POST['create_new_article'])){
             	
             	if(!$article->submitted){
             		$display_article = false;
-            		$article_count--;
+            		$user_count--;
             	}
             	
             	
@@ -352,7 +352,7 @@ if(isset($_POST['create_new_article'])){
             		echo "<input type=\"hidden\" name=\"article_num\" value=\"$article->id\">";
             		 
             		echo "<tr class=\"active\">";
-            		echo "<td class=\"active\">".$article_count."</td>";
+            		echo "<td class=\"active\">".$user_count."</td>";
             		echo "<td class=\"active\">".$article->name ."</td>";
             		echo "<td class=\"success\">".$article->description  ."</td>";
             		echo "<td class=\"warning\">".$article->mod_date  ."</td>";
@@ -388,7 +388,7 @@ if(isset($_POST['create_new_article'])){
             	}
             
             	$display_article = true;
-            	$article_count++;
+            	$user_count++;
             
             }
      
