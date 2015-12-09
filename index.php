@@ -59,13 +59,16 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
  
   <div id="content">
 
-			<?php if(!$logged_in) { ?>
-				<h1>Welcome to Crabtown! v1.1</h1>
+      <p>
+      		<h1>Welcome to Crabtown! v1.1</h1>
+	        <?php if(!$logged_in) { ?>
+					 Stay tuned for content, including new short stories, comics and more!
 			<?php } else { ?>
-				
+					
 			<?php } ?>
           
-
+         
+          <br>
           <br>
                                  <!-- Carousel
     ================================================== -->
@@ -79,21 +82,34 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
       <div class="carousel-inner" role="listbox" id="content">
         <!-- ITEMS -->
         <div class="item active">
-          <img class="first-slide" src="/images/mayornippywelcome.png" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-            
-              <?php 
-                if ($logged_in == false){            
-                  echo "<p>Register an account and become a Crabtown Citizen!</p><p><a class=\"btn btn-lg btn-primary\" href=\"/register\" role=\"button\">Sign Up</a></p>";
-                } else {
-                  echo "<p>Welcome and have fun!</p>";
-                }
-              ?>
-              
-            </div>
-          </div>
-        </div>
+        
+        	<?php if($logged_in) { ?>
+					 <img class="first-slide" src="/images/reading_crab.gif" alt="First slide">
+			          <div class="container">
+			            <div class="carousel-caption">
+			            
+			              <p>Submit Crablar Articles!</p><p><a class="btn btn-lg btn-success" href="/user_articles" role="button">Contribute!</a></p>       
+			              
+			              
+			            </div>
+			          </div>
+			        </div>
+			<?php } else { ?>
+					<img class="first-slide" src="/images/mayornippywelcome.png" alt="First slide">
+			          <div class="container">
+			            <div class="carousel-caption">
+			            
+			              <?php        
+			                  echo "<p>Register an account and become a Crabtown Citizen!</p><p><a class=\"btn btn-lg btn-primary\" href=\"/register\" role=\"button\">Sign Up</a></p>";        
+			              ?>
+			              
+			            </div>
+			          </div>
+			        </div>
+			<?php } ?>
+        
+          
+        
         <div class="item">
           <img class="second-slide" src="/images/crabtown_racing_banner.png" alt="Second slide">
           <div class="container">
