@@ -19,6 +19,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
   
   //test
 
+  //Comment here
 ?>
 
 <!DOCTYPE html>
