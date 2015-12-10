@@ -1,4 +1,5 @@
 /build/
+/includes/
 .buildpath
 .project
 /.settings/
