@@ -24,45 +24,10 @@ if (login_check($mysqli) == true){
 
 //search query (remove from this page i nto a php file in includes!!)
 
-
 //$query = "SELECT * FROM users INNER JOIN user_information on users.id = user_information.user_id WHERE id = ?";
 //'$_POST['search_general']
 
-$search_stmt = $mysqli->stmt_init();
-if(!$search_stmt = $mysqli->prepare("SELECT * FROM users INNER JOIN user_information WHERE username = ?")){
-	echo "FAIL!!".$mysqli->errno;
-	exit;
-}
-
-$search_stmt->bind_param('s', $_GET['search_general']);
-
-// Execute the prepared query.
-if (! $search_stmt->execute()) {
-	echo "FAIL!!".$mysqli->errno;
-	exit;
-}
-
-$search_stmt->bind_result($EmailVerified, $Blocked);
-while ($stmt->fetch())
-{
-	/* Use $EmailVerified and $Blocked */
-}
-
-
-$result = $search_stmt->get_result()
-or die (mysqli_error($mysqli));
-
-$users = array();
-while ($row = mysqli_fetch_array($result)) {
-	//($user_id, $username, $occupation, $description, $colour){
-	$new_user = new User($row['id'], $row['username'],$row['occupation'],$row['description'], $row['colour']);
-	
-	$users[$row['id']] = $new_user;
-}
-
-$search_stmt->close();
-	
-
+$users = get_search_users($_GET['search_general'], $mysqli);
 
   ?>
 

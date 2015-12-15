@@ -249,3 +249,37 @@ function get_published_content($mysqli){
 	return $user_articles;
 	
 }
+
+function get_search_users($query, $mysqli){
+	$search_stmt = $mysqli->stmt_init();
+	if(!$search_stmt = $mysqli->prepare("SELECT * FROM users INNER JOIN user_information WHERE username = ?")){
+		echo "FAIL!!".$mysqli->errno;
+		exit;
+	}
+	
+	$search_stmt->bind_param('s', $query);
+	
+	// Execute the prepared query.
+	if (! $search_stmt->execute()) {
+		echo "FAIL!!".$mysqli->errno;
+		exit;
+	}
+	
+	
+	$result = $search_stmt->get_result()
+	or die (mysqli_error($mysqli));
+	
+	$users = array();
+	while ($row = mysqli_fetch_array($result)) {
+		//($user_id, $username, $occupation, $description, $colour){
+		$new_user = new User($row['id'], $row['username'],$row['occupation'],$row['description'], $row['colour']);
+	
+		$users[$row['id']] = $new_user;
+	}
+	
+	$search_stmt->close();
+	
+	return $users;
+	
+	
+}

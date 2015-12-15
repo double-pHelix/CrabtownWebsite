@@ -450,10 +450,6 @@ if(isset($_POST['create_new_article'])){
       	<?php include_once $_SERVER['DOCUMENT_ROOT'].'/article_form_create.php'; ?>
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    
 
-    
-
-    
     
 </html>
