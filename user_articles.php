@@ -85,6 +85,8 @@ if(isset($_POST['set_edit_article'])){
 }
 
 $creating_article = false;
+
+//TODO: Seperate database access code from this
 //create a new article
 if(isset($_POST['create_new_article'])){
 	$creating_article = true;
@@ -250,42 +252,53 @@ if(isset($_POST['create_new_article'])){
               	$display_article = false;
               	$user_count--;
               }
+              ?>
+         
+              	
+              	<?php  if($display_article){ ?>
+	              	
+	              	<form name="articles_option" action="" method="POST">
+	              	<input type="hidden" name="article_num" value="$article->id">
+	              	
+	              	<tr class="active">
+	              	<td class="active"> <?php echo $user_count; ?></td>
+	              	<td class="active"><?php echo $article->name; ?></td>
+	              	<td class="success"><?php echo$article->description; ?></td>
+	              	<td class="warning"><?php echo $article->mod_date; ?></td>
+              	
+              	
+              	
+	              	<?php 
+	              	 
+	              	if(isset($_GET['expand']) && $_GET['expand'] == $article->id){
+	              		$article_text = $article->article_text.'... <a href="/user_articles">Read Less</a>';
+	              	} else {
+	              		$article_text = $article->article_text;
+	              		if (strlen($article_text) > 50) {
+	              			// truncate string
+	              			$stringCut = substr($article_text, 0, 50);
+	              			// make sure it ends in a word so assassinate doesn't become ass...
+	              			$article_text = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="?expand='.$article->id.'">Read More</a>';
+	              		}
+	              	}
+	              	
+	              	?>
+              	
+              	<td class="danger">$article_text</td>
+              	
+              	<td class="info"><button class="btn btn-xs btn-warning" type="submit" name="edit_article" id="edit_profile_button" value="Edit"> 
+      					<dfn title="Edit"><span class="glyphicon glyphicon-edit"></span></dfn> </td>
+              	<td class="active"><button class="btn btn-xs btn-danger" type="submit" name="delete_article" id="edit_profile_button" value="Delete">
+      					<dfn title="Remove"><span class="glyphicon glyphicon-trash"></span></dfn> </td>
+              	<td class="active"><button class="btn btn-xs btn-success" type="submit" name="submit_article" id="edit_profile_button" value="Delete">
+      					<dfn title="Submit"><span class="glyphicon glyphicon-arrow-up"></span></dfn> </td>
+              	
+              	</tr>	
+              	</form>
+              	
+              <?php  } ?>
               
-              if($display_article){
-              	echo "<form name=\"articles_option\" action=\"\" method=\"POST\">";
-              	echo "<input type=\"hidden\" name=\"article_num\" value=\"$article->id\">";
-              	
-              	echo "<tr class=\"active\">";
-              	echo "<td class=\"active\">".$user_count."</td>";
-              	echo "<td class=\"active\">".$article->name ."</td>";
-              	echo "<td class=\"success\">".$article->description  ."</td>";
-              	echo "<td class=\"warning\">".$article->mod_date  ."</td>";
-              	
-              	 
-              	if(isset($_GET['expand']) && $_GET['expand'] == $article->id){
-              		$article_text = $article->article_text.'... <a href="/user_articles">Read Less</a>';
-              	} else {
-              		$article_text = $article->article_text;
-              		if (strlen($article_text) > 50) {
-              			// truncate string
-              			$stringCut = substr($article_text, 0, 50);
-              			// make sure it ends in a word so assassinate doesn't become ass...
-              			$article_text = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="?expand='.$article->id.'">Read More</a>';
-              		}
-              	}
-              	echo "<td class=\"danger\">".$article_text."</td>";
-              	
-              	echo "<td class=\"info\">"."<button class=\"btn btn-xs btn-warning\" type=\"submit\" name=\"edit_article\" id=\"edit_profile_button\" value=\"Edit\"> 
-      					<dfn title=\"Edit\"><span class=\"glyphicon glyphicon-edit\"></span></dfn> </td>";
-              	echo "<td class=\"active\">"."<button class=\"btn btn-xs btn-danger\" type=\"submit\" name=\"delete_article\" id=\"edit_profile_button\" value=\"Delete\">
-      					<dfn title=\"Remove\"><span class=\"glyphicon glyphicon-trash\"></span></dfn> </td>";
-              	echo "<td class=\"active\">"."<button class=\"btn btn-xs btn-success\" type=\"submit\" name=\"submit_article\" id=\"edit_profile_button\" value=\"Delete\">
-      					<dfn title=\"Submit\"><span class=\"glyphicon glyphicon-arrow-up\"></span></dfn> </td>";
-              	
-              	echo "</tr>"; 	
-              	echo "</form>";
-              }
-              
+          <?php    
               $display_article = true;
               $user_count++;
               
