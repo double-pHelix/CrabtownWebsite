@@ -56,8 +56,7 @@ if (login_check($mysqli)) {
 	          	<li role="presentation">
 		           <div id="bannerSearchBox">
 		          
-		           <form action="/results" method="POST" class="form-inline"> 
-		              <input type="hidden" name="search_type" value="user">
+		           <form action="/results" method="GET" class="form-inline"> 
 		              <div class="input-group">
 		                <input id="search_text_box" type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="User Search..." name="search_general">                           
 		              </div><!-- /input-group -->
