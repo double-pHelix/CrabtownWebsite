@@ -35,6 +35,20 @@ background: linear-gradient(to left, #FFB75E , #ED8F03);*/
   width: 100%;
 }
 
+.main_page_content {
+	text-align: center;
+	width: 100%;
+}
+
+.user_articles_display {
+	margin-top:20px; 
+	width: 660px; 
+	position: absolute; 
+}
+
+.uad_single_article {
+	padding: 15px;
+}
 
 #bannerSearchBox{
 	position: relative;

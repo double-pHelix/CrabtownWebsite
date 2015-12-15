@@ -6,6 +6,9 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
   include_once $_SERVER['DOCUMENT_ROOT'].'/includes/process_login.php';
 }
 
+
+
+
 //starts secure mysql session 
 if(!isset($_SESSION)) { 
   session_start();
@@ -17,9 +20,14 @@ if (login_check($mysqli) == true){
   //load user permissions and data
   include_once $_SERVER['DOCUMENT_ROOT'].'/includes/user_profile.php';
   include_once $_SERVER['DOCUMENT_ROOT'].'/includes/user_articles.php';
+  
+  get_users_articles($user, $mysqli);
+  
+  
 } else {
   $logged_in = false;
 }
+
 
 
 //submit article
@@ -255,48 +263,49 @@ if(isset($_POST['create_new_article'])){
               ?>
          
               	
-              	<?php  if($display_article){ ?>
-	              	
-	              	<form name="articles_option" action="" method="POST">
-	              	<input type="hidden" name="article_num" value="$article->id">
+              <?php  if($display_article){ ?>
+              	
+              	<form name="articles_option" action="" method="POST">
+	              	<input type="hidden" name="article_num" value="<?php echo $article->id; ?>">
 	              	
 	              	<tr class="active">
-	              	<td class="active"> <?php echo $user_count; ?></td>
-	              	<td class="active"><?php echo $article->name; ?></td>
-	              	<td class="success"><?php echo$article->description; ?></td>
-	              	<td class="warning"><?php echo $article->mod_date; ?></td>
-              	
-              	
-              	
-	              	<?php 
-	              	 
-	              	if(isset($_GET['expand']) && $_GET['expand'] == $article->id){
-	              		$article_text = $article->article_text.'... <a href="/user_articles">Read Less</a>';
-	              	} else {
-	              		$article_text = $article->article_text;
-	              		if (strlen($article_text) > 50) {
-	              			// truncate string
-	              			$stringCut = substr($article_text, 0, 50);
-	              			// make sure it ends in a word so assassinate doesn't become ass...
-	              			$article_text = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="?expand='.$article->id.'">Read More</a>';
-	              		}
-	              	}
+		              	<td class="active"> <?php echo $user_count; ?></td>
+		              	<td class="active"><?php echo $article->name; ?></td>
+		              	<td class="success"><?php echo$article->description; ?></td>
+		              	<td class="warning"><?php echo $article->mod_date; ?></td>
 	              	
-	              	?>
+	              	
+	              	
+		              	<?php 
+		              	 
+		              	if(isset($_GET['expand']) && $_GET['expand'] == $article->id){
+		              		$article_text = $article->article_text.'... <a href="/user_articles">Read Less</a>';
+		              	} else {
+		              		$article_text = $article->article_text;
+		              		if (strlen($article_text) > 50) {
+		              			// truncate string
+		              			$stringCut = substr($article_text, 0, 50);
+		              			// make sure it ends in a word so assassinate doesn't become ass...
+		              			$article_text = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="?expand='.$article->id.'">Read More</a>';
+		              		}
+		              	}
+		              	
+		              	?>
               	
-              	<td class="danger">$article_text</td>
-              	
-              	<td class="info"><button class="btn btn-xs btn-warning" type="submit" name="edit_article" id="edit_profile_button" value="Edit"> 
-      					<dfn title="Edit"><span class="glyphicon glyphicon-edit"></span></dfn> </td>
-              	<td class="active"><button class="btn btn-xs btn-danger" type="submit" name="delete_article" id="edit_profile_button" value="Delete">
-      					<dfn title="Remove"><span class="glyphicon glyphicon-trash"></span></dfn> </td>
-              	<td class="active"><button class="btn btn-xs btn-success" type="submit" name="submit_article" id="edit_profile_button" value="Delete">
-      					<dfn title="Submit"><span class="glyphicon glyphicon-arrow-up"></span></dfn> </td>
-              	
-              	</tr>	
-              	</form>
+		              	<td class="danger"><?php echo $article->article_text; ?></td>
+			              	
+			              	<td class="info"><button class="btn btn-xs btn-warning" type="submit" name="edit_article" id="edit_profile_button" value="Edit"> 
+			      					<dfn title="Edit"><span class="glyphicon glyphicon-edit"></span></dfn> </td>
+			              	<td class="active"><button class="btn btn-xs btn-danger" type="submit" name="delete_article" id="edit_profile_button" value="Delete">
+			      					<dfn title="Remove"><span class="glyphicon glyphicon-trash"></span></dfn> </td>
+			              	<td class="active"><button class="btn btn-xs btn-success" type="submit" name="submit_article" id="edit_profile_button" value="Delete">
+			      					<dfn title="Submit"><span class="glyphicon glyphicon-arrow-up"></span></dfn> </td>
+		              	
+              			</tr>	
+              		</form>
               	
               <?php  } ?>
+              
               
           <?php    
               $display_article = true;

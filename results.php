@@ -42,6 +42,13 @@ if (! $search_stmt->execute()) {
 	exit;
 }
 
+$search_stmt->bind_result($EmailVerified, $Blocked);
+while ($stmt->fetch())
+{
+	/* Use $EmailVerified and $Blocked */
+}
+
+
 $result = $search_stmt->get_result()
 or die (mysqli_error($mysqli));
 

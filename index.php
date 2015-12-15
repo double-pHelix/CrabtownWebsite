@@ -19,7 +19,10 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
     //prepare tweets
     include_once $_SERVER['DOCUMENT_ROOT'].'/includes/twitterAPI.php';
     		
-    $tweets = getTweets("crabs");		
+    $tweets = getTweets("crabs");	
+    
+    //prepare user content
+    $user_content = get_published_content($mysqli);
     
   } else {
     $logged_in = false;
@@ -108,7 +111,7 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 			              
 			            </div>
 			          </div>
-			        </div>
+			        
 			<?php } else { ?>
 					<img class="first-slide" src="/images/mayornippywelcome.png" alt="First slide">
 			          <div class="container">
@@ -120,10 +123,9 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 			              
 			            </div>
 			          </div>
-			        </div>
 			<?php } ?>
         
-          
+        </div>
         
         <div class="item">
           <img class="second-slide" src="/images/crabtown_racing_banner.png" alt="Second slide">
@@ -157,47 +159,63 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
    
     <br>
     
-<?php if($logged_in) { ?>
-   <!-- Twitter Feed -->
-    
-	<div class="promo-twitter-feed">
-	
-	  <h4 class="header-borders"><i class="icon icon-twitter"></i> Crab Related Tweets!</h4>
-	
-	  <div class="editorial">
-	            
-		 <?php foreach($tweets as $tweet){ ?>
-		 	
-		 	
-		 <li>	
-		 	
-		 	<div class="img"><img src="<?php echo $tweet->user->profile_image_url; ?>" alt="" /></div>
-		 	
-		 	<p class="author">
-		 	<a href="http://twitter.com/<?php echo "@".$tweet->user->screen_name; ?>" class="twitter-author"><?php echo "@".$tweet->user->name; ?> </a>
-		 	</p>
-		 	
-		 	<p><?php echo $tweet->text; ?></p>
-		 	
-		 	<p class="time">
-		 	created_at <?php echo "@".$tweet->user->name; ?>
-		 	</p>
-		 	
-		 	</li>
-		 
-		 	
-		 <?php }?>
-	            
-	  </div>
-	 <!-- Twitter Feed -->
-    
     </div>
-  </div>
-  	
- 	<br>
+    
+    
+	<div class="main_page_content">  
+	
+		<?php if($logged_in) { ?>
+	
+			<div class="user_articles_display">
+				<h4> Latest User Content</h4>
+				<?php foreach ($user_content as $curr_content) {?>
+					<div class="uad_single_article">
+						<?php echo $curr_content->article_text; ?> <br>
+					</div>
+				<?php  } ?>
+			</div>
+	
+	
+	
+		  	<!-- Twitter Feed -->
+			<div class="promo-twitter-feed">
+			
+		  		  <h4 class="header-borders"><i class="icon icon-twitter"></i> Crab Related Tweets!</h4>
+			
+				  <div class="editorial">
+				            
+					 <?php foreach($tweets as $tweet){ ?>
+					 	
+					 	
+					 <li>	
+					 	
+					 	<div class="img"><img src="<?php echo $tweet->user->profile_image_url; ?>" alt="" /></div>
+					 	
+					 	<p class="author">
+					 	<a href="http://twitter.com/<?php echo "@".$tweet->user->screen_name; ?>" class="twitter-author"><?php echo "@".$tweet->user->name; ?> </a>
+					 	</p>
+					 	
+					 	<p><?php echo $tweet->text; ?></p>
+					 	
+					 	<p class="time">
+					 	created_at <?php echo "@".$tweet->user->name; ?>
+					 	</p>
+					 	
+					 	</li>
+					 
+					 	
+					 <?php }?>
+				            
+				  </div>
+			 <!-- Twitter Feed -->
+		    
+		    </div>
+	  	
+	 	<br>
+	 	
+	  <?php } ?>
+ 	</div>  
  	
-  <?php } ?>
- 
   <!-- FOOTER -->
   <?php include_once $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
 

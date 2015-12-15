@@ -108,18 +108,6 @@ class Article {
 
 //load user's articles
 
-$query = "SELECT * FROM user_articles WHERE user_id = '$user->user_id'";
-$loop = mysqli_query($mysqli, $query)
-   or die (mysqli_error($mysqli));
-
-$user_articles = array();
-while ($row = mysqli_fetch_array($loop)) {    
-    $new_article = new Article($row['id'], $row['user_id'],$row['name'],$row['description'], $row['creat_date'], $row['mod_date'], $row['accepted'], $row['submitted'], $row['article_text']);   
-    $user_articles[$row['id']] = $new_article;
-}
-
-$user->add_articles($user_articles);
-
 /*
 echo "Printing out user's articles (TEST) <br>";
 foreach($user->articles as $art){

@@ -1,6 +1,7 @@
 <?php
-include_once 'psl-config.php';
- 
+include_once $_SERVER['DOCUMENT_ROOT'].'/includes/psl-config.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/includes/user_articles.php';
+
  //Starts secure connection to database
 function sec_session_start() {
     $session_name = 'sec_session_id';   // Set a custom session name
@@ -214,4 +215,37 @@ function esc_url($url) {
     } else {
         return $url;
     }
+}
+
+function get_users_articles($user, $mysqli){
+	
+	$query = "SELECT * FROM user_articles WHERE user_id = '$user->user_id'";
+	$loop = mysqli_query($mysqli, $query)
+	or die (mysqli_error($mysqli));
+	
+	$user_articles = array();
+	while ($row = mysqli_fetch_array($loop)) {
+		$new_article = new Article($row['id'], $row['user_id'],$row['name'],$row['description'], $row['creat_date'], $row['mod_date'], $row['accepted'], $row['submitted'], $row['article_text']);
+		$user_articles[$row['id']] = $new_article;
+	}
+	
+	$user->add_articles($user_articles);
+	
+	
+	
+}
+
+function get_published_content($mysqli){
+	$query = "SELECT * FROM user_articles WHERE submitted = TRUE";
+	$loop = mysqli_query($mysqli, $query)
+	or die (mysqli_error($mysqli));
+	
+	$user_articles = array();
+	while ($row = mysqli_fetch_array($loop)) {
+		$new_article = new Article($row['id'], $row['user_id'],$row['name'],$row['description'], $row['creat_date'], $row['mod_date'], $row['accepted'], $row['submitted'], $row['article_text']);
+		$user_articles[$row['id']] = $new_article;
+	}
+	
+	return $user_articles;
+	
 }
