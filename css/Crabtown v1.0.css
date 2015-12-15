@@ -35,6 +35,7 @@ background: linear-gradient(to left, #FFB75E , #ED8F03);*/
   width: 100%;
 }
 
+
 #bannerSearchBox{
 	position: relative;
 	left: -25%;
@@ -90,8 +91,8 @@ background: linear-gradient(to left, #FFB75E , #ED8F03);*/
 }
 
 .carousel-inner > .item > img {
-  height: 400px;
-  width: 925px;
+  height: 571px;
+  width: 1320px;
   margin: 0 auto;
   border-radius: 15px;
   border: 7px solid #064273;
@@ -241,3 +242,44 @@ a:hover, .navbar-default .navbar-nav > .active > a:focus {
 .navbar-default .navbar-nav > li > a {
   color: #A8A8A8 ; /*Change active text color here*/
 }
+
+
+/* Twitter Stuff */
+
+
+blockquote.twitter-tweet {
+  display: inline-block;
+  padding: 16px;
+  margin: 10px 0;
+  max-width: 468px;
+  border: #ddd 1px solid;
+  border-top-color: #eee;
+  border-bottom-color: #bbb;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  font: bold 14px/18px Helvetica, Arial, sans-serif;
+  color: #000;
+}
+ 
+blockquote.twitter-tweet p {
+  font: normal 18px/24px Georgia, "Times New Roman", Palatino, serif;
+  margin: 0 5px 10px 0;
+}
+ 
+blockquote.twitter-tweet a[href^="https://twitter.com"] {
+  font-weight: normal;
+  color: #666;
+  font-size: 12px;
+}
+
+.promo-twitter-feed{margin-top:20px; width: 660px; position: absolute; left: 50%; !important}
+.promo-twitter-feed .editorial li{border-radius:6px;box-shadow:2px 2px 2px rgba(0,0,0,0.04);margin:0 0 10px;padding:10px 15px 10px 80px;background:#fff}
+.promo-twitter-feed .editorial .img{float:left;margin:3px 0 0 -65px;width:48px}
+.promo-twitter-feed .editorial .img>img{border-radius:6px}
+.promo-twitter-feed .editorial p{font-size:12px;line-height:20px;line-height:1.4;color:#515458;margin:0}
+.promo-twitter-feed .editorial .time{clear:both;color:#9da1a4;font-style:italic;font-family:"jubilat","Helvetica Neue","HelveticaNeue",Arial,sans-serif;margin-top:8px}
+.promo-twitter-feed .editorial .author{margin-bottom:8px}
+.promo-twitter-feed .twitter-author{color:#696e72;float:right}
+.no-touch .promo-twitter-feed .twitter-author:hover{color:#cd1d1d}
+
+li {list-style-type: none;}

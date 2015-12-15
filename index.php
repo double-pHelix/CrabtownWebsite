@@ -2,24 +2,31 @@
 include_once $_SERVER['DOCUMENT_ROOT'].'/includes/db_connect.php';
 include_once $_SERVER['DOCUMENT_ROOT'].'/includes/functions.php';
 if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
-  include_once $_SERVER['DOCUMENT_ROOT'].'/includes/process_login.php';
+  include_once $_SERVER['DOCUMENT_ROOT'].'/includes/process_login.php';;
 }
 
   if(!isset($_SESSION)) { 
     session_start();
    //sec_session_start();
   }
+  
+  $tweets = null; 
   if (login_check($mysqli) == true){
     $logged_in = true;
     //load user permissions and data
     include_once $_SERVER['DOCUMENT_ROOT'].'/includes/user_profile.php';
+    
+    //prepare tweets
+    include_once $_SERVER['DOCUMENT_ROOT'].'/includes/twitterAPI.php';
+    		
+    $tweets = getTweets("crabs");		
+    
   } else {
     $logged_in = false;
   }
   
-  //test
-
-  //Comment here
+  
+  
 ?>
 
 <!DOCTYPE html>
@@ -57,6 +64,13 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
 	<body>
     <!-- Navigation Menu at the top of each page -->
     <?php include_once $_SERVER['DOCUMENT_ROOT'].'/menu_navigation.php'; ?>
+ 
+ <?php
+
+
+  ?>
+ 
+ 
  
   <div id="content">
 
@@ -140,11 +154,55 @@ if (isset($_POST['username'], $_POST['p']) && $_POST['form_type'] == "login") {
         <span class="sr-only">Next</span>
       </a>
     </div><!-- /.carousel -->
+   
     <br>
+    
+<?php if($logged_in) { ?>
+   <!-- Twitter Feed -->
+    
+	<div class="promo-twitter-feed">
+	
+	  <h4 class="header-borders"><i class="icon icon-twitter"></i> Crab Related Tweets!</h4>
+	
+	  <div class="editorial">
+	            
+		 <?php foreach($tweets as $tweet){ ?>
+		 	
+		 	
+		 <li>	
+		 	
+		 	<div class="img"><img src="<?php echo $tweet->user->profile_image_url; ?>" alt="" /></div>
+		 	
+		 	<p class="author">
+		 	<a href="http://twitter.com/<?php echo "@".$tweet->user->screen_name; ?>" class="twitter-author"><?php echo "@".$tweet->user->name; ?> </a>
+		 	</p>
+		 	
+		 	<p><?php echo $tweet->text; ?></p>
+		 	
+		 	<p class="time">
+		 	created_at <?php echo "@".$tweet->user->name; ?>
+		 	</p>
+		 	
+		 	</li>
+		 
+		 	
+		 <?php }?>
+	            
+	  </div>
+	 <!-- Twitter Feed -->
+    
+    </div>
   </div>
+  	
+ 	<br>
+ 	
+  <?php } ?>
  
   <!-- FOOTER -->
   <?php include_once $_SERVER['DOCUMENT_ROOT'].'/footer.php'; ?>
+
+
+
   
 	</body>
 
